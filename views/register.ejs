@@ -30,6 +30,17 @@
           />
         </div>
         <div class="form-group">
+            <label for="email">Date of Birth</label>
+            <input
+              type="date"
+              id="date"
+              name="date"
+              class="form-control"
+              placeholder="Enter Email"
+              value="<%= typeof date != 'undefined' ? date : '' %>"
+            />
+          </div>
+        <div class="form-group">
           <label for="password">Password</label>
           <input
             type="password"
