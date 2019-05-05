@@ -9,7 +9,7 @@ import Guest3ResConf from "./pages/Guest3ResConf";
 import ManagerPage from "./pages/ManagerPage";
 import Waitstaff1CurTablesPage from "./pages/Waitstaff1CurTablesPage";
 import Waitstaff2OrderPage from "./pages/Waitstaff2OrderPage";
-import Waitstaff3CheckPleasePage from "./pages/Waitstaff3CheckPleasePage";
+import Waitstaff3ReceiptPage from "./pages/Waitstaff3ReceiptPage";
 
 // Components
 
@@ -19,16 +19,15 @@ function App() {
   return (
     <div className="App">
     {/* Routing will go here */}
+      {/* <LandingPage /> */}
+      {/* <Login /> */}
       {/* <Guest1SignUpLogin /> */}
       {/* <Guest2ResMake /> */}
       {/* <Guest3ResConf /> */}
-      {/* <Login /> */}
-      {/* <LandingPage /> */}
       {/* <ManagerPage /> */}
-      <Waitstaff1CurTablesPage />
+      {/* <Waitstaff1CurTablesPage /> */}
       {/* <Waitstaff2OrderPage /> */}
-      {/* <Waitstaff3CheckPleasePage /> */}
-
+      {/* <Waitstaff3ReceiptPage /> */}
     </div>
   );
 }

@@ -1,5 +1,6 @@
 import React from "react"
 
+// This file may be unneccessary 
 function Wrapper() {
   return (
     <div>
@@ -9,4 +10,3 @@ function Wrapper() {
 }
 
 export default Wrapper
-// Will be rendered directly below NavBar

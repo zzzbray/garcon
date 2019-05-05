@@ -1,11 +1,13 @@
 import React from 'react';
-import NavBar from "../components/NavBar.js"
+import ManagerNavBar from "../components/Manager/ManagerNavBar.js"
+import ManagerTableComp from "../components/Manager/ManagerTableComp.js"
 
 function ManagerPage(){
   return (
   <div>
-    <NavBar />
+    <ManagerNavBar />
     <h1>ManagerPage</h1>
+    <ManagerTableComp />
   </div>
   )
 }

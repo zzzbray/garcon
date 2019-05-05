@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 
+// This page may be unneccessary given Login.js
 
 function GuestSignUpLogInPage(){
   return (
   <div>
-    {/* This page may be unneccessary given Login.js */}
-    <h1>Guest1SignUpLogin</h1>
+    
+    <h1>Guest SignUp/Login Page</h1>
+    {/* Form for siging up */}
   </div>
   )
 }
