@@ -24,19 +24,30 @@ module.exports = function(sequelize, DataTypes) {
 // ===============================
 
 // --------------------------------------------------------
-// POST route for manager to add new movie to db.
+// POST route for customer to post new reservation to db.
 app.post("/api/reservations", function(req, res) {
-db.Reservation.create({
-    customer_id: req.body.formCustomerID,
-    reservationDate: req.body.formResDate,
-    reservationTime: req.body.formResTime,
-    partySize: req.body.formPartySize,
-    notes: req.body.formNotes
-}).then(function(newMovie) {
-    res.json(newMovie);
-});
+  db.Reservation.create({
+      customer_id: req.body.formCustomerID,
+      reservationDate: req.body.formResDate,
+      reservationTime: req.body.formResTime,
+      partySize: req.body.formPartySize,
+      notes: req.body.formNotes
+  }).then(function(newMovie) {
+      res.json(newMovie);
+  });
 });
 // --------------------------------------------------------
+
+// --------------------------------------------------------
+// GET route for manager to retrieve all reservations from db.
+app.get("/api/reservations", function(req, res) {
+  db.Reservation.findAll({}).then(function(allReservations) {
+    res.json(allReservations);
+  });
+});
+// --------------------------------------------------------
+
+
 
 // ===============================
 //      CUSTOMER EXPERIENCE
@@ -84,6 +95,8 @@ $("#reservation-form").on("submit", function(event) {
 // --------------------------------------------------------
 // PULLING ACTIVE RESERVATIONS FROM DB
 // Function to pull movies from db
+const dbTable = $("#db-table");
+
 function dbPull() {
   $.get("/api/reservations/", function(dbData) {
     return dbData;
@@ -91,39 +104,24 @@ function dbPull() {
     var dbReservations = response;
     console.log("Testing db pull", dbReservations);
     for (let k = 0; k < dbReservations.length; k++) {
-      var resID = dbReservations[k].id;
-      // -------------------------------------------------
-      // BREAKPOINT
-      // -------------------------------------------------
-      var movieTitle = dbMovies[k].title;
-      var movieYear = dbMovies[k].year;
-      var movieGenre = dbMovies[k].genre;
-      var moviePrice = dbMovies[k].price;
-      var movieFormat = dbMovies[k].format;
-      var movieReserved = dbMovies[k].isReserved;
-      
-      // Create checkbox columns in table depending on isReserved status from db
-      if (movieReserved) {
-        var reserved = "<td><span class='custom-checkbox'><input type='checkbox' id='reserved' movie-id='" + movieID + "' name='options[]' value='1' checked><label for='reserved'></label></span></td>";
-        var checkIn = "<td><span class='custom-checkbox'><input type='checkbox' id='checkIn' movie-id='" + movieID + "' name='options[]' value='1'><label for='checkIn'></label></span></td>";
-        var checkOut = "<td><span class='custom-checkbox'><input type='checkbox' id='checkOut' movie-id='" + movieID + "' name='options[]' value='1'><label for='checkOut'></label></span></td>";
-        var reservedCols = reserved + checkIn + checkOut;
-      } else {
-        var reserved = "<td><span class='custom-checkbox'><input type='checkbox' id='reserved' movie-id='" + movieID + "' name='options[]' value='1'><label for='reserved'></label></span></td>";
-        var checkIn = "<td><span class='custom-checkbox'><input type='checkbox' id='checkIn' movie-id='" + movieID + "' name='options[]' value='1'><label for='checkIn'></label></span></td>";
-        var checkOut = "<td><span class='custom-checkbox'><input type='checkbox' id='checkOut' movie-id='" + movieID + "' name='options[]' value='1'><label for='checkOut'></label></span></td>";
-        var reservedCols = reserved + checkIn + checkOut;
-      }
+      // Store db data in JavaScript variables
+      var resID = dbReservations[k].reservation_id;
+      var customerID = dbReservations[k].customer_id;
+      var resDate = dbReservations[k].reservationDate;
+      var resTime = dbReservations[k].reservationTime;
+      var partySize = dbReservations[k].partySize;
+      var resNotes = dbReservations[k].notes;
 
       // Create html for new table rows
-      var idCol = "<td>" + movieID + "</td>";
-      var titleCol = "<td>" + movieTitle + "</td>";
-      var yearCol = "<td>" + movieYear + "</td>";
-      var genreCol = "<td>" + movieGenre + "</td>";
-      var priceCol = "<td>" + moviePrice + "</td>";
-      var formatCol = "<td>" + movieFormat + "</td>";
-      var modalCols = "<td><a href='#editMovieModal' class='edit' movie-id='" + movieID + "' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='edit'>&#xE254;</i></a><a href='#deleteMovieModal' class='delete' movie-id='" + movieID + "' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='delete'>&#xE872;</i></a></td>";
-      var rowData = "<tr>" + idCol + titleCol + yearCol + genreCol + priceCol + formatCol + reservedCols + modalCols + "</tr>";
+      var resIDCol = "<td>" + resID + "</td>";
+      var custIDCol = "<td>" + customerID + "</td>";
+      var resDateCol = "<td>" + resDate + "</td>";
+      var resTimeCol = "<td>" + resTime + "</td>";
+      var partySizeCol = "<td>" + partySize + "</td>";
+      var resNotesCol = "<td>" + resNotes + "</td>";
+      // Leaving this in in case we want to add modal feature for edit reservation functionality
+      // var modalCols = "<td><a href='#editMovieModal' class='edit' movie-id='" + movieID + "' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='edit'>&#xE254;</i></a><a href='#deleteMovieModal' class='delete' movie-id='" + movieID + "' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='delete'>&#xE872;</i></a></td>";
+      var rowData = "<tr>" + resIDCol + custIDCol + resDateCol + resTimeCol + partySizeCol + resNotesCol + "</tr>";
       
       // Append new row (comprised of data from db) to table
       dbTable.append(rowData);
