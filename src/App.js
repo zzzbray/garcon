@@ -1,15 +1,18 @@
 import React from 'react';
-import NavBar from "./components/Header/NavBar"
-import Wrapper from "./components/Body/Wrapper"
+
+// All components/pages will be added here
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <Wrapper />
     </div>
   );
 }
 
 export default App;
+
+
+// Add Router
+// Add all components

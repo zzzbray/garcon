@@ -16,7 +16,7 @@ function NavBar(){
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto">
       
-        <NavDropdown title="XX" id="basic-nav-dropdown">
+        <NavDropdown title="Garçon" id="basic-nav-dropdown">
           <NavDropdown.Item href="#action/3.1">Current Tables</NavDropdown.Item>
           <NavDropdown.Item href="#action/3.2"></NavDropdown.Item>
           <NavDropdown.Divider />
