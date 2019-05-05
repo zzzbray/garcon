@@ -13,22 +13,25 @@ serviceWorker.unregister();
 
 
 // Logic below is the logic that made Ryan's Landing Page work
-const left = document.querySelector('.left');
-const right = document.querySelector('.right');
-const container = document.querySelector('.container');
+// But it doesn't work right now
 
-left.addEventListener('mouseenter', () => {
-    container.classList.add('hover-left');
-});
 
-left.addEventListener('mouseleave', () => {
-    container.classList.remove('hover-left');
-});
+// const left = document.querySelector('.left');
+// const right = document.querySelector('.right');
+// const container = document.querySelector('.container');
 
-right.addEventListener('mouseenter', () => {
-    container.classList.add('hover-right');
-});
+// left.addEventListener('mouseenter', () => {
+//     container.classList.add('hover-left');
+// });
 
-right.addEventListener('mouseleave', () => {
-    container.classList.remove('hover-right');
-});
+// left.addEventListener('mouseleave', () => {
+//     container.classList.remove('hover-left');
+// });
+
+// right.addEventListener('mouseenter', () => {
+//     container.classList.add('hover-right');
+// });
+
+// right.addEventListener('mouseleave', () => {
+//     container.classList.remove('hover-right');
+// });
