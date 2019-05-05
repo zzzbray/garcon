@@ -1,4 +1,4 @@
-// This will be where the bodies of the sections (Order, Current Receipt, etc) will be rendered
+// This will act as the border for tables and other elements. I may decide against using these
 
 import React from "react"
 
