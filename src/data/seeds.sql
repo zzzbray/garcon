@@ -14,13 +14,13 @@ INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Mar
 
 -- Customer dummy data
 INSERT INTO customers (firstName, lastName, email, password, birthday, anniversary) values ("John", "Doe", "jdwho@gmail.com", "password", "1990-05-04", "2010-07-07");
-INSERT INTO customers (firstName, lastName, email, password, birthday, anniversary) values ("Sherlock", "Holmes", "sherlock@hotmail.co.uk", "sherlocked", "1980-01-01");
+INSERT INTO customers (firstName, lastName, email, password, birthday) values ("Sherlock", "Holmes", "sherlock@hotmail.co.uk", "sherlocked", "1980-01-01");
 INSERT INTO customers (firstName, lastName, email, password, birthday, anniversary) values ("Beyonce", "Knowles", "queenbey@gmail.com", "beyhive", "1981-09-04", "2005-11-17");
 
 -- Reservations dummy data
-INSERT INTO reservations (customer_id, reservationDate, reservationTime, partySize, notes) values (1, "2019-06-19", "17:45", 4);
-INSERT INTO reservations (customer_id, reservationDate, reservationTime, partySize, notes) values (2, "2019-07-07", "19:00", 2, "table by the window please!");
-INSERT INTO reservations (customer_id, reservationDate, reservationTime, partySize, notes) values (3, "2019-05-08", "18:30", 10);
+INSERT INTO reservations (customer_id, reservationDate, reservationTime, partySize) values (1, "2019-06-19", "17:45", 4);
+INSERT INTO reservations (customer_id, reservationDate, reservationTime, partySize) values (2, "2019-07-07", "19:00", 2);
+INSERT INTO reservations (customer_id, reservationDate, reservationTime, partySize) values (3, "2019-05-08", "18:30", 10);
 
 -- Orders dummy data
 INSERT INTO orders (receipt_id, customer_id, table_num, menu_id, menu_name, isClosedOut) values (1, 2, 4, 3, "Grilled Salmon", 0);
