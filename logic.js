@@ -75,3 +75,60 @@ $("#reservation-form").on("submit", function(event) {
     });
   });
 // --------------------------------------------------------
+
+
+// ===============================
+//      MANAGER EXPERIENCE
+// ===============================
+
+// --------------------------------------------------------
+// PULLING ACTIVE RESERVATIONS FROM DB
+// Function to pull movies from db
+function dbPull() {
+  $.get("/api/reservations/", function(dbData) {
+    return dbData;
+  }).then(function(response) {
+    var dbReservations = response;
+    console.log("Testing db pull", dbReservations);
+    for (let k = 0; k < dbReservations.length; k++) {
+      var resID = dbReservations[k].id;
+      // -------------------------------------------------
+      // BREAKPOINT
+      // -------------------------------------------------
+      var movieTitle = dbMovies[k].title;
+      var movieYear = dbMovies[k].year;
+      var movieGenre = dbMovies[k].genre;
+      var moviePrice = dbMovies[k].price;
+      var movieFormat = dbMovies[k].format;
+      var movieReserved = dbMovies[k].isReserved;
+      
+      // Create checkbox columns in table depending on isReserved status from db
+      if (movieReserved) {
+        var reserved = "<td><span class='custom-checkbox'><input type='checkbox' id='reserved' movie-id='" + movieID + "' name='options[]' value='1' checked><label for='reserved'></label></span></td>";
+        var checkIn = "<td><span class='custom-checkbox'><input type='checkbox' id='checkIn' movie-id='" + movieID + "' name='options[]' value='1'><label for='checkIn'></label></span></td>";
+        var checkOut = "<td><span class='custom-checkbox'><input type='checkbox' id='checkOut' movie-id='" + movieID + "' name='options[]' value='1'><label for='checkOut'></label></span></td>";
+        var reservedCols = reserved + checkIn + checkOut;
+      } else {
+        var reserved = "<td><span class='custom-checkbox'><input type='checkbox' id='reserved' movie-id='" + movieID + "' name='options[]' value='1'><label for='reserved'></label></span></td>";
+        var checkIn = "<td><span class='custom-checkbox'><input type='checkbox' id='checkIn' movie-id='" + movieID + "' name='options[]' value='1'><label for='checkIn'></label></span></td>";
+        var checkOut = "<td><span class='custom-checkbox'><input type='checkbox' id='checkOut' movie-id='" + movieID + "' name='options[]' value='1'><label for='checkOut'></label></span></td>";
+        var reservedCols = reserved + checkIn + checkOut;
+      }
+
+      // Create html for new table rows
+      var idCol = "<td>" + movieID + "</td>";
+      var titleCol = "<td>" + movieTitle + "</td>";
+      var yearCol = "<td>" + movieYear + "</td>";
+      var genreCol = "<td>" + movieGenre + "</td>";
+      var priceCol = "<td>" + moviePrice + "</td>";
+      var formatCol = "<td>" + movieFormat + "</td>";
+      var modalCols = "<td><a href='#editMovieModal' class='edit' movie-id='" + movieID + "' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='edit'>&#xE254;</i></a><a href='#deleteMovieModal' class='delete' movie-id='" + movieID + "' data-toggle='modal'><i class='material-icons' data-toggle='tooltip' title='delete'>&#xE872;</i></a></td>";
+      var rowData = "<tr>" + idCol + titleCol + yearCol + genreCol + priceCol + formatCol + reservedCols + modalCols + "</tr>";
+      
+      // Append new row (comprised of data from db) to table
+      dbTable.append(rowData);
+    }
+  });
+}
+
+// --------------------------------------------------------
