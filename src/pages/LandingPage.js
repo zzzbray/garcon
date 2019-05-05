@@ -4,9 +4,12 @@ import "./login.css";
 // This is Ryan's index.html
 // Logic is located at index.js in the src folder
 
-function LoginPage(){
+function LandingPage(){
   return (
   <div class="container">
+    <h1>
+      Landing Page
+    </h1>
     <div class="split left">
       {/* <h1>Cochon Volant Brasserie</h1> */}
       <a href="login.html" class="button"> Piggy</a>
@@ -19,4 +22,4 @@ function LoginPage(){
   )
 }
 
-export default LoginPage;
+export default LandingPage;
