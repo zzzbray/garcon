@@ -6,11 +6,10 @@ function Waitstaff1CurTablesPage(){
   return (
   <div>
     <WaitstaffNavBar />
-    <h1>Waitstaff Current Tables Page</h1>
     <CurrentTablesComp />
   </div>
   )
 }
 
 
-export default Waitstaff1CurTablesPage;
+export default Waitstaff1CurTablesPage

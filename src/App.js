@@ -25,7 +25,7 @@ function App() {
       {/* <Guest2ResMake /> */}
       {/* <Guest3ResConf /> */}
       {/* <ManagerPage /> */}
-      {/* <Waitstaff1CurTablesPage /> */}
+      <Waitstaff1CurTablesPage />
       {/* <Waitstaff2OrderPage /> */}
       {/* <Waitstaff3ReceiptPage /> */}
     </div>

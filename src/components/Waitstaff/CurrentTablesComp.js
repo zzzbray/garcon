@@ -9,9 +9,9 @@ function CurrentTablesComp() {
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
-            <th>Data</th>
-            <th>Data</th>
-            <th>Data</th>
+            <th>Column Head</th>
+            <th>Column Head</th>
+            <th>Column Head</th>
           </tr>
         </thead>
         <tbody>
@@ -31,7 +31,7 @@ function CurrentTablesComp() {
             <td>Data</td>
           </tr>
         </tbody>
-      </Table>;
+      </Table>
     </div>
   )
 }
