@@ -1,7 +1,8 @@
 // ===============================
 //      MODELS & SEQUELIZE
 // ===============================
-
+// --------------------------------------------------------
+// Reservation Model
 module.exports = function(sequelize, DataTypes) {
   var Reservation = sequelize.define(
     "Reservation",
@@ -18,6 +19,60 @@ module.exports = function(sequelize, DataTypes) {
   );
   return Reservation;
 };
+// --------------------------------------------------------
+// Customer Model
+module.exports = function(sequelize, DataTypes) {
+  var Customer = sequelize.define("Customer", {
+    firstName: DataTypes.STRING,
+    lastName: DataTypes.STRING,
+    email: DataTypes.STRING,
+    password: DataTypes.STRING,
+    birthday: DataTypes.DATEONLY,
+    anniversary: DataTypes.DATEONLY
+  },
+  {
+    timestamps: true
+  }
+);
+return Customer;
+};
+// --------------------------------------------------------
+// Inventory Model
+module.exports = function(sequelize, DataTypes) {
+  var Inventory = sequelize.define(
+    "Inventory",
+    {
+      menu_name: DataTypes.STRING,
+      menu_category: DataTypes.STRING,
+      menu_price:DataTypes.DECIMAL(10,2),
+      stock: DataTypes.INTEGER
+    },
+    {
+      timestamps: true
+    }
+  );
+  return Inventory;
+};
+// --------------------------------------------------------
+// Orders Model
+module.exports = function(sequelize, DataTypes) {
+  var Orders = sequelize.define(
+    "Orders",
+    {
+      receipt_id: DataTypes.INTEGER,
+      customer_id: DataTypes.INTEGER,
+      table_num: DataTypes.INTEGER,
+      menu_id: DataTypes.INTEGER,
+      menu_name: DataTypes.STRING,
+      isClosedOut: DataTypes.BOOLEAN
+    },
+    {
+      timestamps: true
+    }
+  );
+  return Orders;
+};
+// --------------------------------------------------------
 
 // ===============================
 //      API ROUTES
