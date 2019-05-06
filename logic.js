@@ -45,7 +45,8 @@ module.exports = function(sequelize, DataTypes) {
       menu_name: DataTypes.STRING,
       menu_category: DataTypes.STRING,
       menu_price:DataTypes.DECIMAL(10,2),
-      stock: DataTypes.INTEGER
+      stock: DataTypes.INTEGER,
+      isAvailable: DataTypes.BOOLEAN
     },
     {
       timestamps: true
@@ -63,7 +64,7 @@ module.exports = function(sequelize, DataTypes) {
       customer_id: DataTypes.INTEGER,
       table_num: DataTypes.INTEGER,
       menu_id: DataTypes.INTEGER,
-      menu_name: DataTypes.STRING,
+      // menu_name: DataTypes.STRING, do we actually need this?
       isClosedOut: DataTypes.BOOLEAN
     },
     {
@@ -87,8 +88,8 @@ app.post("/api/reservations", function(req, res) {
       reservationTime: req.body.formResTime,
       partySize: req.body.formPartySize,
       notes: req.body.formNotes
-  }).then(function(newMovie) {
-      res.json(newMovie);
+  }).then(function(newReserv) {
+      res.json(newReserv);
   });
 });
 // --------------------------------------------------------
@@ -102,6 +103,46 @@ app.get("/api/reservations", function(req, res) {
 });
 // --------------------------------------------------------
 
+// --------------------------------------------------------
+// GET route for waitstaff and manager to retrieve active tables from db.
+app.get("/api/orders", function(req, res) {
+  db.Orders.findAll({
+    where: {
+      isClosedOut: false
+    }
+  }).then(function(activeTables) {
+    res.json(activeTables);
+  });
+});
+// --------------------------------------------------------
+
+// --------------------------------------------------------
+// POST route for waitstaff to post new orders to db.
+app.post("/api/orders", function(req, res) {
+  db.Orders.create({
+    receipt_id: what, //how should we pull this?
+    customer_id: req.body.custID, // add function for this optional field
+    table_num: req.body.tableNum,
+    menu_id: req.body.chosenButton, //multiple different post routes for each row in the order form?
+    isClosedOut: false
+  }).then(function(newOrder) {
+      res.json(newOrder);
+  });
+});
+// --------------------------------------------------------
+
+// --------------------------------------------------------
+// GET route for waitstaff to pull active inventory
+app.get("/api/menu", function(req, res) {
+  db.Inventory.findAll({
+    where: {
+      isAvailable: true
+    }
+  }).then(function(activeMenu) {
+    res.json(activeMenu);
+  });
+});
+// --------------------------------------------------------
 
 
 // ===============================
