@@ -18,7 +18,8 @@ import './App.css';
 function App() {
   return (
     <div className="App">
-    {/* Routing will go here */}
+    <div>
+      {/* Routing will go here */}
       {/* <LandingPage /> */}
       {/* <Login /> */}
       {/* <Guest1SignUpLogin /> */}
@@ -28,6 +29,8 @@ function App() {
       {/* <Waitstaff1CurTablesPage /> */}
       <Waitstaff2OrderPage />
       {/* <Waitstaff3ReceiptPage /> */}
+    </div>
+
     </div>
   );
 }

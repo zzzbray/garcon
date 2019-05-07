@@ -11,24 +11,24 @@ function MenuOrderComp() {
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
-            <th>Menu Item 1</th>
+            <th>Menu Item</th>
             <th>Data</th>
             <th>Data</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Menu Item 2</td>
+            <td>Menu Item 1</td>
             <td><Button /></td>
             <td>Data</td>
           </tr>
           <tr>
-            <td>Menu Item 3</td>
+            <td>Menu Item 2</td>
             <td>Data</td>
             <td>Data</td>
           </tr>
           <tr>
-            <td>Menu Item 4</td>
+            <td>Menu Item 3</td>
             <td>Data</td>
             <td>Data</td>
           </tr>

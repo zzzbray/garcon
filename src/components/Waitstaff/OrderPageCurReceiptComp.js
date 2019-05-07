@@ -11,27 +11,8 @@ function OrderPageCurReceiptComp() {
         Current Receipt
       </h2>
       <Table striped bordered hover variant="dark">
-        <thead>
-          <tr>
-            <th>Column Head</th>
-            <th>Column Head</th>
-            <th>Column Head</th>
-          </tr>
-        </thead>
         <tbody>
           <tr>
-            <td>Data</td>
-            <td>Data</td>
-            <td>Data</td>
-          </tr>
-          <tr>
-            <td>Data</td>
-            <td>Data</td>
-            <td>Data</td>
-          </tr>
-          <tr>
-            <td>Data</td>
-            <td>Data</td>
             <td>Data</td>
           </tr>
         </tbody>
