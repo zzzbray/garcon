@@ -16,7 +16,7 @@ function WaitstaffNavBar(){
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <NavDropdown title="Garçon" id="basic-nav-dropdown">
+          <NavDropdown title="Waitstaff" id="basic-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Current Tables</NavDropdown.Item>
             {/* When the Waitstaff clicks on the table in the current tables page
             they'll be brought to the order screen for the table so they don't

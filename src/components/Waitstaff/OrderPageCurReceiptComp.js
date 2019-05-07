@@ -2,12 +2,15 @@
 
 import React from "react"
 import Table from "react-bootstrap/Table"
+import Button from "react-bootstrap/Button"
 
 function OrderPageCurReceiptComp() {
   return (
     <div>
+      <h2>
+        Current Receipt
+      </h2>
       <Table striped bordered hover variant="dark">
-      <h1>Current Receipt</h1>
         <thead>
           <tr>
             <th>Column Head</th>
@@ -33,6 +36,7 @@ function OrderPageCurReceiptComp() {
           </tr>
         </tbody>
       </Table>
+      <Button variant="warning">View Receipt</Button>
     </div>
   )
 }

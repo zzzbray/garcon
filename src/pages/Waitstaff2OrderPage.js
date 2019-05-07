@@ -7,7 +7,6 @@ function Waitstaff2OrderPage(){
   return (
   <div>
     <WaitstaffNavBar />
-    <h1>Waitstaff Current Tables</h1>
     <OrderPageCurReceiptComp />
     <OrderPageMenuComp />
   </div>

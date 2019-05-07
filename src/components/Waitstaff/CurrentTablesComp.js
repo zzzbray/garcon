@@ -9,7 +9,7 @@ function CurrentTablesComp() {
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
-            <th>Receipt Number</th>
+            <th>receipt_id</th>
             <th>Maybe Something</th>
             <th>Maybe Something</th>
           </tr>

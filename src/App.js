@@ -26,8 +26,8 @@ function App() {
       {/* <Guest3ResConf /> */}
       {/* <ManagerPage /> */}
       {/* <Waitstaff1CurTablesPage /> */}
-      {/* <Waitstaff2OrderPage /> */}
-      <Waitstaff3ReceiptPage />
+      <Waitstaff2OrderPage />
+      {/* <Waitstaff3ReceiptPage /> */}
     </div>
   );
 }
