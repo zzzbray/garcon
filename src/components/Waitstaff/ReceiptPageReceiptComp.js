@@ -1,32 +1,30 @@
-// This will be the table for Waitstaff to keep track of active tables
-
 import React from "react"
 import Table from "react-bootstrap/Table"
 
-function CurrentTablesComp() {
+function ReceiptPageReceiptComp() {
   return (
     <div>
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
-            <th>Receipt Number</th>
-            <th>Maybe Something</th>
-            <th>Maybe Something</th>
+            <th>Data</th>
+            <th>Data</th>
+            <th>Data</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>12</td>
             <td>Data</td>
-            <td>Data</td>
-          </tr>
-          <tr>
-            <td>13</td>
             <td>Data</td>
             <td>Data</td>
           </tr>
           <tr>
-            <td>14</td>
+            <td>Data</td>
+            <td>Data</td>
+            <td>Data</td>
+          </tr>
+          <tr>
+            <td>Data</td>
             <td>Data</td>
             <td>Data</td>
           </tr>
@@ -36,4 +34,4 @@ function CurrentTablesComp() {
   )
 }
 
-export default CurrentTablesComp
+export default ReceiptPageReceiptComp

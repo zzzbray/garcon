@@ -1,16 +1,15 @@
 import React from "react";
 import WaitstaffNavBar from "../components/Waitstaff/WaitstaffNavBar.js"
-import ReceiptTableComp from "../components/Waitstaff/ReceiptTableComp.js"
+import ReceiptPageReceiptComp from "../components/Waitstaff/ReceiptPageReceiptComp.js"
 
 function Waitstaff3ReceiptPage(){
   return (
   <div>
     <WaitstaffNavBar />
-    <h1>Waitstaff Receipt</h1>
-    <ReceiptTableComp />
+    <ReceiptPageReceiptComp />
   </div>
   )
 }
 
 
-export default Waitstaff3ReceiptPage;
+export default Waitstaff3ReceiptPage
