@@ -1,15 +1,17 @@
 import React from "react"
 import Table from "react-bootstrap/Table"
 
-function MenuOrderComp() {
+function ReceiptPageReceiptComp() {
   return (
     <div>
-      <Table striped bordered hover variant="dark">
+      <div><h1>Current Receipt</h1></div>
+       <br />
+<Table striped bordered hover variant="dark">
         <thead>
           <tr>
-            <th>Data</th>
-            <th>Data</th>
-            <th>Data</th>
+            <th>menu_name</th>
+            <th>menu_price</th>
+            <th>time_added</th>
           </tr>
         </thead>
         <tbody>
@@ -29,9 +31,10 @@ function MenuOrderComp() {
             <td>Data</td>
           </tr>
         </tbody>
-      </Table>;
+      </Table>
+      
     </div>
   )
 }
 
-export default MenuOrderComp
+export default ReceiptPageReceiptComp

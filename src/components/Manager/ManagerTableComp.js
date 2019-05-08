@@ -29,7 +29,7 @@ function ManagerTable() {
             <td>Data</td>
           </tr>
         </tbody>
-      </Table>;
+      </Table>
     </div>
   )
 }

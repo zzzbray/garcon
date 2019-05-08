@@ -16,7 +16,7 @@ function ManagerNavBar(){
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <NavDropdown title="Garçon" id="basic-nav-dropdown">
+          <NavDropdown title="Manager" id="basic-nav-dropdown">
             <NavDropdown.Item href="#action/3.1">Data</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="#action/3.2">Log Out</NavDropdown.Item>

@@ -10,24 +10,28 @@ import ManagerPage from "./pages/ManagerPage";
 import Waitstaff1CurTablesPage from "./pages/Waitstaff1CurTablesPage";
 import Waitstaff2OrderPage from "./pages/Waitstaff2OrderPage";
 import Waitstaff3ReceiptPage from "./pages/Waitstaff3ReceiptPage";
+import './App.css';
 
 // Components
 
-import './App.css';
+
 
 function App() {
   return (
     <div className="App">
-    {/* Routing will go here */}
-      {/* <LandingPage /> */}
-      {/* <Login /> */}
-      {/* <Guest1SignUpLogin /> */}
-      {/* <Guest2ResMake /> */}
-      {/* <Guest3ResConf /> */}
-      {/* <ManagerPage /> */}
-      {/* <Waitstaff1CurTablesPage /> */}
-      {/* <Waitstaff2OrderPage /> */}
-      {/* <Waitstaff3ReceiptPage /> */}
+      <div>
+        {/* Routing will go here */}
+        {/* <LandingPage /> */}
+        <Login />
+        {/* <Guest1SignUpLogin /> */}
+        {/* <Guest2ResMake /> */}
+        {/* <Guest3ResConf /> */}
+        {/* <ManagerPage /> */}
+        {/* <Waitstaff1CurTablesPage /> */}
+        {/* <Waitstaff2OrderPage /> */}
+        {/* <Waitstaff3ReceiptPage /> */}
+      </div>
+
     </div>
   );
 }

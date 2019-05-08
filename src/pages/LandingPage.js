@@ -6,20 +6,22 @@ import "./login.css";
 
 function LandingPage(){
   return (
-  <div class="container">
+  <div className="container">
     <h1>
       Landing Page
     </h1>
-    <div class="split left">
+    <div className="split left">
       {/* <h1>Cochon Volant Brasserie</h1> */}
-      <a href="login.html" class="button"> Piggy</a>
+      <a href="login.html" className="button"> Piggy</a>
     </div>
-    <div class="split right">
+    <div className="split right">
       {/* <h1>Taureaux Tavern</h1> */}
-      <a href="login.html" class="button"> Bully</a>
+      <a href="login.html" className="button"> Bully</a>
     </div>
   </div>
   )
 }
 
 export default LandingPage;
+
+// conditional rendering

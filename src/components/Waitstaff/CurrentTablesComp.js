@@ -9,29 +9,29 @@ function CurrentTablesComp() {
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
-            <th>Data</th>
-            <th>Data</th>
-            <th>Data</th>
+            <th>receipt_id</th>
+            <th>Maybe Something</th>
+            <th>Maybe Something</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Data</td>
-            <td>Data</td>
-            <td>Data</td>
-          </tr>
-          <tr>
-            <td>Data</td>
+            <td>12</td>
             <td>Data</td>
             <td>Data</td>
           </tr>
           <tr>
+            <td>13</td>
             <td>Data</td>
+            <td>Data</td>
+          </tr>
+          <tr>
+            <td>14</td>
             <td>Data</td>
             <td>Data</td>
           </tr>
         </tbody>
-      </Table>;
+      </Table>
     </div>
   )
 }

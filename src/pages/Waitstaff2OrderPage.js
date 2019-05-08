@@ -1,13 +1,14 @@
 import React from "react";
 import WaitstaffNavBar from "../components/Waitstaff/WaitstaffNavBar.js"
-import MenuOrderComp from "../components/Waitstaff/MenuOrderComp.js"
+import OrderPageMenuComp from "../components/Waitstaff/OrderPageMenuComp"
+import OrderPageCurReceiptComp from "../components/Waitstaff/OrderPageCurReceiptComp"
 
 function Waitstaff2OrderPage(){
   return (
   <div>
     <WaitstaffNavBar />
-    <h1>Waitstaff Current Tables</h1>
-    <MenuOrderComp />
+    <OrderPageCurReceiptComp />
+    <OrderPageMenuComp />
   </div>
   )
 }
