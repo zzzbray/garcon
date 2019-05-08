@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import "../landingpage.css";
 
-// This is Ryan's index.html
-// Logic is located at index.js in the src folder
+// This is Ryan's slick code
+// Logic is located below export
 
 function LandingPage(){
   return (
@@ -24,4 +24,26 @@ function LandingPage(){
 
 export default LandingPage;
 
-// conditional rendering
+// conditional rendering - this will make the js work - Matt
+
+// This doesn't work right now
+
+// const left = document.querySelector('.left');
+// const right = document.querySelector('.right');
+// const container = document.querySelector('.container');
+
+// left.addEventListener('mouseenter', () => {
+//     container.classList.add('hover-left');
+// });
+
+// left.addEventListener('mouseleave', () => {
+//     container.classList.remove('hover-left');
+// });
+
+// right.addEventListener('mouseenter', () => {
+//     container.classList.add('hover-right');
+// });
+
+// right.addEventListener('mouseleave', () => {
+//     container.classList.remove('hover-right');
+// });
