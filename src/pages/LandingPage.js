@@ -11,11 +11,11 @@ function LandingPage(){
       Landing Page
     </h1>
     <div className="split left">
-      {/* <h1>Cochon Volant Brasserie</h1> */}
+      <h1>Cochon Volant Brasserie</h1>
       <a href="login.html" className="button"> Piggy</a>
     </div>
     <div className="split right">
-      {/* <h1>Taureaux Tavern</h1> */}
+      <h1>Taureaux Tavern</h1>
       <a href="login.html" className="button"> Bully</a>
     </div>
   </div>
