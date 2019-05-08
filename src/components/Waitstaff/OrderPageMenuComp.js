@@ -29,7 +29,12 @@ function MenuOrderComp() {
           </tr>
           <tr>
             <td>Menu Item 3</td>
-            <td>Data</td>
+            <td>
+              <div id='counter'>{this.state.counter}
+      <button onClick = {this.increment}> Add 1 </button> 
+      <button onClick = {this.decrement}> Minus 1 </button> 
+              </div>
+            </td>
             <td>Data</td>
           </tr>
         </tbody>

@@ -1,4 +1,5 @@
-:root {
+ /* 
+ :root {
   --container-bg-color: rgb(255, 255, 255);
   --left-bg-color: rgba(233, 178, 96, 0.479);
   --left-button-hover-color: rgba(3, 3, 3, 0);
@@ -19,14 +20,14 @@ html, body {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 4rem; 
   color: rgb(0, 0, 0);
   position: absolute;
   left: 50%;
   top: 20%;
   transform: translateX(-50%);
   white-space: nowrap;
-}
+} 
 
 .button {
   display: block;
@@ -97,6 +98,7 @@ h1 {
   background: var(--right-bg-color);
 }
 
+
 .split.left, .split.right, .split.left:before, .split.right:before {
   transition: var(--speed) all ease-in-out;
 }
@@ -126,6 +128,7 @@ h1 {
 }
 
 
+
 @media(max-width: 800px) {
   h1 {
     font-size: 2rem;
@@ -141,4 +144,5 @@ h1 {
   .button {
     top: 90%;
   }
-}
+} 
+*/

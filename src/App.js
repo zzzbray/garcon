@@ -21,10 +21,10 @@ function App() {
     <div className="App">
       <div>
         {/* Routing will go here */}
-        <LandingPage />
+        {/* <LandingPage /> */}
         {/* <Login /> */}
         {/* <Guest1SignUpLogin /> */}
-        {/* <Guest2ResMake /> */}
+        <Guest2ResMake />
         {/* <Guest3ResConf /> */}
         {/* <ManagerPage /> */}
         {/* <Waitstaff1CurTablesPage /> */}
