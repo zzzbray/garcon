@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./login.css";
+import "../landingpage.css";
 
 // This is Ryan's index.html
 // Logic is located at index.js in the src folder
