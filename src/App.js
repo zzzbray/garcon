@@ -24,11 +24,11 @@ function App() {
         {/* <LandingPage /> */}
         {/* <Login /> */}
         {/* <Guest1SignUpLogin /> */}
-        <Guest2ResMake />
+        {/* <Guest2ResMake /> */}
         {/* <Guest3ResConf /> */}
         {/* <ManagerPage /> */}
         {/* <Waitstaff1CurTablesPage /> */}
-        {/* <Waitstaff2OrderPage /> */}
+        <Waitstaff2OrderPage />
         {/* <Waitstaff3ReceiptPage /> */}
       </div>
 

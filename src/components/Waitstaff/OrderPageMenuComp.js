@@ -12,30 +12,26 @@ function MenuOrderComp() {
         <thead>
           <tr>
             <th>Menu Item</th>
-            <th>Data</th>
-            <th>Data</th>
+            <th>Add</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>Menu Item 1</td>
-            <td><Button /></td>
-            <td>Data</td>
+            <td>Menu Item </td>
+            <td>Add</td>
           </tr>
           <tr>
-            <td>Menu Item 2</td>
-            <td>Data</td>
-            <td>Data</td>
+            <td>Menu Item </td>
+            <td>Add</td>
           </tr>
           <tr>
-            <td>Menu Item 3</td>
-            <td>
-              <div id='counter'>{this.state.counter}
-      <button onClick = {this.increment}> Add 1 </button> 
-      <button onClick = {this.decrement}> Minus 1 </button> 
-              </div>
+            <td>Menu Item </td>
+            <td>Add
+              {/* <div id='counter'>{this.state.counter}
+                <button onClick = {this.increment}> Add 1 </button> 
+                <button onClick = {this.decrement}> Minus 1 </button> 
+              </div> */}
             </td>
-            <td>Data</td>
           </tr>
         </tbody>
       </Table>

@@ -13,7 +13,8 @@ function OrderPageCurReceiptComp() {
       <Table striped bordered hover variant="dark">
         <tbody>
           <tr>
-            <td>Data</td>
+            <td>Table 14</td>
+            <td>$currentTotal</td>
           </tr>
         </tbody>
       </Table>

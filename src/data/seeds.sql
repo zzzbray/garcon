@@ -2,13 +2,15 @@ USE garcon_db;
 
 -- Replace with real inventory daata
 INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Bruschetta", "Appetizers", 11.99, 50);
+INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Salmon", "Entrees", 28.99, 50);
+INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Beer", "Beverages", 14.99, 50);
 INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Calamari", "Appetizers", 14.99, 50);
 INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Grilled Salmon", "Entrees", 27.99, 50);
 INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Vegetable Lasagna", "Entrees", 21.99, 50);
 INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Chocolate Fondant Cake", "Desserts", 13.99, 50);
 INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Baklava", "Desserts", 9.99, 50);
-INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Manhattan", "Cocktails", 9.99, 50);
-INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Martini", "Cocktails", 8.99, 50);
+INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Manhattan", "Beverages", 9.99, 50);
+INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Martini", "Beverages", 8.99, 50);
 
 -- DUMMY DATA FOR TESTING PURPOSES
 

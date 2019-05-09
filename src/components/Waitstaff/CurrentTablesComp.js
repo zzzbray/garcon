@@ -2,6 +2,7 @@
 
 import React from "react"
 import Table from "react-bootstrap/Table"
+import Button from "react-bootstrap/Button"
 
 function CurrentTablesComp() {
   return (
@@ -9,26 +10,30 @@ function CurrentTablesComp() {
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
-            <th>receipt_id</th>
-            <th>Maybe Something</th>
-            <th>Maybe Something</th>
+            <th>Table</th>
+            <th>Current Total</th>
+            <th>Order More</th>
+            <th>Close Out</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td>12</td>
-            <td>Data</td>
-            <td>Data</td>
+            <td>receipt_id</td>
+            <td>$$</td>
+            <td><Button /> </td>
+            <td><Button /> </td>
           </tr>
           <tr>
-            <td>13</td>
-            <td>Data</td>
-            <td>Data</td>
+            <td>receipt_id</td>
+            <td>$$</td>
+            <td><Button /></td>
+            <td><Button /> </td>
           </tr>
           <tr>
-            <td>14</td>
-            <td>Data</td>
-            <td>Data</td>
+            <td>receipt_id</td>
+            <td>$$</td>
+            <td><Button /></td>
+            <td><Button /> </td>
           </tr>
         </tbody>
       </Table>
