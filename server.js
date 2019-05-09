@@ -2,6 +2,7 @@
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
+const db = require("./models");
 
 // Config for express app
 var app = express();
@@ -54,7 +55,7 @@ app.get("/api/menu", function(req, res) {
 });
 
 // Starting the server, syncing our models ------------------------------------/
-// db.sequelize.sync(syncOptions).then(function() {
+db.sequelize.sync().then(function() {
   app.listen(process.env.PORT || 3006, function() {
     console.log(
       "==> 🌎  Listening on port %s. All systems go. Visit http://localhost:%s/ in your browser.",
@@ -62,6 +63,6 @@ app.get("/api/menu", function(req, res) {
       PORT
     );
   });
-// });
+});
 
 module.exports = app;
