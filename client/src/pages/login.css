@@ -1,8 +1,7 @@
-/*  
 body{
     margin: 0;
     padding: 0;
-    background-image: url("https://www.frenchtoday.com//assets/2015/12/french-food-good-manners.jpg");
+    /* background-image: url("https://www.frenchtoday.com//assets/2015/12/french-food-good-manners.jpg"); */
     background-size: cover;
     background-position: center;
     font-family: sans-serif;
@@ -11,8 +10,8 @@ body{
   .loginbox{
     border-radius: 25px;
     padding: 50px; 
-    width: 200px;
-    height: 150px; 
+    /* width: 200px;
+    height: 150px;  */
     width: 320px;
     height: 400px;
     background: #000;
@@ -83,4 +82,4 @@ body{
   {
     color: darkorange
   }
-*/
+  
