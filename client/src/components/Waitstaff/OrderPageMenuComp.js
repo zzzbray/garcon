@@ -3,10 +3,16 @@ import Table from "react-bootstrap/Table"
 import Button from "react-bootstrap/Button"
 
 function MenuOrderComp(props) {
-  const renderMenu = ({menu_id, menu_name, menu_price}) => <tr key={menu_id}><td>{menu_name}</td><td>{menu_price}</td><td><button id={menu_id}>Add</button></td></tr>;
-  // <div key={menu_id}>{menu_name}</div>;
+  
+  const handleClick = event => {
+    // Destructure the name and value properties off of event.target
+    // Update the appropriate state
+    console.log("Clicked button id: ", event.target.id)
+  };
 
   
+  const renderMenu = ({menu_id, menu_name, menu_price}) => <tr key={menu_id}><td>{menu_name}</td><td>{menu_price}</td><td><button id={menu_id} onClick={handleClick}>Add</button></td></tr>;
+  // <div key={menu_id}>{menu_name}</div>;  
   
   return (
     <div>
