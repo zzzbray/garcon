@@ -29,11 +29,11 @@ class App extends Component {
       // .then(({data}) => {
       //   console.log(data)
       // })
-      .then(response => this.setState({ menu: response }))
-      .then(console.log(this.state.menu))
+      .then(response => this.setState({ menu: response }, function() {console.log("testing", this.state.menu)}));
+      // .then(console.log("testing", this.state.menu))
   };
 
-  renderMenu = ({menu_id, menu_name}) => <div key={menu_id}>{menu_name}</div>;
+  // renderMenu = ({menu_id, menu_name}) => <div key={menu_id}>{menu_name}</div>;
 
 // Components
 // function App() {
@@ -42,7 +42,7 @@ class App extends Component {
 
     return (
       <div className="App">
-        {this.state.menu.map(this.renderMenu)}        
+        {/* {this.state.menu.map(this.renderMenu)}         */}
         {/* <div> */}
           {/* Routing will go here */}
           {/* <LandingPage /> */}
@@ -52,7 +52,7 @@ class App extends Component {
           {/* <Guest3ResConf /> */}
           {/* <ManagerPage /> */}
           {/* <Waitstaff1CurTablesPage /> */}
-          <Waitstaff2OrderPage />
+          <Waitstaff2OrderPage menu={this.state.menu} renderMenu={this.renderMenu}/>
           {/* <Waitstaff3ReceiptPage /> */}
         {/* </div> */}
 

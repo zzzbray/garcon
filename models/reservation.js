@@ -5,8 +5,8 @@ module.exports = function(sequelize, DataTypes) {
       reservationDate: DataTypes.DATEONLY,
       reservationTime: DataTypes.DATE,
       partySize: DataTypes.INTEGER,
-      notes: DataTypes.STRING,
-    ),
+      notes: DataTypes.STRING
+    },
     {
       timestamps: true
     }
