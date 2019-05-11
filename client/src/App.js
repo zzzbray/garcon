@@ -16,33 +16,34 @@ class App extends Component {
 
   // Testing State
   state = {
-    menu: []
+    menu: [],
+    // orders: []
   }
 
-  componentDidMount() {
-    this.getMenu();
-  }
+  // componentDidMount() {
+  //   this.getOrders();
+  // }
 
-  getMenu = _ => {
+  // getMenu function hits an API route on Express server to retrieve menu data from the
+  // inventory table in the database and uses state to store the result of the API call
+  getMenu = () => {
     fetch("http://localhost:3006/api/menu")
-      .then(response => response.json())
-      // .then(({data}) => {
-      //   console.log(data)
-      // })
-      .then(response => this.setState({ menu: response }))
-      .then(console.log(this.state.menu))
+    .then(response => response.json())
+    .then(response => this.setState({ menu: response }, function() {console.log("Testing menu pull", this.state.menu)}));
   };
 
-  renderMenu = ({menu_id, menu_name}) => <div key={menu_id}>{menu_name}</div>;
+  getOrders = () => {
+    fetch("http://localhost:3006/api/orders")
+    .then(response => response.json())
+    .then(response => this.setState({ orders : response }, function() {console.log("Testing orders pull", this.state.orders)}));
+  };
 
-// Components
-// function App() {
+  // Components
   render() {
     const { menu } = this.state;
-
+    
     return (
       <div className="App">
-        {this.state.menu.map(this.renderMenu)}        
         {/* <div> */}
           {/* Routing will go here */}
           {/* <LandingPage /> */}
@@ -51,11 +52,10 @@ class App extends Component {
           {/* <Guest2ResMake /> */}
           {/* <Guest3ResConf /> */}
           {/* <ManagerPage /> */}
-          {/* <Waitstaff1CurTablesPage /> */}
-          <Waitstaff2OrderPage />
+          <Waitstaff1CurTablesPage />
+          {/* <Waitstaff2OrderPage menu={this.state.menu} renderMenu={this.renderMenu}/> */}
           {/* <Waitstaff3ReceiptPage /> */}
         {/* </div> */}
-
       </div>
     );
   }
@@ -63,7 +63,6 @@ class App extends Component {
 };
 
 export default App;
-
 
 // Add Router
 // Add all components
