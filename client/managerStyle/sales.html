@@ -26,7 +26,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="manager.html">Dashboard <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="manager.html">Manager <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="sales.html">Sales</a>
@@ -40,7 +40,7 @@
       </ul>
       <ul class="navbar-nav mr-right">
         <li class="nav-item">
-          <a class="nav-link" href="#">Doctor</a>
+          <a class="nav-link" href="#">Welcome, Doctor</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="logout.html">Logout</a>
@@ -75,7 +75,8 @@
   <section id="breadcrumb">
     <div class="container">
       <ol class="breadcrumb">
-        <li class="active">Dashboard</li>
+        <li><a href="manager.html"></a>Manager/</li>
+        <li class="active">Sales</li>
       </ol>
     </div>
   </section>
@@ -85,55 +86,50 @@
       <div class="row">
         <div class="col-md-4">
           <div class="list-group" style="margin-bottom: 1rem">
-            <a href="index.html" class="list-group-item list-group-item-action active main-color-bg"><i
+            <a href="manager.html" class="list-group-item list-group-item-action active main-color-bg"><i
                 class="fas fa-cog"></i>
-              Dashboard
+              Manager
             </a>
             <a href="sales.html" class="list-group-item list-group-item-action">Sales</a>
             <a href="cmenuItems.html" class="list-group-item list-group-item-action">Menu Items</a>
             <a href="users.html" class="list-group-item list-group-item-action">Users</a>
           </div>
           <div class="card border-secondary mb-4 " style="width: 20rem;">
-              <div class="card-header main-color-bg">Current Sales</div>
+            <div class="card-header main-color-bg">Current Sales</div>
               <div class="card-body text-secondary" style="max-height: 20rem; overflow-y: scroll">
-                <h5 class="card-title">Net Sales</h5>
-                <p class="card-text">
-                    <ul>
-                      <li>5:00p - 6:00p</li>
-                      <li>6:00p - 7:00p</li>
-                      <li>7:00p - 8:00p</li>
-                      <li>9:00p - 10:00p</li>
-                    </ul>
-                  </p>
-              </div>
+              <h5 class="card-title">Sales:</h5>
             </div>
+          </div>
         </div>
         <div class="card border-secondary mb-4 " style="width: 20rem;">
-          <div class="card-header main-color-bg">Current Tables</div>
-          <div class="card-body text-secondary" style="max-height: 20rem; overflow-y: scroll">
-            <h5 class="card-title">Number of Seated Tables:</h5>
+          <div class="card-header main-color-bg">Sales By Hour</div>
+            <div class="card-body text-secondary" style="max-height: 20rem; overflow-y: scroll">
+            <h5 class="card-title">Sales:</h5>
             <p class="card-text">
-              <strong>Table ID:</strong>
               <ul>
-                <li>Table 1</li>
-                <li>Table 2</li>
-                <li>Table 3</li>
-                <li>Table 4</li>
+                <li>5:00p - 6:00p</li>
+                <li>6:00p - 7:00p</li>
+                <li>7:00p - 8:00p</li>
+                <li>9:00p - 10:00p</li>
               </ul>
             </p>
           </div>
         </div>
         <div class="card border-secondary mb-4" style="width: 20rem;">
-          <div class="card-header main-color-bg">Guest Checks</div>
+          <div class="card-header main-color-bg">Menu Items Sold</div>
           <div class="card-body text-secondary">
-            <h5 class="card-title">Completed Tables</h5>
+            <select style="display: block" class="form-control">
+              <option value="Appetizer">Appetizer</option>
+              <option value="Entrée">Entrée</option>
+              <option value="Dessert">Dessert</option>
+              <option value="Beverage">Beverage</option>
+            </select>
             <p class="card-text">
-              <strong>Table ID:</strong>
               <ul>
-                <li>Table 1</li>
-                <li>Table 2</li>
-                <li>Table 3</li>
-                <li>Table 4</li>
+                <li>Chicken:</li>
+                <li>Steak:</li>
+                <li>Salmon:</li>
+                <li>Pasta:</li>
               </ul>
             </p>
           </div>
@@ -163,13 +159,13 @@
           <div class="form-group">
             <label>Type</label>
             <select style="display: block" class="form-control">
-                    <option value="Appetizer">Appetizer</option>
-                    <option value="Entrée">Entrée</option>
-                    <option value="Dessert">Dessert</option>
-                    <option value="Cocktail">Cocktail</option>
-                  </select>
+              <option value="Appetizer">Appetizer</option>
+              <option value="Entrée">Entrée</option>
+              <option value="Dessert">Dessert</option>
+              <option value="Beverage">Beverage</option>
+            </select>
           </div>
-          
+
           <div class="form-group">
             <label>Price</label>
             <input type="number" step="0.01" min="0" class="form-control" placeholder="Price"></textarea>
@@ -205,9 +201,9 @@
             <div class="form-group">
               <label>Position</label>
               <select style="display: block" class="form-control">
-                  <option value="Manager">Manager</option>
-                  <option value="Server">Server</option>
-                </select>
+                <option value="Manager">Manager</option>
+                <option value="Server">Server</option>
+              </select>
             </div>
             <div class="form-group">
               <label>Login</label>

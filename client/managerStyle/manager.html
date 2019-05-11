@@ -26,10 +26,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#">Manager <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a href="sales.html">Sales</a>
+          <a class="nav-link" href="sales.html">Sales</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="menuItems.html">Menu Items</a>
@@ -75,7 +75,7 @@
   <section id="breadcrumb">
     <div class="container">
       <ol class="breadcrumb">
-        <li class="active">Dashboard</li>
+        <li class="active">Manager</li>
       </ol>
     </div>
   </section>
@@ -87,7 +87,7 @@
           <div class="list-group" style="margin-bottom: 1rem">
             <a href="index.html" class="list-group-item list-group-item-action active main-color-bg"><i
                 class="fas fa-cog"></i>
-              Dashboard
+              Manager
             </a>
             <a href="sales.html" class="list-group-item list-group-item-action">Sales</a>
             <a href="cmenuItems.html" class="list-group-item list-group-item-action">Menu Items</a>
@@ -96,15 +96,7 @@
           <div class="card border-secondary mb-4 " style="width: 20rem;">
               <div class="card-header main-color-bg">Current Sales</div>
               <div class="card-body text-secondary" style="max-height: 20rem; overflow-y: scroll">
-                <h5 class="card-title">Net Sales</h5>
-                <p class="card-text">
-                    <ul>
-                      <li>5:00p - 6:00p</li>
-                      <li>6:00p - 7:00p</li>
-                      <li>7:00p - 8:00p</li>
-                      <li>9:00p - 10:00p</li>
-                    </ul>
-                  </p>
+                <h5 class="card-title">Sales:</h5>
               </div>
             </div>
         </div>
@@ -161,9 +153,15 @@
             <input type="text" class="form-control" placeholder="Name">
           </div>
           <div class="form-group">
-            <label>Type</label>
-            <input type="text" class="form-control" placeholder="Type"></textarea>
-          </div>
+              <label>Type</label>
+              <select style="display: block" class="form-control">
+                <option value="Appetizer">Appetizer</option>
+                <option value="Entrée">Entrée</option>
+                <option value="Dessert">Dessert</option>
+                <option value="Beverage">Beverage</option>
+              </select>
+            </div>
+  
           <div class="form-group">
             <label>Price</label>
             <input type="number" step="0.01" min="0" class="form-control" placeholder="Price"></textarea>
