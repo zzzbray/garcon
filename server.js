@@ -32,7 +32,8 @@ connection.connect(function(err) {
 const SELECT_ALL_INVENTORY = "SELECT * FROM inventory";
 const SELECT_ALL_ORDERS = "SELECT * FROM orders WHERE isClosedOut = 0";
 const SELECT_MAX_RECEIPT_ID = "SELECT MAX(receipt_id) AS receipt_id FROM orders";
-const SELECT_BY_ID = "SELECT * FROM orders WHERE ?";
+const SELECT_DISTINCT = "SELECT DISTINCT receipt_id FROM orders WHERE isClosedOut = 0";
+// const SELECT_BY_ID = "SELECT * FROM orders WHERE ?";
 
 
 
@@ -74,6 +75,13 @@ app.get("/api/orders", function(req, res) {
 });
 
 // GET route for waitstaff to pull active tables
+app.get("/api/current-tables", function(req, res) {
+  connection.query(SELECT_DISTINCT, function(err, queryResults) {
+      res.json(queryResults)
+  })
+});
+
+// GET route for waitstaff to pull active tables
 app.get("/api/receipt-id", function(req, res) {
   connection.query(SELECT_MAX_RECEIPT_ID, function(err, queryResults) {
       res.json(queryResults)
@@ -81,11 +89,11 @@ app.get("/api/receipt-id", function(req, res) {
 });
 
 // GET route for waitstaff to calculate current bill by receipt_id
-app.get("/api/current-bill/:receipt-id", function(req, res) {
-  connection.query(SELECT_BY_ID, {receipt_id: req.params.receipt-id}, function(err, queryResults) {
-    res.json(queryResults)
-  })
-});
+// app.get("/api/current-bill/:receipt-id", function(req, res) {
+//   connection.query(SELECT_BY_ID, {receipt_id: req.params.receipt-id}, function(err, queryResults) {
+//     res.json(queryResults)
+//   })
+// });
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync().then(function() {
