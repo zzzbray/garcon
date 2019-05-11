@@ -8,23 +8,29 @@ class CurrentTablesComp extends Component {
   constructor(props) {
     super();
     this.state = {
-      orders: []
+      orders: [],
+      maxReceiptNum: ""
     }
   };
 
-  getOrders = () => {
+  getActiveTables = () => {
     fetch("http://localhost:3006/api/orders")
     .then(response => response.json())
-    .then(response => this.setState({ orders : response }, function() {console.log("Testing orders pull", this.state.orders)}));
+    .then(response => this.setState({ orders : response }, function() {this.newReceiptNum()}));
   };
   
+  // Use this function when "New Table" button is clicked
   newReceiptNum = () => {
-    console.log("Testing receipt num func", this.state.orders);
+    fetch("http://localhost:3006/api/receipt-id")
+    .then(response => response.json())
+    .then(response => this.setState({ maxReceiptNum : response[0].receipt_id + 1 }, function() {console.log(this.state.orders)}));
   };
 
   componentDidMount() {
-    this.getOrders();
+    this.getActiveTables();
   }
+
+  
 
   // renderTable function that takes in orders data (pulled from db in App.js) and dynamically
   // generates HTML to insert them into the table coded by this component.

@@ -31,11 +31,12 @@ connection.connect(function(err) {
 // EXAMPLE SQL QUERIES
 const SELECT_ALL_INVENTORY = "SELECT * FROM inventory";
 const SELECT_ALL_ORDERS = "SELECT * FROM orders WHERE isClosedOut = 0";
+const SELECT_MAX_RECEIPT_ID = "SELECT MAX(receipt_id) AS receipt_id FROM orders";
+const SELECT_BY_ID = "SELECT * FROM orders WHERE ?";
 
 
 
 // EXAMPLE ROUTES
-
 app.get("/", function(req,res) {
     res.send("hello world");
 });
@@ -63,13 +64,27 @@ app.get("/api/orders", function(req, res) {
   })
   
   // Sequelize query
-  // db.Inventory.findAll({
+  // db.Orders.findAll({
   //   where: {
-  //     isAvailable: true
+  //     isClosedOut: false
   //   }
-  // }).then(function(activeMenu) {
-  //   res.json(activeMenu);
+  // }).then(function(activeTables) {
+  //   res.json(activeTables);
   // });
+});
+
+// GET route for waitstaff to pull active tables
+app.get("/api/receipt-id", function(req, res) {
+  connection.query(SELECT_MAX_RECEIPT_ID, function(err, queryResults) {
+      res.json(queryResults)
+  })
+});
+
+// GET route for waitstaff to calculate current bill by receipt_id
+app.get("/api/current-bill/:receipt-id", function(req, res) {
+  connection.query(SELECT_BY_ID, {receipt_id: req.params.receipt-id}, function(err, queryResults) {
+    res.json(queryResults)
+  })
 });
 
 // Starting the server, syncing our models ------------------------------------/
