@@ -3,16 +3,15 @@ import WaitstaffNavBar from "../components/Waitstaff/WaitstaffNavBar.js"
 import OrderPageMenuComp from "../components/Waitstaff/OrderPageMenuComp"
 import OrderPageCurReceiptComp from "../components/Waitstaff/OrderPageCurReceiptComp"
 
-function Waitstaff2OrderPage(){
+function Waitstaff2OrderPage(props){
   return (
   <div>
     <WaitstaffNavBar />
     <OrderPageCurReceiptComp />
-    <OrderPageMenuComp />
+    <OrderPageMenuComp menu={props.menu} />
   </div>
   )
 }
-
 
 export default Waitstaff2OrderPage;
 
