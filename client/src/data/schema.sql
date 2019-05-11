@@ -40,6 +40,7 @@ CREATE TABLE orders(
   table_num INTEGER(11) NOT NULL,
   menu_id INTEGER(11) NOT NULL,
   menu_name VARCHAR(300) NOT NULL,
+  menu_price DECIMAL(5,2),
   isClosedOut BOOLEAN NOT NULL DEFAULT 0,
   time_added TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (entry_id)

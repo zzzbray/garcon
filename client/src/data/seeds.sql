@@ -25,6 +25,9 @@ INSERT INTO reservations (customer_id, reservationDate, reservationTime, partySi
 INSERT INTO reservations (customer_id, reservationDate, reservationTime, partySize) values (3, "2019-05-08", "18:30", 10);
 
 -- Orders dummy data
-INSERT INTO orders (receipt_id, customer_id, table_num, menu_id, menu_name, isClosedOut) values (1, 2, 4, 3, "Grilled Salmon", 0);
-INSERT INTO orders (receipt_id, customer_id, table_num, menu_id, menu_name, isClosedOut) values (2, 3, 1, 1, "Bruschetta", 0);
-INSERT INTO orders (receipt_id, customer_id, table_num, menu_id, menu_name, isClosedOut) values (3, 3, 2, 2, "Calamari", 0);
+INSERT INTO orders (receipt_id, customer_id, table_num, menu_id, menu_name, menu_price, isClosedOut) values (1, 2, 4, 3, "Grilled Salmon", 27.99, 0);
+INSERT INTO orders (receipt_id, customer_id, table_num, menu_id, menu_name, menu_price, isClosedOut) values (2, 3, 1, 1, "Bruschetta", 11.99, 0);
+INSERT INTO orders (receipt_id, customer_id, table_num, menu_id, menu_name, menu_price, isClosedOut) values (3, 1, 2, 2, "Calamari", 14.99, 0);
+INSERT INTO orders (receipt_id, customer_id, table_num, menu_id, menu_name, menu_price, isClosedOut) values (1, 2, 4, 8, "Baklava", 9.99, 0);
+INSERT INTO orders (receipt_id, customer_id, table_num, menu_id, menu_name, menu_price, isClosedOut) values (2, 3, 1, 1, "Bruschetta", 11.99, 0);
+INSERT INTO orders (receipt_id, customer_id, table_num, menu_id, menu_name, menu_price, isClosedOut) values (1, 2, 4, 6, "Vegetable Lasagna", 21.99, 0);

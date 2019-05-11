@@ -16,25 +16,32 @@ class App extends Component {
 
   // Testing State
   state = {
-    menu: []
+    menu: [],
+    // orders: []
   }
 
-  componentDidMount() {
-    this.getMenu();
-  }
+  // componentDidMount() {
+  //   this.getOrders();
+  // }
 
   // getMenu function hits an API route on Express server to retrieve menu data from the
   // inventory table in the database and uses state to store the result of the API call
   getMenu = () => {
     fetch("http://localhost:3006/api/menu")
     .then(response => response.json())
-    .then(response => this.setState({ menu: response }, function() {console.log("testing", this.state.menu)}));
+    .then(response => this.setState({ menu: response }, function() {console.log("Testing menu pull", this.state.menu)}));
+  };
+
+  getOrders = () => {
+    fetch("http://localhost:3006/api/orders")
+    .then(response => response.json())
+    .then(response => this.setState({ orders : response }, function() {console.log("Testing orders pull", this.state.orders)}));
   };
 
   // Components
   render() {
     const { menu } = this.state;
-
+    
     return (
       <div className="App">
         {/* <div> */}
@@ -45,8 +52,8 @@ class App extends Component {
           {/* <Guest2ResMake /> */}
           {/* <Guest3ResConf /> */}
           {/* <ManagerPage /> */}
-          {/* <Waitstaff1CurTablesPage /> */}
-          <Waitstaff2OrderPage menu={this.state.menu} renderMenu={this.renderMenu}/>
+          <Waitstaff1CurTablesPage />
+          {/* <Waitstaff2OrderPage menu={this.state.menu} renderMenu={this.renderMenu}/> */}
           {/* <Waitstaff3ReceiptPage /> */}
         {/* </div> */}
       </div>
