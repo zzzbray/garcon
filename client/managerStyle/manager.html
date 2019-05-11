@@ -12,10 +12,11 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
     integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="style.css" />
-
 </head>
 
 <body>
+
+  <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="#">Garçon</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -49,6 +50,7 @@
     </div>
   </nav>
 
+  <!-- Header -->
   <header id="header">
     <div class="container">
       <div class="row">
@@ -72,6 +74,7 @@
     </div>
   </header>
 
+  <!-- Breadcrumb -->
   <section id="breadcrumb">
     <div class="container">
       <ol class="breadcrumb">
@@ -80,6 +83,7 @@
     </div>
   </section>
 
+  <!-- Manager Cards -->
   <section id="main">
     <div class="container">
       <div class="row">
@@ -94,11 +98,11 @@
             <a href="staff.html" class="list-group-item list-group-item-action">Staff</a>
           </div>
           <div class="card border-secondary mb-4 " style="width: 20rem;">
-              <div class="card-header main-color-bg">Current Sales</div>
-              <div class="card-body text-secondary" style="max-height: 20rem; overflow-y: scroll">
-                <h5 class="card-title">Sales:</h5>
-              </div>
+            <div class="card-header main-color-bg">Current Sales</div>
+            <div class="card-body text-secondary" style="max-height: 20rem; overflow-y: scroll">
+              <h5 class="card-title">Sales:</h5>
             </div>
+          </div>
         </div>
         <div class="card border-secondary mb-4 " style="width: 20rem;">
           <div class="card-header main-color-bg">Current Tables</div>
@@ -153,15 +157,15 @@
             <input type="text" class="form-control" placeholder="Name">
           </div>
           <div class="form-group">
-              <label>Type</label>
-              <select style="display: block" class="form-control">
-                <option value="Appetizer">Appetizer</option>
-                <option value="Entrée">Entrée</option>
-                <option value="Dessert">Dessert</option>
-                <option value="Beverage">Beverage</option>
-              </select>
-            </div>
-  
+            <label>Type</label>
+            <select style="display: block" class="form-control">
+              <option value="Appetizer">Appetizer</option>
+              <option value="Entrée">Entrée</option>
+              <option value="Dessert">Dessert</option>
+              <option value="Beverage">Beverage</option>
+            </select>
+          </div>
+
           <div class="form-group">
             <label>Price</label>
             <input type="number" step="0.01" min="0" class="form-control" placeholder="Price"></textarea>
@@ -197,9 +201,9 @@
             <div class="form-group">
               <label>Position</label>
               <select style="display: block" class="form-control">
-                  <option value="Manager">Manager</option>
-                  <option value="Server">Server</option>
-                </select>
+                <option value="Manager">Manager</option>
+                <option value="Server">Server</option>
+              </select>
             </div>
             <div class="form-group">
               <label>Login</label>
