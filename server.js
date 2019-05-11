@@ -29,7 +29,8 @@ connection.connect(function(err) {
 
 
 // EXAMPLE SQL QUERIES
-const SELECT_ALL = "SELECT * FROM inventory";
+const SELECT_ALL_INVENTORY = "SELECT * FROM inventory";
+const SELECT_ALL_ORDERS = "SELECT * FROM orders WHERE isClosedOut = 0";
 
 
 
@@ -41,10 +42,11 @@ app.get("/", function(req,res) {
 
 // GET route for waitstaff to pull active inventory
 app.get("/api/menu", function(req, res) {
-    connection.query(SELECT_ALL, function(err, queryResults) {
+    connection.query(SELECT_ALL_INVENTORY, function(err, queryResults) {
         res.json(queryResults)
     })
     
+    // Sequelize query
     // db.Inventory.findAll({
     //   where: {
     //     isAvailable: true
@@ -52,6 +54,22 @@ app.get("/api/menu", function(req, res) {
     // }).then(function(activeMenu) {
     //   res.json(activeMenu);
     // });
+});
+
+// GET route for waitstaff to pull active tables
+app.get("/api/orders", function(req, res) {
+  connection.query(SELECT_ALL_ORDERS, function(err, queryResults) {
+      res.json(queryResults)
+  })
+  
+  // Sequelize query
+  // db.Inventory.findAll({
+  //   where: {
+  //     isAvailable: true
+  //   }
+  // }).then(function(activeMenu) {
+  //   res.json(activeMenu);
+  // });
 });
 
 // Starting the server, syncing our models ------------------------------------/
