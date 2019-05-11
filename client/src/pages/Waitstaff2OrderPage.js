@@ -13,6 +13,5 @@ function Waitstaff2OrderPage(props){
   )
 }
 
-
 export default Waitstaff2OrderPage;
 

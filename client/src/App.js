@@ -23,26 +23,20 @@ class App extends Component {
     this.getMenu();
   }
 
-  getMenu = _ => {
+  // getMenu function hits an API route on Express server to retrieve menu data from the
+  // inventory table in the database and uses state to store the result of the API call
+  getMenu = () => {
     fetch("http://localhost:3006/api/menu")
-      .then(response => response.json())
-      // .then(({data}) => {
-      //   console.log(data)
-      // })
-      .then(response => this.setState({ menu: response }, function() {console.log("testing", this.state.menu)}));
-      // .then(console.log("testing", this.state.menu))
+    .then(response => response.json())
+    .then(response => this.setState({ menu: response }, function() {console.log("testing", this.state.menu)}));
   };
 
-  // renderMenu = ({menu_id, menu_name}) => <div key={menu_id}>{menu_name}</div>;
-
-// Components
-// function App() {
+  // Components
   render() {
     const { menu } = this.state;
 
     return (
       <div className="App">
-        {/* {this.state.menu.map(this.renderMenu)}         */}
         {/* <div> */}
           {/* Routing will go here */}
           {/* <LandingPage /> */}
@@ -55,7 +49,6 @@ class App extends Component {
           <Waitstaff2OrderPage menu={this.state.menu} renderMenu={this.renderMenu}/>
           {/* <Waitstaff3ReceiptPage /> */}
         {/* </div> */}
-
       </div>
     );
   }
@@ -63,7 +56,6 @@ class App extends Component {
 };
 
 export default App;
-
 
 // Add Router
 // Add all components

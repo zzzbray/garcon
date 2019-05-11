@@ -10,16 +10,16 @@ function MenuOrderComp(props) {
     console.log("Clicked button id: ", event.target.id)
   };
 
-  
+  // renderMenu function that takes in menu data (pulled from db in App.js) and dynamically
+  // generates HTML to insert them into the table coded by this component.
+  // We call this function as the callback to the map function on line 32 below.
   const renderMenu = ({menu_id, menu_name, menu_price}) => <tr key={menu_id}><td>{menu_name}</td><td>{menu_price}</td><td><button id={menu_id} onClick={handleClick}>Add</button></td></tr>;
-  // <div key={menu_id}>{menu_name}</div>;  
   
   return (
     <div>
       <h3>
         Menu Comp
       </h3>
-      {/* {props.menu.map(renderMenu)}    */}
       <Table striped bordered hover variant="dark">
         <thead>
           <tr>
@@ -31,14 +31,6 @@ function MenuOrderComp(props) {
         <tbody>
           {props.menu.map(renderMenu)}
           {/* <tr>
-            <td>Menu Item </td>
-            <td>Add</td>
-          </tr>
-          <tr>
-            <td>Menu Item </td>
-            <td>Add</td>
-          </tr>
-          <tr>
             <td>Menu Item </td>
             <td>Add
               <div id='counter'>{this.state.counter}
