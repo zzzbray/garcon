@@ -6,20 +6,24 @@ class MenuOrderComp extends Component {
   constructor(props) {
     super();
     this.state = {
-      menu: []
+      menu: [],
+      newOrders: []
     }
   };
 
   getMenu = () => {
     fetch("http://localhost:3006/api/menu")
     .then(response => response.json())
-    .then(response => this.setState({ menu: response }, function() {console.log("Testing menu pull", this.state.menu)}));
+    .then(response => this.setState({ menu : response }, function() {console.log("Testing menu pull", this.state.menu)}));
   };
 
   handleClick = event => {
     // Destructure the name and value properties off of event.target
     // Update the appropriate state
-    console.log("Clicked button id: ", event.target.id)
+    console.log("Clicked button id: ", event.target.id);
+    this.setState({newOrders : [...this.state.newOrders, event.target.id] }, function() {
+      console.log("Did setState work?", this.state.newOrders)
+    })
   };
 
   // renderMenu function that takes in menu data (pulled from db in App.js) and dynamically
@@ -58,6 +62,9 @@ class MenuOrderComp extends Component {
             </tr> */}
           </tbody>
         </Table>
+        <div>
+          <p>Your Shopping Cart: {this.state.newOrders}</p>
+        </div>
         <Button variant="warning">Order</Button>
       </div>
     )

@@ -88,6 +88,21 @@ app.get("/api/receipt-id", function(req, res) {
   })
 });
 
+// --------------------------------------------------------
+// POST route for waitstaff to post new orders to db.
+app.post("/api/orders", function(req, res) {
+  db.Orders.create({
+    receipt_id: what, //how should we pull this?
+    customer_id: req.body.custID, // add function for this optional field
+    table_num: req.body.tableNum,
+    menu_id: req.body.chosenButton, //multiple different post routes for each row in the order form?
+    isClosedOut: false
+  }).then(function(newOrder) {
+      res.json(newOrder);
+  });
+});
+// --------------------------------------------------------
+
 // GET route for waitstaff to calculate current bill by receipt_id
 // app.get("/api/current-bill/:receipt-id", function(req, res) {
 //   connection.query(SELECT_BY_ID, {receipt_id: req.params.receipt-id}, function(err, queryResults) {
