@@ -26,7 +26,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Manager <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="manager.html">Manager <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="sales.html">Sales</a>
@@ -75,7 +75,8 @@
   <section id="breadcrumb">
     <div class="container">
       <ol class="breadcrumb">
-        <li class="active">Manager</li>
+            <li><a href="manager.html"></a>Manager/</li>
+            <li class="active">Menu Items</li>
       </ol>
     </div>
   </section>
@@ -101,33 +102,41 @@
             </div>
         </div>
         <div class="card border-secondary mb-4 " style="width: 20rem;">
-          <div class="card-header main-color-bg">Current Tables</div>
+          <div class="card-header main-color-bg">Menu Items On Hand</div>
           <div class="card-body text-secondary" style="max-height: 20rem; overflow-y: scroll">
-            <h5 class="card-title">Number of Seated Tables:</h5>
-            <p class="card-text">
-              <strong>Table ID:</strong>
-              <ul>
-                <li>Table 1</li>
-                <li>Table 2</li>
-                <li>Table 3</li>
-                <li>Table 4</li>
-              </ul>
-            </p>
+                <select style="display: block" class="form-control">
+                        <option value="Appetizer">Appetizer</option>
+                        <option value="Entrée">Entrée</option>
+                        <option value="Dessert">Dessert</option>
+                        <option value="Beverage">Beverage</option>
+                      </select>
+                      <p class="card-text">
+                        <ul>
+                          <li>Chicken:</li>
+                          <li>Steak:</li>
+                          <li>Salmon:</li>
+                          <li>Pasta:</li>
+                        </ul>
+                      </p>
           </div>
         </div>
         <div class="card border-secondary mb-4" style="width: 20rem;">
-          <div class="card-header main-color-bg">Guest Checks</div>
+          <div class="card-header main-color-bg">Menu Items Sold</div>
           <div class="card-body text-secondary">
-            <h5 class="card-title">Completed Tables</h5>
-            <p class="card-text">
-              <strong>Table ID:</strong>
-              <ul>
-                <li>Table 1</li>
-                <li>Table 2</li>
-                <li>Table 3</li>
-                <li>Table 4</li>
-              </ul>
-            </p>
+                <select style="display: block" class="form-control">
+                        <option value="Appetizer">Appetizer</option>
+                        <option value="Entrée">Entrée</option>
+                        <option value="Dessert">Dessert</option>
+                        <option value="Beverage">Beverage</option>
+                      </select>
+                      <p class="card-text">
+                        <ul>
+                          <li>Chicken:</li>
+                          <li>Steak:</li>
+                          <li>Salmon:</li>
+                          <li>Pasta:</li>
+                        </ul>
+                      </p>
           </div>
         </div>
       </div>

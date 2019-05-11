@@ -26,7 +26,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Manager <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="manager.html">Manager <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="sales.html">Sales</a>
@@ -75,7 +75,8 @@
   <section id="breadcrumb">
     <div class="container">
       <ol class="breadcrumb">
-        <li class="active">Manager</li>
+            <li><a href="manager.html"></a>Manager/</li>
+            <li class="active">Staff</li>
       </ol>
     </div>
   </section>
@@ -85,7 +86,7 @@
       <div class="row">
         <div class="col-md-4">
           <div class="list-group" style="margin-bottom: 1rem">
-            <a href="manager.html" class="list-group-item list-group-item-action active main-color-bg"><i
+            <a href="index.html" class="list-group-item list-group-item-action active main-color-bg"><i
                 class="fas fa-cog"></i>
               Manager
             </a>
@@ -101,35 +102,37 @@
             </div>
         </div>
         <div class="card border-secondary mb-4 " style="width: 20rem;">
-          <div class="card-header main-color-bg">Current Tables</div>
+          <div class="card-header main-color-bg">Active Staff</div>
           <div class="card-body text-secondary" style="max-height: 20rem; overflow-y: scroll">
-            <h5 class="card-title">Number of Seated Tables:</h5>
-            <p class="card-text">
-              <strong>Table ID:</strong>
-              <ul>
-                <li>Table 1</li>
-                <li>Table 2</li>
-                <li>Table 3</li>
-                <li>Table 4</li>
-              </ul>
-            </p>
+              <div class="form-group">
+                  <select style="display: block" class="form-control">
+                    <option value="Manager">Manager</option>
+                    <option value="Server">Server</option>
+                  </select>
+                  <ul>
+                      <li>Shehan</li>
+                      <li>Zach</li>
+                      <li>Chad</li>
+                      <li>Ryan</li>
+                    </ul>
+              </div>
           </div>
         </div>
-        <div class="card border-secondary mb-4" style="width: 20rem;">
-          <div class="card-header main-color-bg">Guest Checks</div>
-          <div class="card-body text-secondary">
-            <h5 class="card-title">Completed Tables</h5>
-            <p class="card-text">
-              <strong>Table ID:</strong>
-              <ul>
-                <li>Table 1</li>
-                <li>Table 2</li>
-                <li>Table 3</li>
-                <li>Table 4</li>
-              </ul>
-            </p>
-          </div>
-        </div>
+        <div class="card border-secondary mb-4 " style="width: 20rem;">
+                <div class="card-header main-color-bg">Current Tables</div>
+                <div class="card-body text-secondary" style="max-height: 20rem; overflow-y: scroll">
+                  <h5 class="card-title">Number of Seated Tables:</h5>
+                  <p class="card-text">
+                    <strong>Table ID:</strong>
+                    <ul>
+                      <li>Table 1</li>
+                      <li>Table 2</li>
+                      <li>Table 3</li>
+                      <li>Table 4</li>
+                    </ul>
+                  </p>
+                </div>
+              </div>
       </div>
     </div>
   </section>
