@@ -12,6 +12,11 @@ import Waitstaff2OrderPage from "./pages/Waitstaff2OrderPage";
 import Waitstaff3ReceiptPage from "./pages/Waitstaff3ReceiptPage";
 import './App.css';
 
+// new manager components
+import ManagerPageTwo from "./managerStyle/ManagerPageTwo"
+import ManagerMenuItemsPage from "./managerStyle/ManagerMenuItemsPage"
+import newNavBar from "./managerStyle/newNavBar"
+
 class App extends Component {
 
   // Testing State
@@ -52,7 +57,8 @@ class App extends Component {
           {/* <Guest2ResMake /> */}
           {/* <Guest3ResConf /> */}
           {/* <ManagerPage /> */}
-          <Waitstaff1CurTablesPage />
+          <ManagerPageTwo />
+          {/* <Waitstaff1CurTablesPage /> */}
           {/* <Waitstaff2OrderPage menu={this.state.menu} renderMenu={this.renderMenu}/> */}
           {/* <Waitstaff3ReceiptPage /> */}
         {/* </div> */}
