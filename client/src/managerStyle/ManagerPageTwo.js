@@ -1,6 +1,13 @@
 import React from "react"
 import "./manager.css"
 import Form from "react-bootstrap/Form"
+
+const listGroup = {
+  marginBottom: '1rem'
+};
+
+// style=margin-bottom: 1rem
+
 function ManagerPageTwo(){
   return (
     <div>
@@ -31,7 +38,7 @@ function ManagerPageTwo(){
       </ul>
       <ul class="navbar-nav mr-right">
         <li class="nav-item">
-          <a class="nav-link" href="#">Welcome, Doctor</a>
+          <a class="nav-link" href>Welcome, Doctor</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="logout.html">Logout</a>
@@ -78,7 +85,7 @@ function ManagerPageTwo(){
     <div class="container">
       <div class="row">
         <div class="col-md-4">
-          <div class="list-group" style="margin-bottom: 1rem">
+          <div class="list-group" style={listGroup}>
             <a href="manager.html" class="list-group-item list-group-item-action active main-color-bg"><i
                 class="fas fa-cog"></i>
               Manager
@@ -172,7 +179,7 @@ function ManagerPageTwo(){
   </div>
   </div>
 
-  // {/* Add User */}
+  {/* Add User */}
   <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
     <div class="modal-dialog" role="document">
