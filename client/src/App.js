@@ -6,7 +6,6 @@ import Login from "./pages/Login"
 import Guest1SignUpLogin from "./pages/Guest1SignUpLogin";
 import Guest2ResMake from "./pages/Guest2ResMake";
 import Guest3ResConf from "./pages/Guest3ResConf";
-import ManagerPage from "./pages/ManagerPage";
 import Waitstaff1CurTablesPage from "./pages/Waitstaff1CurTablesPage";
 import Waitstaff2OrderPage from "./pages/Waitstaff2OrderPage";
 import Waitstaff3ReceiptPage from "./pages/Waitstaff3ReceiptPage";
@@ -56,7 +55,6 @@ class App extends Component {
           {/* <Guest1SignUpLogin /> */}
           {/* <Guest2ResMake /> */}
           {/* <Guest3ResConf /> */}
-          {/* <ManagerPage /> */}
           <ManagerPageTwo />
           {/* <ManagerMenuItemsPage /> */}
           {/* <Waitstaff1CurTablesPage /> */}
