@@ -57,8 +57,8 @@ class App extends Component {
           {/* <ManagerPage /> */}
           {/* <ManagerMenuItemsPage /> */}
           {/* <Waitstaff1CurTablesPage /> */}
-          <Waitstaff2OrderPage menu={this.state.menu} />
-          {/* <Waitstaff3ReceiptPage /> */}
+          {/* <Waitstaff2OrderPage menu={this.state.menu} /> */}
+          <Waitstaff3ReceiptPage />
         {/* </div> */}
       </div>
     );

@@ -65,7 +65,7 @@ class MenuOrderComp extends Component {
         <div>
           <p>Your Shopping Cart: {this.state.newOrders}</p>
         </div>
-        <Button variant="warning">Order</Button>
+            <Button variant="danger">Order</Button>
       </div>
     )
   }
