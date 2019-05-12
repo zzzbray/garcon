@@ -28,10 +28,9 @@ function ManagerPageTwo(){
     <div>
   <div>
 
-    New Manager Page
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     {/* Href tag needs to be added correctly on the line below to run without warnings */}
-    <a class="navbar-brand" href>Garçon</a>
+    <a class="navbar-brand" href="manager.html">Garçon</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
