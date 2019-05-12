@@ -1,5 +1,5 @@
 import React from "react"
-import newNavBar from "../managerStyle/newNavBar"
+import newNavBar from "../components/Waitstaff/newNavBar"
 
 function ManagerMenuItemsPage(){
   return (
