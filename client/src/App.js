@@ -56,8 +56,8 @@ class App extends Component {
           {/* <Guest3ResConf /> */}
           {/* <ManagerPage /> */}
           {/* <ManagerMenuItemsPage /> */}
-          <Waitstaff1CurTablesPage />
-          {/* <Waitstaff2OrderPage menu={this.state.menu} /> */}
+          {/* <Waitstaff1CurTablesPage /> */}
+          <Waitstaff2OrderPage menu={this.state.menu} />
           {/* <Waitstaff3ReceiptPage /> */}
         {/* </div> */}
       </div>

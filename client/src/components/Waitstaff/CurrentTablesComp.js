@@ -57,6 +57,7 @@ class CurrentTablesComp extends Component {
 
   render() {
     return (
+      
       <div>
         <Table striped bordered hover variant="dark">
           <thead>

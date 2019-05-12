@@ -39,7 +39,7 @@ class MenuOrderComp extends Component {
     return (
       <div>
         <h3>
-          Menu Comp
+          Add to Order
         </h3>
         <Table striped bordered hover variant="dark">
           <thead>

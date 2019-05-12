@@ -15,7 +15,7 @@ function Waitstaff1CurTablesPage(){
         <div class="col-md-12" >
         <CurrentTablesComp />
         </div>
-        </div>
+      </div>
     </div>
   </div>
   )
