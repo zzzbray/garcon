@@ -19,5 +19,4 @@ function Waitstaff3ReceiptPage(){
   )
 }
 
-
 export default Waitstaff3ReceiptPage

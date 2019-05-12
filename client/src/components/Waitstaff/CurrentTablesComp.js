@@ -2,8 +2,7 @@
 
 import React, {Component} from 'react';
 import Table from "react-bootstrap/Table"
-import Button from "react-bootstrap/Button"
-
+// import Button from "react-bootstrap/Button"
 class CurrentTablesComp extends Component {
   constructor(props) {
     super();
@@ -57,7 +56,6 @@ class CurrentTablesComp extends Component {
 
   render() {
     return (
-      
       <div>
         <Table striped bordered hover variant="dark">
           <thead>

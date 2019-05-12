@@ -29,13 +29,10 @@ const padthis={
   paddingTop: "15px"
 }
 
-
-
 function ManagerPageTwo(){
   return (
     <div>
   <div>
-
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     {/* Href tag needs to be added correctly on the line below to run without warnings */}
     <a class="navbar-brand" href="manager.html">Garçon</a>
@@ -43,7 +40,6 @@ function ManagerPageTwo(){
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" style={twentyWidth} id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
@@ -164,7 +160,6 @@ function ManagerPageTwo(){
   </section>
 
   {/* Modals */}
-
   {/* Add Menu Item */}
   <div class="modal fade" id="addMenuItem" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
@@ -190,14 +185,12 @@ function ManagerPageTwo(){
               <option value="Beverage">Beverage</option>
             </select>
           </div>
-
           <div class="form-group">
             <label>Price</label>
             <input type="number" step="0.01" min="0" class="form-control" placeholder="Price" />
             {/* </textarea> */}
           </div>
         </div>
-
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="button" class="btn btn-secondary">Save changes</button>
@@ -245,9 +238,7 @@ function ManagerPageTwo(){
     </div>
   </div>
   </div>
-
   )
 }
-
 
 export default ManagerPageTwo;

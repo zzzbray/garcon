@@ -1,6 +1,5 @@
 import React from "react";
 
-
 function GuestResConfPage(){
   return (
   <div>
@@ -9,6 +8,5 @@ function GuestResConfPage(){
   </div>
   )
 }
-
 
 export default GuestResConfPage;

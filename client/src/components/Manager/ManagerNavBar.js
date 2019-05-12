@@ -1,7 +1,6 @@
 import React from 'react';
 import Nav from "react-bootstrap/Nav"
 
-
 function ManagerNavBar(){
   return (
     <Nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -41,6 +40,5 @@ function ManagerNavBar(){
   </Nav>
   )
 }
-
 
 export default ManagerNavBar;

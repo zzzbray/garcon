@@ -17,8 +17,6 @@ function Waitstaff2OrderPage(props){
         </div>
       </div>
     </div>
-    
-    
   </div>
   )
 }

@@ -17,9 +17,6 @@ class LoginPage extends Component {
           <a href="index.html">Pick Your Pleasure</a>
         </form>
       </div> 
-
-    
-
     Sign Up Form */}
       <Form>
         <Form.Group controlId="formBasicEmail">
@@ -29,7 +26,6 @@ class LoginPage extends Component {
             We'll never share your email with anyone else. Promise.
           </Form.Text>
         </Form.Group>
-
         <Form.Group controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
           <Form.Control type="password" placeholder="Password" />

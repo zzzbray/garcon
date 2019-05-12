@@ -1,10 +1,8 @@
 import React from "react";
 import Nav from "react-bootstrap/Nav"
 
-
 function WaitstaffNavBar(){
   return (
-    
     <Nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
     {/* Href tag needs to be added correctly on the line below to run without warnings  */}
    <a class="navbar-brand" href="nowhere.js">Garçon</a>
@@ -31,6 +29,5 @@ function WaitstaffNavBar(){
  </Nav>
   )
 }
-
 
 export default WaitstaffNavBar;

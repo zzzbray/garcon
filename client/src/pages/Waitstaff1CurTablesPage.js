@@ -21,5 +21,4 @@ function Waitstaff1CurTablesPage(){
   )
 }
 
-
 export default Waitstaff1CurTablesPage
