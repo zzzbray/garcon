@@ -54,9 +54,9 @@ class App extends Component {
           {/* <Guest1SignUpLogin /> */}
           {/* <Guest2ResMake /> */}
           {/* <Guest3ResConf /> */}
-          <ManagerPage />
+          {/* <ManagerPage /> */}
           {/* <ManagerMenuItemsPage /> */}
-          {/* <Waitstaff1CurTablesPage /> */}
+          <Waitstaff1CurTablesPage />
           {/* <Waitstaff2OrderPage menu={this.state.menu} /> */}
           {/* <Waitstaff3ReceiptPage /> */}
         {/* </div> */}
