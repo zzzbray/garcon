@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import "../landingpage.css";
 
 // This is Ryan's slick code

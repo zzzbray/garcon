@@ -20,8 +20,8 @@ class LoginPage extends Component {
 
     
 
-    {/* Sign Up Form */}
-      {/* <Form>
+    Sign Up Form */}
+      <Form>
         <Form.Group controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
           <Form.Control type="email" placeholder="Enter email" />
@@ -40,7 +40,7 @@ class LoginPage extends Component {
         <Button variant="primary" type="submit">
           Submit
         </Button>
-      </Form> */}
+      </Form>
 </div>
   }
 }
