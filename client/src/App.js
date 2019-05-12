@@ -12,9 +12,8 @@ import Waitstaff3ReceiptPage from "./pages/Waitstaff3ReceiptPage";
 import './App.css';
 
 // new manager components
-import ManagerPageTwo from "./pages/ManagerPageTwo"
-import ManagerMenuItemsPage from "./managerStyle/ManagerMenuItemsPage"
-import newNavBar from "./components/Waitstaff/newNavBar"
+import ManagerPage from "./pages/ManagerPage"
+import ManagerMenuItemsPage from "./pages/ManagerMenuItemsPage"
 
 class App extends Component {
 
@@ -55,9 +54,10 @@ class App extends Component {
           {/* <Guest1SignUpLogin /> */}
           {/* <Guest2ResMake /> */}
           {/* <Guest3ResConf /> */}
-          {/* <ManagerPage /> */}
+          <ManagerPage />
+          {/* <ManagerMenuItemsPage /> */}
           {/* <Waitstaff1CurTablesPage /> */}
-          <Waitstaff2OrderPage menu={this.state.menu} />
+          {/* <Waitstaff2OrderPage menu={this.state.menu} /> */}
           {/* <Waitstaff3ReceiptPage /> */}
         {/* </div> */}
       </div>

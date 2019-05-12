@@ -21,6 +21,10 @@ const TwentyHeightScroll = {
   overflowY: "scroll"
 }
 
+const moveOver ={
+  padding: "20px"
+}
+
 
 
 function ManagerPageTwo(){
@@ -36,7 +40,7 @@ function ManagerPageTwo(){
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" style={twentyWidth} id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
         {/* Href tag needs to be added correctly on the line below to run without warnings */}
@@ -104,7 +108,7 @@ function ManagerPageTwo(){
   <section id="main">
     <div class="container">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4" >
           <div class="list-group" style={listGroup}>
             <a href="manager.html" class="list-group-item list-group-item-action active main-color-bg"><i
                 class="fas fa-cog"></i>
@@ -114,8 +118,8 @@ function ManagerPageTwo(){
             <a href="menuItems.html" class="list-group-item list-group-item-action">Menu Items</a>
             <a href="staff.html" class="list-group-item list-group-item-action">Staff</a>
           </div>
-          <div class="card border-secondary mb-4 " style={twentyWidth}>
-            <div class="card-header main-color-bg">Current Sales</div>
+          <div class="card border-secondary mb-4" style={twentyWidth}>
+            <div class="card-header main-color-bg" style={moveOver}>Current Sales</div>
             <div class="card-body text-secondary" style={TwentyHeightScroll}>
               <h5 class="card-title">Sales:</h5>
             </div>
