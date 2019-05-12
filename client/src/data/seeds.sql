@@ -1,19 +1,19 @@
-USE garcon_db;
+USE garcon_sequelize_db;
 
 -- Replace with real inventory daata
-INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Bruschetta", "Appetizers", 11.99, 50);
-INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Salmon", "Entrees", 28.99, 50);
-INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Beer", "Beverages", 14.99, 50);
-INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Calamari", "Appetizers", 14.99, 50);
-INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Grilled Salmon", "Entrees", 27.99, 50);
-INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Vegetable Lasagna", "Entrees", 21.99, 50);
-INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Chocolate Fondant Cake", "Desserts", 13.99, 50);
-INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Baklava", "Desserts", 9.99, 50);
-INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Manhattan", "Beverages", 9.99, 50);
-INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Martini", "Beverages", 8.99, 50);
+INSERT INTO inventories (menu_name, menu_category, menu_price, stock) values ("Bruschetta", "Appetizers", 11.99, 50);
+INSERT INTO inventories (menu_name, menu_category, menu_price, stock) values ("Salmon", "Entrees", 28.99, 50);
+INSERT INTO inventories (menu_name, menu_category, menu_price, stock) values ("Beer", "Beverages", 14.99, 50);
+INSERT INTO inventories (menu_name, menu_category, menu_price, stock) values ("Calamari", "Appetizers", 14.99, 50);
+INSERT INTO inventories (menu_name, menu_category, menu_price, stock) values ("Grilled Salmon", "Entrees", 27.99, 50);
+INSERT INTO inventories (menu_name, menu_category, menu_price, stock) values ("Vegetable Lasagna", "Entrees", 21.99, 50);
+INSERT INTO inventories (menu_name, menu_category, menu_price, stock) values ("Chocolate Fondant Cake", "Desserts", 13.99, 50);
+INSERT INTO inventories (menu_name, menu_category, menu_price, stock) values ("Baklava", "Desserts", 9.99, 50);
+INSERT INTO inventories (menu_name, menu_category, menu_price, stock) values ("Manhattan", "Beverages", 9.99, 50);
+INSERT INTO inventories (menu_name, menu_category, menu_price, stock) values ("Martini", "Beverages", 8.99, 50);
+
 
 -- DUMMY DATA FOR TESTING PURPOSES
-
 -- Customer dummy data
 INSERT INTO customers (firstName, lastName, email, password, birthday, anniversary) values ("John", "Doe", "jdwho@gmail.com", "password", "1990-05-04", "2010-07-07");
 INSERT INTO customers (firstName, lastName, email, password, birthday) values ("Sherlock", "Holmes", "sherlock@hotmail.co.uk", "sherlocked", "1980-01-01");
