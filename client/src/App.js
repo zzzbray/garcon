@@ -14,7 +14,6 @@ import './App.css';
 // new manager components
 import ManagerPageTwo from "./pages/ManagerPageTwo"
 import ManagerMenuItemsPage from "./pages/ManagerMenuItemsPage"
-import newNavBar from "./components/Waitstaff/newNavBar"
 
 class App extends Component {
 
@@ -57,8 +56,8 @@ class App extends Component {
           {/* <Guest3ResConf /> */}
           {/* <ManagerPageTwo /> */}
           {/* <ManagerMenuItemsPage /> */}
-          {/* <Waitstaff1CurTablesPage /> */}
-          <Waitstaff2OrderPage menu={this.state.menu} />
+          <Waitstaff1CurTablesPage />
+          {/* <Waitstaff2OrderPage menu={this.state.menu} /> */}
           {/* <Waitstaff3ReceiptPage /> */}
         {/* </div> */}
       </div>
