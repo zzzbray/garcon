@@ -1,4 +1,4 @@
-USE garcon_db;
+USE garcon_sequelize_db;
 
 -- Replace with real inventory daata
 INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Bruschetta", "Appetizers", 11.99, 50);
@@ -12,8 +12,8 @@ INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Bak
 INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Manhattan", "Beverages", 9.99, 50);
 INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Martini", "Beverages", 8.99, 50);
 
--- DUMMY DATA FOR TESTING PURPOSES
 
+-- DUMMY DATA FOR TESTING PURPOSES
 -- Customer dummy data
 INSERT INTO customers (firstName, lastName, email, password, birthday, anniversary) values ("John", "Doe", "jdwho@gmail.com", "password", "1990-05-04", "2010-07-07");
 INSERT INTO customers (firstName, lastName, email, password, birthday) values ("Sherlock", "Holmes", "sherlock@hotmail.co.uk", "sherlocked", "1980-01-01");
@@ -21,13 +21,19 @@ INSERT INTO customers (firstName, lastName, email, password, birthday, anniversa
 
 -- Reservations dummy data
 INSERT INTO reservations (customer_id, reservationDate, reservationTime, partySize) values (1, "2019-06-19", "17:45", 4);
-INSERT INTO reservations (customer_id, reservationDate, reservationTime, partySize) values (2, "2019-07-07", "19:00", 2);
+INSERT INTO reservations (customer_id, reservationDate, reservationTime, partySize, notes) values (2, "2019-07-07", "19:00", 2, "It's our anniversary!");
 INSERT INTO reservations (customer_id, reservationDate, reservationTime, partySize) values (3, "2019-05-08", "18:30", 10);
 
 -- Orders dummy data
-INSERT INTO orders (receipt_id, customer_id, table_num, menu_id, menu_name, menu_price, isClosedOut) values (1, 2, 4, 3, "Grilled Salmon", 27.99, 0);
-INSERT INTO orders (receipt_id, customer_id, table_num, menu_id, menu_name, menu_price, isClosedOut) values (2, 3, 1, 1, "Bruschetta", 11.99, 0);
-INSERT INTO orders (receipt_id, customer_id, table_num, menu_id, menu_name, menu_price, isClosedOut) values (3, 1, 2, 2, "Calamari", 14.99, 0);
-INSERT INTO orders (receipt_id, customer_id, table_num, menu_id, menu_name, menu_price, isClosedOut) values (1, 2, 4, 8, "Baklava", 9.99, 0);
-INSERT INTO orders (receipt_id, customer_id, table_num, menu_id, menu_name, menu_price, isClosedOut) values (2, 3, 1, 1, "Bruschetta", 11.99, 0);
-INSERT INTO orders (receipt_id, customer_id, table_num, menu_id, menu_name, menu_price, isClosedOut) values (1, 2, 4, 6, "Vegetable Lasagna", 21.99, 0);
+INSERT INTO orders (receipt_id, menu_id) values (1, 3);
+INSERT INTO orders (receipt_id, menu_id) values (1, 1);
+INSERT INTO orders (receipt_id, menu_id) values (1, 2);
+INSERT INTO orders (receipt_id, menu_id) values (2, 8);
+INSERT INTO orders (receipt_id, menu_id) values (3, 1);
+INSERT INTO orders (receipt_id, menu_id) values (3, 6);
+
+-- Testing update timestamps
+UPDATE inventory SET menu_price = 9.99 WHERE menu_id = 1
+UPDATE inventory SET menu_price = 9.99 WHERE menu_id = 1
+UPDATE inventory SET menu_price = 9.99 WHERE menu_id = 1
+UPDATE inventory SET menu_price = 9.99 WHERE menu_id = 1
