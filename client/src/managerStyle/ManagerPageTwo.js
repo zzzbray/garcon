@@ -2,11 +2,26 @@ import React from "react"
 import "./manager.css"
 import Form from "react-bootstrap/Form"
 
+
+// CSS Rules... literally
 const listGroup = {
   marginBottom: '1rem'
 };
 
-// style=margin-bottom: 1rem
+const displayBlock = {
+  display: 'block'
+};
+
+const twentyWidth = {
+  width: "20rem"
+};
+
+const TwentyHeightScroll = {
+  maxHeight: "20rem",
+  overflowY: "scroll"
+}
+
+
 
 function ManagerPageTwo(){
   return (
@@ -15,7 +30,8 @@ function ManagerPageTwo(){
 
     New Manager Page
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Garçon</a>
+    {/* Href tag needs to be added correctly on the line below to run without warnings */}
+    <a class="navbar-brand" href>Garçon</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -24,7 +40,8 @@ function ManagerPageTwo(){
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="#">Manager <span class="sr-only">(current)</span></a>
+        {/* Href tag needs to be added correctly on the line below to run without warnings */}
+          <a class="nav-link" href>Manager <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="sales.html">Sales</a>
@@ -38,6 +55,7 @@ function ManagerPageTwo(){
       </ul>
       <ul class="navbar-nav mr-right">
         <li class="nav-item">
+        {/* Href tag needs to be added correctly on the line below to run without warnings */}
           <a class="nav-link" href>Welcome, Doctor</a>
         </li>
         <li class="nav-item">
@@ -61,9 +79,12 @@ function ManagerPageTwo(){
               Update
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <li><a class="dropdown-item" type="button" data-toggle="modal" data-target="#addMenuItem">Add Menu
+              <li>
+                {/* Href tag needs to be added correctly on the line below to run without warnings */}
+                <a class="dropdown-item" type="button" data-toggle="modal" data-target="#addMenuItem" href>Add Menu
                   Item</a></li>
-              <a class="dropdown-item" type="button" data-toggle="modal" data-target="#addUser">Add Staff</a>
+                  {/* Href tag needs to be added correctly on the line below to run without warnings */}
+              <a class="dropdown-item" type="button" data-toggle="modal" data-target="#addUser" href>Add Staff</a>
             </div>
           </div>
         </div>
@@ -94,16 +115,16 @@ function ManagerPageTwo(){
             <a href="menuItems.html" class="list-group-item list-group-item-action">Menu Items</a>
             <a href="staff.html" class="list-group-item list-group-item-action">Staff</a>
           </div>
-          <div class="card border-secondary mb-4 " style="width: 20rem;">
+          <div class="card border-secondary mb-4 " style={twentyWidth}>
             <div class="card-header main-color-bg">Current Sales</div>
-            <div class="card-body text-secondary" style="max-height: 20rem; overflow-y: scroll">
+            <div class="card-body text-secondary" style={TwentyHeightScroll}>
               <h5 class="card-title">Sales:</h5>
             </div>
           </div>
         </div>
-        <div class="card border-secondary mb-4 " style="width: 20rem;">
+        <div class="card border-secondary mb-4 " style={twentyWidth}>
           <div class="card-header main-color-bg">Current Tables</div>
-          <div class="card-body text-secondary" style="max-height: 20rem; overflow-y: scroll">
+          <div class="card-body text-secondary" style={TwentyHeightScroll}>
             <h5 class="card-title">Number of Seated Tables:</h5>
             <p class="card-text">
               <strong>Table ID:</strong>
@@ -116,7 +137,7 @@ function ManagerPageTwo(){
             </p>
           </div>
         </div>
-        <div class="card border-secondary mb-4" style="width: 20rem;">
+        <div class="card border-secondary mb-4" style={twentyWidth}>
           <div class="card-header main-color-bg">Guest Checks</div>
           <div class="card-body text-secondary">
             <h5 class="card-title">Completed Tables</h5>
@@ -155,7 +176,7 @@ function ManagerPageTwo(){
           </div>
           <div class="form-group">
             <label>Type</label>
-            <select style="display: block" class="form-control">
+            <select style={displayBlock} class="form-control">
               <option value="Appetizer">Appetizer</option>
               <option value="Entrée">Entrée</option>
               <option value="Dessert">Dessert</option>
@@ -198,7 +219,7 @@ function ManagerPageTwo(){
             </div>
             <div class="form-group">
               <label>Position</label>
-              <select style="display: block" class="form-control">
+              <select style={displayBlock} class="form-control">
                 <option value="Manager">Manager</option>
                 <option value="Server">Server</option>
               </select>
