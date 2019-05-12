@@ -1,8 +1,5 @@
-import React from 'react';
-import Navbar from 'react-bootstrap/Navbar'
+import React from "react";
 import Nav from "react-bootstrap/Nav"
-import NavDropdown from "react-bootstrap/NavDropdown"
-import Col from "react-bootstrap/Col"
 
 
 function WaitstaffNavBar(){
