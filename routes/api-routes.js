@@ -26,28 +26,25 @@ module.exports = function(app) {
   });
 
   // GET route for waitstaff to pull active tables
-  app.get("/api/orders", function(req, res) {
-    db.Orders.findAll({
-      where: {
-        isClosedOut: false
-      }
+  app.get("/api/active-tables", function(req, res) {
+    db.Order.findAll({
+      where: {isClosedOut: false},
+      attributes: [[db.Sequelize.fn("DISTINCT", db.Sequelize.col("receipt_id")), "receipt_id"]],
+      order: [
+        ["receipt_id", "ASC"]
+      ]
     }).then(function(activeTables) {
       res.json(activeTables);
     });
   });
 
   // GET route for waitstaff to pull active tables
-  app.get("/api/current-tables", function(req, res) {
-    connection.query(SELECT_DISTINCT, function(err, queryResults) {
-      res.json(queryResults)
-    })
-  });
-
-  // GET route for waitstaff to pull active tables
-  app.get("/api/receipt-id", function(req, res) {
-    connection.query(SELECT_MAX_RECEIPT_ID, function(err, queryResults) {
-      res.json(queryResults)
-    })
+  app.get("/api/new-receipt-id", function(req, res) {
+    db.Order.findAll({
+      attributes: [[db.Sequelize.fn("MAX", db.Sequelize.col("receipt_id")), "receipt_id"]]
+    }).then(function(maxReceiptID) {
+      res.json(maxReceiptID);
+    });
   });
 
   // GET route for waitstaff to calculate current bill by receipt_id
