@@ -31,9 +31,3 @@ INSERT INTO orders (receipt_id, menu_id) values (1, 2);
 INSERT INTO orders (receipt_id, menu_id) values (2, 8);
 INSERT INTO orders (receipt_id, menu_id) values (3, 1);
 INSERT INTO orders (receipt_id, menu_id) values (3, 6);
-
--- Testing update timestamps
-UPDATE inventory SET menu_price = 9.99 WHERE menu_id = 1
-UPDATE inventory SET menu_price = 9.99 WHERE menu_id = 1
-UPDATE inventory SET menu_price = 9.99 WHERE menu_id = 1
-UPDATE inventory SET menu_price = 9.99 WHERE menu_id = 1
