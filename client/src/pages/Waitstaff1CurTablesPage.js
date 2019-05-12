@@ -4,6 +4,9 @@ import CurrentTablesComp from "../components/Waitstaff/CurrentTablesComp.js"
 import Nav from "react-bootstrap/Nav"
 import "./manager.css"
 
+const padthis={
+  paddingTop: "15px"
+}
 
 
 function Waitstaff1CurTablesPage(){
@@ -11,7 +14,7 @@ function Waitstaff1CurTablesPage(){
   <div>
     
     <WaitstaffNavBar />
-    <header id="header">
+    <header id="header" style={padthis}>
     <div class="container">
       <div class="row">
         <div class="col-sm-10">

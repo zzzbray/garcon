@@ -25,6 +25,10 @@ const moveOver ={
   padding: "20px"
 }
 
+const padthis={
+  paddingTop: "15px"
+}
+
 
 
 function ManagerPageTwo(){
@@ -69,7 +73,7 @@ function ManagerPageTwo(){
   </nav>
 
   {/* Header */}
-  <header id="header">
+  <header id="header" style={padthis}>
     <div class="container">
       <div class="row">
         <div class="col-sm-10">
