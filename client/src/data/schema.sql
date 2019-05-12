@@ -1,6 +1,6 @@
-DROP DATABASE IF EXISTS garcon_db;
-CREATE DATABASE garcon_db;
-USE garcon_db;
+DROP DATABASE IF EXISTS garcon_sequelize_db;
+CREATE DATABASE garcon_sequelize_db;
+USE garcon_sequelize_db;
 
 CREATE TABLE customers(
   customer_id INTEGER AUTO_INCREMENT NOT NULL,
