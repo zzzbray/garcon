@@ -25,5 +25,4 @@ function GuestResMakePage(){
   )
 }
 
-
 export default GuestResMakePage;

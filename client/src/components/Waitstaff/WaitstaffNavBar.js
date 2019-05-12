@@ -1,10 +1,8 @@
 import React from "react";
 import Nav from "react-bootstrap/Nav"
 
-
 function WaitstaffNavBar(){
   return (
-    
     <Nav class="navbar navbar-expand-lg navbar-dark bg-dark"> 
     {/* Href tag needs to be added correctly on the line below to run without warnings  */}
    <a class="navbar-brand" href="nowhere.js">Garçon</a>
@@ -15,20 +13,13 @@ function WaitstaffNavBar(){
    <div class="collapse navbar-collapse" id="navbarSupportedContent">
      <ul class="navbar-nav mr-auto">
        <li class="nav-item">
-       {/* Href tag needs to be added correctly on the line below to run without warnings */}
-         <a class="nav-link" href>Staff <span class="sr-only">(current)</span></a>
-       </li>
-       <li class="nav-item">
          <a class="nav-link" href="sales.html">Current Table</a>
-       </li>
-       <li class="nav-item">
-         <a class="nav-link" href="menuItems.html">Menu Items</a>
        </li>
      </ul>
      <ul class="navbar-nav mr-right">
        <li class="nav-item">
         {/* Href tag needs to be added correctly on the line below to run without warnings  */}
-         <a class="nav-link" href>Welcome, ServerA</a>
+         <a class="nav-link" href>Welcome, Server</a>
        </li>
        <li class="nav-item">
          <a class="nav-link" href="logout.html">Logout</a>
@@ -38,6 +29,5 @@ function WaitstaffNavBar(){
  </Nav>
   )
 }
-
 
 export default WaitstaffNavBar;

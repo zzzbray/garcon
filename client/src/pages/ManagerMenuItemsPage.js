@@ -1,6 +1,5 @@
 import React from "react"
 
-
 function ManagerMenuItemsPage(){
   return (
   <div>
@@ -13,6 +12,5 @@ function ManagerMenuItemsPage(){
   </div>
   )
 }
-
 
 export default ManagerMenuItemsPage;

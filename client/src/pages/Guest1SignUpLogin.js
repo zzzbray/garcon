@@ -11,5 +11,4 @@ function GuestSignUpLogInPage(){
   )
 }
 
-
 export default GuestSignUpLogInPage;

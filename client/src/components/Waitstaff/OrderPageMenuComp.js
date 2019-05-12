@@ -39,7 +39,7 @@ class MenuOrderComp extends Component {
     return (
       <div>
         <h3>
-          Menu Comp
+          Add to Order
         </h3>
         <Table striped bordered hover variant="dark">
           <thead>
@@ -65,7 +65,7 @@ class MenuOrderComp extends Component {
         <div>
           <p>Your Shopping Cart: {this.state.newOrders}</p>
         </div>
-        <Button variant="warning">Order</Button>
+            <Button variant="danger">Order</Button>
       </div>
     )
   }

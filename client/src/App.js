@@ -44,7 +44,7 @@ class App extends Component {
   // Components
   render() {
     // const { menu } = this.state;
-    
+  
     return (
       <div className="App">
         {/* <div> */}
@@ -54,11 +54,11 @@ class App extends Component {
           {/* <Guest1SignUpLogin /> */}
           {/* <Guest2ResMake /> */}
           {/* <Guest3ResConf /> */}
-          <ManagerPage />
+          {/* <ManagerPage /> */}
           {/* <ManagerMenuItemsPage /> */}
           {/* <Waitstaff1CurTablesPage /> */}
           {/* <Waitstaff2OrderPage menu={this.state.menu} /> */}
-          {/* <Waitstaff3ReceiptPage /> */}
+          <Waitstaff3ReceiptPage />
         {/* </div> */}
       </div>
     );
