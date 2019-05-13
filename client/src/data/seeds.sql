@@ -33,4 +33,4 @@ INSERT INTO orders (receipt_id, InventoryMenuId) values (3, 1);
 INSERT INTO orders (receipt_id, InventoryMenuId) values (3, 6);
 
 -- UPDATE TESTING
-UPDATE orders SET isClosedOut = true WHERE receipt_id = 3
+-- UPDATE orders SET isClosedOut = true WHERE receipt_id = 3
