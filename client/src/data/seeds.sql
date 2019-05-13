@@ -25,9 +25,12 @@ INSERT INTO reservations (customer_id, reservationDate, reservationTime, partySi
 INSERT INTO reservations (customer_id, reservationDate, reservationTime, partySize) values (3, "2019-05-08", "18:30", 10);
 
 -- Orders dummy data
-INSERT INTO orders (receipt_id, menu_id) values (1, 3);
-INSERT INTO orders (receipt_id, menu_id) values (1, 1);
-INSERT INTO orders (receipt_id, menu_id) values (1, 2);
-INSERT INTO orders (receipt_id, menu_id) values (2, 8);
-INSERT INTO orders (receipt_id, menu_id) values (3, 1);
-INSERT INTO orders (receipt_id, menu_id) values (3, 6);
+INSERT INTO orders (receipt_id, InventoryMenuId) values (1, 3);
+INSERT INTO orders (receipt_id, InventoryMenuId) values (1, 1);
+INSERT INTO orders (receipt_id, InventoryMenuId) values (1, 2);
+INSERT INTO orders (receipt_id, InventoryMenuId) values (2, 8);
+INSERT INTO orders (receipt_id, InventoryMenuId) values (3, 1);
+INSERT INTO orders (receipt_id, InventoryMenuId) values (3, 6);
+
+-- UPDATE TESTING
+UPDATE orders SET isClosedOut = true WHERE receipt_id = 3

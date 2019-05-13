@@ -25,6 +25,17 @@ module.exports = function(app) {
     });
   });
 
+  // GET route for waitstaff to pull active inventory
+  app.get("/api/bill/:id", function(req, res) {
+    db.Inventory.findOne({
+      where: {
+        menu_id: req.params.id
+      }
+    }).then(function(billItem) {
+      res.json(billItem);
+    });
+  });
+
   // GET route for waitstaff to pull active tables
   app.get("/api/active-tables", function(req, res) {
     db.Order.findAll({
@@ -53,6 +64,14 @@ module.exports = function(app) {
       include: [db.Order]
     }).then(inventories => {
       res.json(inventories);
+    });
+  });
+
+  // POST route for waitstaff to post orders to database
+  app.post("/api/new-order", function(req, res) {
+    db.Order.create(req.body).then(newOrderData => {
+      console.log(newOrderData);
+      res.json(newOrderData);
     });
   });
 
