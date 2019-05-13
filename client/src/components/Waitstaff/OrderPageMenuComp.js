@@ -9,32 +9,27 @@ class MenuOrderComp extends Component {
     this.state = {
       menu: [],
       newOrders: [],
-      cart: []
     }
   };
 
   getMenu = () => {
     fetch("http://localhost:3006/api/menu")
     .then(response => response.json())
-    .then(response => this.setState({ menu : response }, function() {console.log("Testing menu pull", this.state.menu)}));
+    .then(response => this.setState({ menu : response }));
   };
   
   getDetails = (id) => {
     let query="http://localhost:3006/api/bill/" + id;
     axios.get(query)
-    .then(response => this.setState({ newOrders : [...this.state.newOrders, response.data]}, function() {console.log("Testing", this.state.newOrders)}));
+    .then(response => this.setState({ newOrders : [...this.state.newOrders, response.data]}));
   };
 
   handleClick = event => {
-    // Destructure the name and value properties off of event.target
-    // Update the appropriate state
-    console.log("Clicked button id: ", event.target.id);
     const clickID = event.target.id.toString();
     this.getDetails(clickID);
   };
 
   orderButtonHandleClick = () => {
-    console.log("CLICKED");
     for (let i=0; i<this.state.newOrders.length; i++) {
       let newOrderData = {
         "receipt_id": 2,
@@ -42,15 +37,16 @@ class MenuOrderComp extends Component {
       };
       axios.post("http://localhost:3006/api/new-order", newOrderData)
     };
-    console.log("orderButton", this.state.newOrders)
   };
-
 
   // renderMenu function that takes in menu data (pulled from db in App.js) and dynamically
   // generates HTML to insert them into the table coded by this component.
-  // We call this function as the callback to the map function on line 32 below.
+  // We call this function as the callback to the map function on line 68 below.
   renderMenu = ({menu_id, menu_name, menu_price}) => <tr key={menu_id}><td>{menu_name}</td><td>{menu_price}</td><td><button id={menu_id} onClick={this.handleClick}>Add</button></td></tr>;
   
+  // renderCart function that takes in menu data and dynamically
+  // generates HTML to insert them into the table coded by this component.
+  // We call this function as the callback to the map function on line 95 below.
   renderCart = ({menu_id, menu_name}) => <tr key={menu_id}><td>{menu_id}</td><td>{menu_name}</td><td></td></tr>;
   
   componentDidMount() {
