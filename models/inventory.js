@@ -44,5 +44,9 @@ module.exports = function(sequelize, DataTypes) {
       freezeTableName: true
     }
   );
+
+  Inventory.associate = function(models) {
+    Inventory.hasMany(models.Order);
+  };
   return Inventory;
 };

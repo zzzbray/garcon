@@ -19,10 +19,10 @@ module.exports = function(sequelize, DataTypes) {
       //   type: DataTypes.INTEGER,
       //   allowNull: false
       // },
-      menu_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-      },
+      // menu_id: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: false
+      // },
       isClosedOut: {
         type: DataTypes.BOOLEAN,
         allowNull: false,
@@ -44,5 +44,10 @@ module.exports = function(sequelize, DataTypes) {
       timestamps: true
     }
   );
+
+  Order.associate = function(models) {
+    Order.belongsTo(models.Inventory);
+  };
+  
   return Order;
 };
