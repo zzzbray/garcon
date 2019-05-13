@@ -24,6 +24,11 @@ if (process.env.NODE_ENV === "production") {
 // Routes
 // =============================================================
 require("./routes/api-routes.js")(app);
+  //build mode
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/public/index.html'));
+})
+
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync().then(function() {
