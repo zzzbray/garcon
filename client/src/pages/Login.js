@@ -3,9 +3,16 @@ import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import "./login.css"
 
+
+
 class LoginPage extends Component {
   render() {
-    return <div>
+    return <div style={{  
+      backgroundImage: "url(" + "https://www.frenchtoday.com//assets/2015/12/french-food-good-manners.jpg" + ")",
+      backgroundPosition: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat'
+    }}>
         <div class="loginbox">
          {/* <h1>Garçon</h1> */}
         <form action="/api/signup" method="POST">
@@ -17,26 +24,7 @@ class LoginPage extends Component {
           <a href="index.html">Pick Your Pleasure</a>
         </form>
       </div> 
-    Sign Up Form */}
-      <Form>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else. Promise.
-          </Form.Text>
-        </Form.Group>
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
-        <Form.Group controlId="formBasicChecbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
+      
 </div>
   }
 }
