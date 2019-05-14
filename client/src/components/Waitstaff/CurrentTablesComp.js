@@ -20,17 +20,21 @@ class CurrentTablesComp extends Component {
     console.log("Clicked button id: ", event.target.id)
   };
 
+
+  //     this.setState({currentTables : [...this.state.currentTables, {receipt: this.state.activeOrders[x].receipt_id, check: this.state.billTotals[x] }]})
+
+
   getActiveTables = () => {
     fetch("http://localhost:3006/api/active-tables")
     .then(response => response.json())
-    .then(response => this.setState({ activeOrders : response }))
-    // .then(response => {
-    //   for (let a=0; a<response.length; a++) {
-    //     this.setState({ activeOrders : [...this.state.activeOrders, response[a].receipt_id]});  
-    //   };
-    //   // console.log("Bill test: ", check);
-    //   })
-    .then(() => console.log(this.state.activeOrders))
+    // .then(response => this.setState({ activeOrders : response }))
+    .then(response => {
+      for (let a=0; a<response.length; a++) {
+        this.setState({ activeOrders : [...this.state.activeOrders, {receipt_id: response[a].receipt_id}]});  
+      };
+      // console.log("Bill test: ", check);
+      })
+    .then(() => console.log("STATE TEST", this.state.activeOrders))
     .then(() => this.currentBill())
   };
   
@@ -48,21 +52,24 @@ class CurrentTablesComp extends Component {
       let queryString = "http://localhost:3006/api/get-bill/" + receiptID;
       axios.get(queryString)
       // .then(response => console.log("TESPONDFFG", response))
-      .then(response => this.calculateBill(response.data))
+      .then(response => this.calculateBill(response.data, m))
       // if (m===this.state.activeOrders.length-1) {
       //   this.joinReceipt();
       // }
     }
   };
 
-  calculateBill = (arr) => {
+  calculateBill = (arr, index) => {
     let check = 0;
     for (let k=0; k<arr.length; k++) {
       check += arr[k].Orders.length * arr[k].menu_price;
     };
     // console.log("Bill test: ", check);
-    this.setState({ billTotals : [...this.state.billTotals, check]});
-    console.log("Bill Totals from state: ", this.state.billTotals);
+    let activeOrdersCopy = this.state.activeOrders;
+    activeOrdersCopy[index].bill = check;
+    this.setState({activeOrders: activeOrdersCopy});
+    // this.setState({ billTotals : [...this.state.billTotals, check]});
+    // console.log("Bill Totals from state: ", this.state.billTotals);
     // this.joinReceipt()
   };
 
@@ -93,19 +100,19 @@ class CurrentTablesComp extends Component {
   // renderTable function that takes in orders data (pulled from db in App.js) and dynamically
   // generates HTML to insert them into the table coded by this component.
   // We call this function as the callback to the map function on line 32 below.
-  renderTables = ({receipt_id}) => <tr key={receipt_id}><td>{receipt_id}</td><td></td><td></td><td><button id={receipt_id} onClick={this.handleClick}>Update Order</button><button id={receipt_id} onClick={this.handleClick}>Close Out</button></td></tr>;
+  renderTables = ({receipt_id, bill}) => <tr key={receipt_id}><td>{receipt_id}</td><td></td><td>${bill}</td><td><button id={receipt_id} onClick={this.handleClick}>Update Order</button><button id={receipt_id} onClick={this.handleClick}>Close Out</button></td></tr>;
 
-  test = () => this.state.activeOrders.map((value, index) => {
-      let testContent = this.state.currentTables[index];
-      return (
-        <tr>
-          <td>{value}</td>
-          <td></td>
-          <td>{this.state.currentTables[index]}</td>
-          <td></td>
-        </tr>
-      );
-  });
+  // test = () => this.state.activeOrders.map((value, index) => {
+  //     let testContent = this.state.currentTables[index];
+  //     return (
+  //       <tr>
+  //         <td>{value}</td>
+  //         <td></td>
+  //         <td>{this.state.currentTables[index]}</td>
+  //         <td></td>
+  //       </tr>
+  //     );
+  // });
 
 
   render() {
