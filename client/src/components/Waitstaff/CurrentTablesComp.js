@@ -2,8 +2,7 @@
 
 import React, {Component} from 'react';
 import Table from "react-bootstrap/Table"
-import Button from "react-bootstrap/Button"
-
+// import Button from "react-bootstrap/Button"
 class CurrentTablesComp extends Component {
   constructor(props) {
     super();
@@ -20,7 +19,7 @@ class CurrentTablesComp extends Component {
   };
 
   getActiveTables = () => {
-    fetch("http://localhost:3006/api/current-tables")
+    fetch("http://localhost:3006/api/active-tables")
     .then(response => response.json())
     .then(response => this.setState({ activeOrders : response }))
     .then(() => this.newReceiptNum())
@@ -28,7 +27,7 @@ class CurrentTablesComp extends Component {
   
   // Use this function when "New Table" button is clicked
   newReceiptNum = () => {
-    fetch("http://localhost:3006/api/receipt-id")
+    fetch("http://localhost:3006/api/new-receipt-id")
     .then(response => response.json())
     .then(response => this.setState({ nextReceiptNum : response[0].receipt_id + 1 }, function() {console.log(this.state.orders)}));
   };

@@ -18,7 +18,7 @@ function OrderPageCurReceiptComp() {
           </tr>
         </tbody>
       </Table>
-      <Button variant="warning">View Receipt</Button>
+      <Button variant="danger">View Receipt</Button>
     </div>
   )
 }
