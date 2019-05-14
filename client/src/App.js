@@ -18,10 +18,10 @@ import ManagerMenuItemsPage from "./pages/ManagerMenuItemsPage"
 class App extends Component {
 
   // Testing State
-  state = {
-    menu: [],
-    // orders: []
-  }
+  // state = {
+  //   menu: [],
+  //   // orders: []
+  // }
 
   // componentDidMount() {
   //   this.getMenu();
@@ -35,11 +35,11 @@ class App extends Component {
   //   .then(response => this.setState({ menu: response }, function() {console.log("Testing menu pull", this.state.menu)}));
   // };
 
-  getOrders = () => {
-    fetch("http://localhost:3006/api/orders")
-    .then(response => response.json())
-    .then(response => this.setState({ orders : response }, function() {console.log("Testing orders pull", this.state.orders)}));
-  };
+  // getOrders = () => {
+  //   fetch("http://localhost:3006/api/orders")
+  //   .then(response => response.json())
+  //   .then(response => this.setState({ orders : response }, function() {console.log("Testing orders pull", this.state.orders)}));
+  // };
 
   // Components
   render() {
@@ -57,7 +57,7 @@ class App extends Component {
           <ManagerPage />
           {/* <ManagerMenuItemsPage /> */}
           {/* <Waitstaff1CurTablesPage /> */}
-          {/* <Waitstaff2OrderPage menu={this.state.menu} /> */}
+          {/* <Waitstaff2OrderPage /> */}
           {/* <Waitstaff3ReceiptPage /> */}
         {/* </div> */}
       </div>

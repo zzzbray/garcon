@@ -25,7 +25,7 @@ module.exports = function(app) {
     });
   });
 
-  // GET route for waitstaff to pull active inventory
+  // GET route for waitstaff to pull detailed inventory info based on menu_id
   app.get("/api/bill/:id", function(req, res) {
     db.Inventory.findOne({
       where: {
