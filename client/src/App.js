@@ -56,9 +56,9 @@ class App extends Component {
           {/* <Guest3ResConf /> */}
           {/* <ManagerPage /> */}
           {/* <ManagerMenuItemsPage /> */}
-          <Waitstaff1CurTablesPage />
+          {/* <Waitstaff1CurTablesPage /> */}
           {/* <Waitstaff2OrderPage /> */}
-          {/* <Waitstaff3ReceiptPage /> */}
+          <Waitstaff3ReceiptPage />
         {/* </div> */}
       </div>
     );
