@@ -1,6 +1,6 @@
 USE garcon_sequelize_db;
 
--- Replace with real inventory daata
+-- Replace with real inventory data
 INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Bruschetta", "Appetizers", 11.99, 50);
 INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Salmon", "Entrees", 28.99, 50);
 INSERT INTO inventory (menu_name, menu_category, menu_price, stock) values ("Beer", "Beverages", 14.99, 50);
