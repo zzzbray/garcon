@@ -36,6 +36,21 @@ module.exports = function(app) {
     });
   });
 
+  // GET route for waitstaff and manager pages to generate bills by receipt_id
+  app.get("/api/get-bill/:receipt", function(req, res) {
+    db.Inventory.findAll({
+      include: [{
+        model: db.Order,
+        where: {
+          receipt_id: req.params.receipt
+        }
+      }]
+    }).then(receipt => {
+      res.json(receipt);
+    });
+  });
+
+
   // GET route for waitstaff to pull active tables
   app.get("/api/active-tables", function(req, res) {
     db.Order.findAll({
