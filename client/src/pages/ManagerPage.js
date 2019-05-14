@@ -201,37 +201,37 @@ function ManagerPageTwo(){
   </div>
 
   {/* Add User */}
-  <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  <div className="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
+    <div className="modal-dialog" role="document">
+      <div className="modal-content">
         <Form>
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Add Staff</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <div className="modal-header">
+            <h5 className="modal-title" id="exampleModalLabel">Add Staff</h5>
+            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            <div class="form-group">
+          <div className="modal-body">
+            <div className="form-group">
               <label>Name</label>
-              <input type="text" class="form-control" placeholder="Name" />
+              <input type="text" className="form-control" placeholder="Name" />
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label>Position</label>
-              <select style={displayBlock} class="form-control">
+              <select style={displayBlock} className="form-control">
                 <option value="Manager">Manager</option>
                 <option value="Server">Server</option>
               </select>
             </div>
-            <div class="form-group">
+            <div className="form-group">
               <label>Login</label>
-              <input type="text" class="form-control" placeholder="Login" />
+              <input type="text" className="form-control" placeholder="Login" />
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-secondary">Save changes</button>
+          <div className="modal-footer">
+            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" className="btn btn-secondary">Save changes</button>
           </div>
       </Form>
       </div>
