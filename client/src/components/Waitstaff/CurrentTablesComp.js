@@ -10,7 +10,8 @@ class CurrentTablesComp extends Component {
     this.state = {
       activeOrders: [],
       nextReceiptNum: "",
-      billTotals: []
+      billTotals: [],
+      currentTables: []
     }
   };
 
@@ -25,6 +26,7 @@ class CurrentTablesComp extends Component {
     .then(response => response.json())
     .then(response => this.setState({ activeOrders : response }))
     .then(() => this.newReceiptNum())
+    // .then(() => this.joinReceipt())
   };
   
   // Use this function when "New Table" button is clicked
@@ -39,14 +41,10 @@ class CurrentTablesComp extends Component {
   currentBill = () => {
     console.log(this.state.activeOrders);
     for (let m=0; m<this.state.activeOrders.length; m++) {
-      // let m = 3;
       let receiptID = this.state.activeOrders[m].receipt_id;
       let queryString = "http://localhost:3006/api/get-bill/" + receiptID;
       axios.get(queryString)
-      // .then(response => console.log(this.state.activeOrders));
       .then(response => this.calculateBill(response.data))
-      // 
-      // .then(response => this.setState({ newOrders : [...this.state.newOrders, response.data]}));)
     }
   };
 
@@ -55,10 +53,19 @@ class CurrentTablesComp extends Component {
     for (let k=0; k<arr.length; k++) {
       check += arr[k].Orders.length * arr[k].menu_price;
     };
-    console.log("Bill test: ", check);
+    // console.log("Bill test: ", check);
     this.setState({ billTotals : [...this.state.billTotals, check]});
     console.log("Bill Totals from state: ", this.state.billTotals);
+    this.joinReceipt()
   };
+
+  joinReceipt = () => {
+    for (let x=0; x<this.state.activeOrders.length; x++) {
+      this.setState({currentTables : [...this.state.currentTables, {receipt: this.state.activeOrders[x].receipt_id, check: this.state.billTotals[x] }]})
+    }
+    // this.setState({currentTables : [{receipt: this.state.activeOrders[0].receipt_id, check: this.state.billTotals[0]}]})
+    console.log("JOINED?", this.state.currentTables)
+  }
 
   componentDidMount() {
     this.getActiveTables();
