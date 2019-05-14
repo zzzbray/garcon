@@ -5,19 +5,18 @@ import axios from "axios";
 // import Button from "react-bootstrap/Button";
 
 class CurrentTablesComp extends Component {
-  constructor(props) {
+  constructor() {
     super();
     this.state = {
       activeOrders: [],
       nextReceiptNum: "",
       billTotals: [],
-      currentTables: []
+      currentTables: [],
+      finalTables: []
     }
   };
 
   handleClick = event => {
-    // Destructure the name and value properties off of event.target
-    // Update the appropriate state
     console.log("Clicked button id: ", event.target.id)
   };
 
@@ -25,8 +24,14 @@ class CurrentTablesComp extends Component {
     fetch("http://localhost:3006/api/active-tables")
     .then(response => response.json())
     .then(response => this.setState({ activeOrders : response }))
-    .then(() => this.newReceiptNum())
-    // .then(() => this.joinReceipt())
+    // .then(response => {
+    //   for (let a=0; a<response.length; a++) {
+    //     this.setState({ activeOrders : [...this.state.activeOrders, response[a].receipt_id]});  
+    //   };
+    //   // console.log("Bill test: ", check);
+    //   })
+    .then(() => console.log(this.state.activeOrders))
+    .then(() => this.currentBill())
   };
   
   // Use this function when "New Table" button is clicked
@@ -34,17 +39,19 @@ class CurrentTablesComp extends Component {
     fetch("http://localhost:3006/api/new-receipt-id")
     .then(response => response.json())
     .then(response => this.setState({ nextReceiptNum : response[0].receipt_id + 1 }))
-    // .then(() => console.log(this.state.activeOrders));
-    .then(() => this.currentBill());
+    // .then(() => this.currentBill());
   };
 
   currentBill = () => {
-    console.log(this.state.activeOrders);
     for (let m=0; m<this.state.activeOrders.length; m++) {
       let receiptID = this.state.activeOrders[m].receipt_id;
       let queryString = "http://localhost:3006/api/get-bill/" + receiptID;
       axios.get(queryString)
+      // .then(response => console.log("TESPONDFFG", response))
       .then(response => this.calculateBill(response.data))
+      // if (m===this.state.activeOrders.length-1) {
+      //   this.joinReceipt();
+      // }
     }
   };
 
@@ -56,16 +63,26 @@ class CurrentTablesComp extends Component {
     // console.log("Bill test: ", check);
     this.setState({ billTotals : [...this.state.billTotals, check]});
     console.log("Bill Totals from state: ", this.state.billTotals);
-    this.joinReceipt()
+    // this.joinReceipt()
   };
 
-  joinReceipt = () => {
-    for (let x=0; x<this.state.activeOrders.length; x++) {
-      this.setState({currentTables : [...this.state.currentTables, {receipt: this.state.activeOrders[x].receipt_id, check: this.state.billTotals[x] }]})
-    }
-    // this.setState({currentTables : [{receipt: this.state.activeOrders[0].receipt_id, check: this.state.billTotals[0]}]})
-    console.log("JOINED?", this.state.currentTables)
-  }
+  // joinReceipt = () => {
+  //   for (let x=0; x<this.state.activeOrders.length; x++) {
+  //     this.setState({currentTables : [...this.state.currentTables, {receipt: this.state.activeOrders[x].receipt_id, check: this.state.billTotals[x] }]})
+  //   }
+  //   // this.setState({currentTables : [{receipt: this.state.activeOrders[0].receipt_id, check: this.state.billTotals[0]}]})
+  //   console.log("JOINED?", this.state.currentTables)
+  //   // this.dataManip()
+  // }
+
+  // dataManip = () => {
+  //   let numTables = this.state.activeOrders.length;
+  //   let joinLen = this.state.currentTables.length;
+  //   let firstIndex = numTables-joinLen;
+  //   for (let z=firstIndex; z<joinLen; z++) {
+  //     this.setState({finalTables : [...this.state.finalTables, {rec_id: this.state.currentTables[z].receipt, finalBill: this.state.currentTables[z].check }]})
+  //   }
+  // }
 
   componentDidMount() {
     this.getActiveTables();
@@ -77,6 +94,19 @@ class CurrentTablesComp extends Component {
   // generates HTML to insert them into the table coded by this component.
   // We call this function as the callback to the map function on line 32 below.
   renderTables = ({receipt_id}) => <tr key={receipt_id}><td>{receipt_id}</td><td></td><td></td><td><button id={receipt_id} onClick={this.handleClick}>Update Order</button><button id={receipt_id} onClick={this.handleClick}>Close Out</button></td></tr>;
+
+  test = () => this.state.activeOrders.map((value, index) => {
+      let testContent = this.state.currentTables[index];
+      return (
+        <tr>
+          <td>{value}</td>
+          <td></td>
+          <td>{this.state.currentTables[index]}</td>
+          <td></td>
+        </tr>
+      );
+  });
+
 
   render() {
     return (
@@ -94,6 +124,7 @@ class CurrentTablesComp extends Component {
           </thead>
           <tbody>
             {this.state.activeOrders.map(this.renderTables)}
+            {/* {this.test()} */}
             {/* <tr>
               <td>receipt_id</td>
               <td>$$</td>
