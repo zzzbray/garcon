@@ -16,8 +16,6 @@ class ReceiptPageReceiptComp extends Component {
     let receiptID = 1; // hard-coding this for now, ideally would pull from route
     let queryString = "http://localhost:3006/api/get-bill/" + receiptID;
     axios.get(queryString)
-    // .then(response => console.log(response.data))
-    // .then(response => this.calculateTotalBill(response.data))
     .then(response => this.setState({receipt_items:response.data}))
     .then(() => console.log(this.state.receipt_items))
     .then(() => this.calculateTotalBill())
@@ -33,11 +31,6 @@ class ReceiptPageReceiptComp extends Component {
     this.setState({totalCheck: tab});
     console.log(this.state.totalCheck);
   };
-//  getJoinedBill = () => {
-//     fetch("http://localhost:3006/api/joins")
-//     .then(response => response.json())
-//     .then(response => this.setState({ bill : response }, function() {console.log("Testing joined bill pull", this.state.bill)}));
-//   };
    
   componentDidMount() {
     this.currentBill();
@@ -59,16 +52,6 @@ class ReceiptPageReceiptComp extends Component {
           </thead>
           <tbody>
             {this.state.receipt_items.map(this.renderReceipt)}
-            {/* <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
-            <tr>
-              <td>Data</td>
-              <td>Data</td>
-              <td>Data</td>
-            </tr> */}
           </tbody>
         </Table>
         <h3>Total: ${this.state.totalCheck}</h3>

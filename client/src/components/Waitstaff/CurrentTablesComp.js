@@ -68,9 +68,7 @@ class CurrentTablesComp extends Component {
   componentDidMount() {
     this.getActiveTables();
   }
-
   
-
   // renderTable function that accepts bill data and dynamically
   // generates HTML to insert them into the table coded by this component.
   // We call this function as the callback to the map function on line 93 below.
