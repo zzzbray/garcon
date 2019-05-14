@@ -22,6 +22,10 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+// Passport
+app.use(passport.initialize())
+app.use(passport.session()) // calls the deserializeUser
+
 // Routes
 // =============================================================
 require("./routes/api-routes.js")(app);
