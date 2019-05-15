@@ -9,6 +9,7 @@ class ManagerPage extends Component {
     super();
     this.state = {
       activeOrders: [],
+      closedOrders: [],
       billTotals: [],
       currentTables: [],
       finalTables: []
@@ -24,11 +25,12 @@ class ManagerPage extends Component {
       for (let a=0; a<response.length; a++) {
         this.setState({ activeOrders : [...this.state.activeOrders, {receipt_id: response[a].receipt_id}]});
       }})
-    .then(() => this.currentBill())
+    .then(() => this.activeBill())
+    .then(() => this.getClosedTables())
   };
 
   // Function that queries the db again to retrieve full bill data for each receipt_id
-  currentBill = () => {
+  activeBill = () => {
     for (let m=0; m<this.state.activeOrders.length; m++) {
       let receiptID = this.state.activeOrders[m].receipt_id;
       let queryString = "http://localhost:3006/api/get-bill/" + receiptID;
@@ -49,6 +51,40 @@ class ManagerPage extends Component {
     this.setState({activeOrders: activeOrdersCopy});
   };
 
+  // Function that queries the database to find all closed tables
+  getClosedTables = () => {
+    fetch("http://localhost:3006/api/closed-tables")
+    .then(response => response.json())
+    .then(response => {
+      for (let b=0; b<response.length; b++) {
+        this.setState({ closedOrders : [...this.state.closedOrders, {receipt_id: response[b].receipt_id}]});
+      }})
+    .then(() => this.closedBill())
+  };
+
+  // Function that queries the db again to retrieve full bill data for each receipt_id
+  closedBill = () => {
+    for (let n=0; n<this.state.closedOrders.length; n++) {
+      let receiptID = this.state.closedOrders[n].receipt_id;
+      let queryString = "http://localhost:3006/api/get-bill/" + receiptID;
+      axios.get(queryString)
+      .then(response => this.calculateCheck(response.data, n))
+    }
+  };
+
+  // Function that processes data retrieved through API call and calculates the total bill
+  calculateCheck = (arr, index) => {
+    let check = 0;
+    for (let o=0; o<arr.length; o++) {
+      check += arr[o].Orders.length * arr[o].menu_price;
+    };
+    let tab = check.toFixed(2);
+    let closedOrdersCopy = this.state.closedOrders;
+    closedOrdersCopy[index].bill = tab;
+    this.setState({closedOrders: closedOrdersCopy});
+  };
+
+
   componentDidMount() {
     this.getActiveTables();
   };
@@ -57,6 +93,7 @@ class ManagerPage extends Component {
   // generates HTML to insert them into the table coded by this component.
   // We call this function as the callback to the map function on line 93 below.
   renderTables = ({receipt_id, bill}) => <tr key={receipt_id}><td>{receipt_id}</td><td>${bill}</td></tr>;
+
 
 
 
@@ -217,16 +254,19 @@ class ManagerPage extends Component {
           <div class="card border-secondary mb-4" style={this.twentyWidth}>
             <div class="card-header main-color-bg">Guest Checks</div>
             <div class="card-body text-secondary">
-              <h5 class="card-title">Completed Tables</h5>
-              <p class="card-text">
-                <strong>Table ID:</strong>
-                <ul>
-                  <li>Table 1</li>
-                  <li>Table 2</li>
-                  <li>Table 3</li>
-                  <li>Table 4</li>
-                </ul>
-              </p>
+              <Table striped bordered hover variant="dark">
+                <thead>
+                  <tr>
+                    <th>Receipt ID</th>
+                    <th>Final Bill</th>
+                    {/* <th>Order More</th>
+                    <th>Close Out</th> */}
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.state.closedOrders.map(this.renderTables)}
+                </tbody>
+              </Table>
             </div>
           </div>
         </div>
