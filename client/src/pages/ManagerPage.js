@@ -10,7 +10,7 @@ class ManagerPage extends Component {
     this.state = {
       activeOrders: [],
       closedOrders: [],
-      sales: 13
+      sales: 0
     }
   };
 
@@ -22,7 +22,8 @@ class ManagerPage extends Component {
     .then(response => {
       for (let a=0; a<response.length; a++) {
         this.setState({ activeOrders : [...this.state.activeOrders, {receipt_id: response[a].receipt_id}]});
-      }})
+      }
+    })
     .then(() => this.activeBill())
     .then(() => this.getClosedTables())
   };
