@@ -25,7 +25,7 @@ class App extends Component {
         {/* <div> */}
           {/* Routing will go here */}
           {/* <LandingPage /> */}
-          {/* <Login /> */}
+          <Login />
           {/* <Guest1SignUpLogin /> */}
           {/* <Guest2ResMake /> */}
           {/* <Guest3ResConf /> */}
@@ -33,7 +33,7 @@ class App extends Component {
           {/* <ManagerMenuItemsPage /> */}
           {/* <Waitstaff1CurTablesPage /> */}
           {/* <Waitstaff2OrderPage /> */}
-          <Waitstaff3ReceiptPage />
+          {/* <Waitstaff3ReceiptPage /> */}
         {/* </div> */}
       </div>
     );
