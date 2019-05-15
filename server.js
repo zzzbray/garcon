@@ -4,7 +4,8 @@ const mysql = require("mysql");
 const cors = require("cors");
 const db = require("./models");
 const path = require("path");
-const passport = require('./passport');
+const passport = require('passport');
+const session = require("express-session");
 
 // Config for express app
 var app = express();
