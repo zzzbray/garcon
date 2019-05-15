@@ -10,7 +10,7 @@ class ManagerPage extends Component {
     this.state = {
       activeOrders: [],
       closedOrders: [],
-      sales: 0
+      sales: 13
     }
   };
 
@@ -76,15 +76,15 @@ class ManagerPage extends Component {
     for (let o=0; o<arr.length; o++) {
       check += arr[o].Orders.length * arr[o].menu_price;
     };
-    let tab = check.toFixed(2);
+    let tab = parseFloat(check);
+    let tab_two = check.toFixed(2);
     let salesCopy = this.state.sales;
     salesCopy = salesCopy + tab;
     this.setState({sales: salesCopy});
     let closedOrdersCopy = this.state.closedOrders;
-    closedOrdersCopy[index].bill = tab;
+    closedOrdersCopy[index].bill = tab_two;
     this.setState({closedOrders: closedOrdersCopy});
   };
-
 
   componentDidMount() {
     this.getActiveTables();
@@ -219,14 +219,14 @@ class ManagerPage extends Component {
             <div class="card border-secondary mb-4" style={this.twentyWidth}>
               <div class="card-header main-color-bg" style={this.moveOver}>Current Sales</div>
               <div class="card-body text-secondary" style={this.TwentyHeightScroll}>
-                <h5 class="card-title">Sales: ${this.state.sales}</h5>
+                <h5 class="card-title">Sales: ${(this.state.sales).toFixed(2)}</h5>
               </div>
             </div>
           </div>
           <div class="card border-secondary mb-4 " style={this.twentyWidth}>
             <div class="card-header main-color-bg">Active Tables</div>
             <div class="card-body text-secondary" style={this.TwentyHeightScroll}>
-            <Table striped bordered hover variant="dark">
+            <Table striped bordered hover>
               <thead>
                 <tr>
                   <th>Receipt ID</th>
@@ -255,7 +255,7 @@ class ManagerPage extends Component {
           <div class="card border-secondary mb-4" style={this.twentyWidth}>
             <div class="card-header main-color-bg">Guest Checks</div>
             <div class="card-body text-secondary">
-              <Table striped bordered hover variant="dark">
+              <Table striped bordered hover>
                 <thead>
                   <tr>
                     <th>Receipt ID</th>
