@@ -4,10 +4,19 @@ import Button from "react-bootstrap/Button"
 import "./login.css"
 import Spaghetti from "./spaghettiman.jpg"
 
+
 class LoginPage extends Component {
   render() {
     return <section>
-      <img src={ Spaghetti } />
+      <img fluid className= "imgResponsive"
+        alt={"garcon!"}
+        style={{ 
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          overflow: 'hidden',
+}} 
+        src={ Spaghetti } />
         <div class="loginbox">
         <form action="/api/signup" method="POST">
           <p>Username</p>
