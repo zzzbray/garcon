@@ -24,14 +24,14 @@ class App extends Component {
       <div className="App">
         {/* <div> */}
           {/* Routing will go here */}
-          <LandingPage />
+          {/* <LandingPage /> */}
           {/* <Login /> */}
           {/* <Guest1SignUpLogin /> */}
           {/* <Guest2ResMake /> */}
           {/* <Guest3ResConf /> */}
           {/* <ManagerPage /> */}
           {/* <ManagerMenuItemsPage /> */}
-          {/* <Waitstaff1CurTablesPage /> */}
+          <Waitstaff1CurTablesPage />
           {/* <Waitstaff2OrderPage /> */}
           {/* <Waitstaff3ReceiptPage /> */}
         {/* </div> */}
