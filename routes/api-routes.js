@@ -34,7 +34,7 @@ module.exports = function(app) {
 
 
   app.get("/", function(req,res) {
-    res.send();
+    res.send("hello world");
   });
 
   // GET route for waitstaff to pull active inventory
