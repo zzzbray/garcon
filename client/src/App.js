@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Pages
 import LandingPage from "./pages/LandingPage"
@@ -21,21 +22,28 @@ class App extends Component {
   render() {
   
     return (
-      <div className="App">
-        {/* <div> */}
-          {/* Routing will go here */}
-          {/* <LandingPage /> */}
-          {/* <Login /> */}
-          {/* <Guest1SignUpLogin /> */}
-          {/* <Guest2ResMake /> */}
-          {/* <Guest3ResConf /> */}
-          <ManagerPage />
-          {/* <ManagerMenuItemsPage /> */}
-          {/* <Waitstaff1CurTablesPage /> */}
-          {/* <Waitstaff2OrderPage /> */}
-          {/* <Waitstaff3ReceiptPage /> */}
-        {/* </div> */}
-      </div>
+      <Router>
+        <div className="App">
+          <Switch>
+            <Route exact path="/waitstaff1" component={Waitstaff1CurTablesPage} />
+            <Route exact path="/waitstaff2" component={Waitstaff2OrderPage} />
+          
+          {/* <div> */}
+            {/* Routing will go here */}
+            {/* <LandingPage /> */}
+            {/* <Login /> */}
+            {/* <Guest1SignUpLogin /> */}
+            {/* <Guest2ResMake /> */}
+            {/* <Guest3ResConf /> */}
+            {/* <ManagerPage /> */}
+            {/* <ManagerMenuItemsPage /> */}
+            {/* <Waitstaff1CurTablesPage /> */}
+            {/* <Waitstaff2OrderPage /> */}
+            {/* <Waitstaff3ReceiptPage /> */}
+          {/* </div> */}
+          </Switch>
+        </div>
+      </Router>
     );
   }
 // }
