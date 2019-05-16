@@ -41,7 +41,6 @@ class ReceiptPageReceiptComp extends Component {
   render() {
     return (
       <div>
-        <div><h1>Current Receipt</h1></div>
         <br />
         <Table striped bordered hover variant="dark">
           <thead>
