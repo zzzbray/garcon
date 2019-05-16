@@ -12,7 +12,7 @@ function Waitstaff2OrderPage(props){
     <div class="container">
       <div class="row">
         <div class="col-md-12" >
-        <OrderPageCurReceiptComp />
+        {/* <OrderPageCurReceiptComp /> */}
         <OrderPageMenuComp receiptID={props.match.params.receiptNum} />
         </div>
       </div>
