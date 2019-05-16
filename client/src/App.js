@@ -29,9 +29,9 @@ class App extends Component {
           {/* <Guest1SignUpLogin /> */}
           {/* <Guest2ResMake /> */}
           {/* <Guest3ResConf /> */}
-          {/* <ManagerPage /> */}
+          <ManagerPage />
           {/* <ManagerMenuItemsPage /> */}
-          <Waitstaff1CurTablesPage />
+          {/* <Waitstaff1CurTablesPage /> */}
           {/* <Waitstaff2OrderPage /> */}
           {/* <Waitstaff3ReceiptPage /> */}
         {/* </div> */}

@@ -13,13 +13,14 @@ class MenuOrderComp extends Component {
   };
 
   getMenu = () => {
-    fetch("http://localhost:3006/api/menu")
-    .then(response => response.json())
-    .then(response => this.setState({ menu : response }));
+    axios.get("/api/menu")
+    // .then(response => response.json())
+    // .then((response) => console.log(response));
+    .then(response => this.setState({ menu : response.data }));
   };
   
   getDetails = (id) => {
-    let query="http://localhost:3006/api/bill/" + id;
+    let query="api/bill/" + id;
     axios.get(query)
     .then(response => this.setState({ newOrders : [...this.state.newOrders, response.data]}));
   };
