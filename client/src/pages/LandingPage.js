@@ -1,5 +1,5 @@
 import React from "react";
-import "./landingpage.css";
+// import "./landingpage.css";
 
 // This is Ryan's slick code
 // Logic is located below export
