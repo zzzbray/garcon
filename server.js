@@ -1,4 +1,5 @@
 // Require environment variables, express and database
+require('dotenv').config()
 const express = require("express");
 const mysql = require("mysql");
 const cors = require("cors");
@@ -30,6 +31,11 @@ app.use(passport.session()) // calls the deserializeUser
 // Routes
 // =============================================================
 require("./routes/api-routes.js")(app);
+  //build mode
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/public/index.html'));
+})
+
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync().then(function() {
