@@ -302,44 +302,6 @@ class ManagerPage extends Component {
   </div>
   </div>
 
-  {/* Add User */}
-  <div className="modal fade" id="addUser" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-    aria-hidden="true">
-    <div className="modal-dialog" role="document">
-      <div className="modal-content">
-        <Form>
-          <div className="modal-header">
-            <h5 className="modal-title" id="exampleModalLabel">Add Staff</h5>
-            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div className="modal-body">
-            <div className="form-group">
-              <label>Name</label>
-              <input type="text" className="form-control" placeholder="Name" />
-            </div>
-            <div className="form-group">
-              <label>Position</label>
-              <select style={this.displayBlock} className="form-control">
-                <option value="Manager">Manager</option>
-                <option value="Server">Server</option>
-              </select>
-            </div>
-            <div className="form-group">
-              <label>Login</label>
-              <input type="text" className="form-control" placeholder="Login" />
-            </div>
-          </div>
-          <div className="modal-footer">
-            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" className="btn btn-secondary">Save changes</button>
-          </div>
-        </Form>
-      </div>
-    </div>
-    </div>
-
     {/* Add User */}
     <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
       aria-hidden="true">
