@@ -25,9 +25,9 @@ class App extends Component {
       <Router>
         <div className="App">
           <Switch>
-            <Route exact path="/waitstaff1" component={Waitstaff1CurTablesPage} />
-            <Route exact path="/waitstaff2" component={Waitstaff2OrderPage} />
-          
+            <Route exact path="/current-tables" component={Waitstaff1CurTablesPage} />
+            <Route exact path="/order/:receiptNum" component={Waitstaff2OrderPage} />
+            <Route exact path="/receipt/:receiptNum" component={Waitstaff3ReceiptPage} />
           {/* <div> */}
             {/* Routing will go here */}
             {/* <LandingPage /> */}

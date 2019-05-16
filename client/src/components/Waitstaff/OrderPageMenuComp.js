@@ -9,6 +9,7 @@ class MenuOrderComp extends Component {
     this.state = {
       menu: [],
       newOrders: [],
+      receipt_id: props.receiptID
     }
   };
 
@@ -33,7 +34,7 @@ class MenuOrderComp extends Component {
   orderButtonHandleClick = () => {
     for (let i=0; i<this.state.newOrders.length; i++) {
       let newOrderData = {
-        "receipt_id": 3,
+        "receipt_id": this.state.receipt_id,
         "InventoryMenuId": this.state.newOrders[i].menu_id
       };
       axios.post("http://localhost:3006/api/new-order", newOrderData)
