@@ -1,36 +1,136 @@
-import React from "react"
-import "./manager.css"
-import Form from "react-bootstrap/Form"
+import React, {Component} from "react";
+import "./manager.css";
+import Form from "react-bootstrap/Form";
+import axios from "axios";
+import Table from "react-bootstrap/Table";
+
+class ManagerPage extends Component {
+  constructor(props) {
+    super();
+    this.state = {
+      activeOrders: [],
+      closedOrders: [],
+      sales: 0
+    }
+  };
+
+  // Function that queries the database to find all active tables (i.e. tables that have
+  // not yet been closed out)
+  getActiveTables = () => {
+    fetch("http://localhost:3006/api/active-tables")
+    .then(response => response.json())
+    .then(response => {
+      for (let a=0; a<response.length; a++) {
+        this.setState({ activeOrders : [...this.state.activeOrders, {receipt_id: response[a].receipt_id}]});
+      }
+    })
+    .then(() => this.activeBill())
+    .then(() => this.getClosedTables())
+  };
+
+  // Function that queries the db again to retrieve full bill data for each receipt_id
+  activeBill = () => {
+    for (let m=0; m<this.state.activeOrders.length; m++) {
+      let receiptID = this.state.activeOrders[m].receipt_id;
+      let queryString = "http://localhost:3006/api/get-bill/" + receiptID;
+      axios.get(queryString)
+      .then(response => this.calculateBill(response.data, m))
+    }
+  };
+
+  // Function that processes data retrieved through API call and calculates the total bill
+  calculateBill = (arr, index) => {
+    let check = 0;
+    for (let k=0; k<arr.length; k++) {
+      check += arr[k].Orders.length * arr[k].menu_price;
+    };
+    let tab = check.toFixed(2);
+    let activeOrdersCopy = this.state.activeOrders;
+    activeOrdersCopy[index].bill = tab;
+    this.setState({activeOrders: activeOrdersCopy});
+  };
+
+  // Function that queries the database to find all closed tables
+  getClosedTables = () => {
+    fetch("http://localhost:3006/api/closed-tables")
+    .then(response => response.json())
+    .then(response => {
+      for (let b=0; b<response.length; b++) {
+        this.setState({ closedOrders : [...this.state.closedOrders, {receipt_id: response[b].receipt_id}]});
+      }})
+    .then(() => this.closedBill())
+  };
+
+  // Function that queries the db again to retrieve full bill data for each receipt_id
+  closedBill = () => {
+    for (let n=0; n<this.state.closedOrders.length; n++) {
+      let receiptID = this.state.closedOrders[n].receipt_id;
+      let queryString = "http://localhost:3006/api/get-bill/" + receiptID;
+      axios.get(queryString)
+      .then(response => this.calculateCheck(response.data, n))
+    }
+  };
+
+  // Function that processes data retrieved through API call and calculates the total bill
+  calculateCheck = (arr, index) => {
+    let check = 0;
+    for (let o=0; o<arr.length; o++) {
+      check += arr[o].Orders.length * arr[o].menu_price;
+    };
+    let tab = parseFloat(check);
+    let tab_two = check.toFixed(2);
+    let salesCopy = this.state.sales;
+    salesCopy = salesCopy + tab;
+    this.setState({sales: salesCopy});
+    let closedOrdersCopy = this.state.closedOrders;
+    closedOrdersCopy[index].bill = tab_two;
+    this.setState({closedOrders: closedOrdersCopy});
+  };
+
+  componentDidMount() {
+    this.getActiveTables();
+  };
+
+  // renderTable function that accepts bill data and dynamically
+  // generates HTML to insert them into the table coded by this component.
+  // We call this function as the callback to the map function on line 93 below.
+  renderTables = ({receipt_id, bill}) => <tr key={receipt_id}><td>{receipt_id}</td><td>${bill}</td></tr>;
 
 
-// CSS Rules... literally
-const listGroup = {
-  marginBottom: '1rem'
-};
 
-const displayBlock = {
-  display: 'block'
-};
 
-const twentyWidth = {
-  width: "20rem"
-};
+  // ====================================
+  // CSS Rules... literally
+  listGroup = {
+    marginBottom: '1rem'
+  };
 
-const TwentyHeightScroll = {
-  maxHeight: "20rem",
-  overflowY: "scroll"
-}
+  displayBlock = {
+    display: 'block'
+  };
 
-const moveOver ={
-  padding: "20px"
-}
+  twentyWidth = {
+    width: "20rem"
+  };
 
-const padthis={
-  paddingTop: "15px"
-}
+  TwentyHeightScroll = {
+    maxHeight: "20rem",
+    overflowY: "scroll"
+  }
 
-function ManagerPageTwo(){
-  return (
+  moveOver ={
+    padding: "20px"
+  }
+
+  padthis={
+    paddingTop: "15px"
+  }
+  // CSS Rules (fin)
+  // ====================================
+  
+  render() {
+    return (
+      <div>
     <div>
   <div>
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -40,7 +140,7 @@ function ManagerPageTwo(){
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
     </button>
-    <div className="collapse navbar-collapse" style={twentyWidth} id="navbarSupportedContent">
+    <div className="collapse navbar-collapse" style={this.twentyWidth} id="navbarSupportedContent">
       <ul className="navbar-nav mr-auto">
         <li className="nav-item">
         {/* Href tag needs to be added correctly on the line below to run without warnings */}
@@ -69,7 +169,7 @@ function ManagerPageTwo(){
   </nav>
 
   {/* Header */}
-  <header id="header" style={padthis}>
+  <header id="header" style={this.padthis}>
     <div className="container">
       <div className="row">
         <div className="col-sm-10">
@@ -109,7 +209,7 @@ function ManagerPageTwo(){
     <div className="container">
       <div className="row">
         <div className="col-md-4" >
-          <div className="list-group" style={listGroup}>
+          <div className="list-group" style={this.listGroup}>
             <a href="manager.html" className="list-group-item list-group-item-action active main-color-bg"><i
                 className="fas fa-cog"></i>
               Manager
@@ -118,37 +218,44 @@ function ManagerPageTwo(){
             <a href="menuItems.html" className="list-group-item list-group-item-action">Menu Items</a>
             <a href="staff.html" className="list-group-item list-group-item-action">Staff</a>
           </div>
-          <div className="card border-secondary mb-4" style={twentyWidth}>
-            <div className="card-header main-color-bg" style={moveOver}>Current Sales</div>
-            <div className="card-body text-secondary" style={TwentyHeightScroll}>
-              <h5 className="card-title">Sales:</h5>
+          <div className="card border-secondary mb-4" style={this.twentyWidth}>
+            <div className="card-header main-color-bg" style={this.moveOver}>Current Sales</div>
+            <div className="card-body text-secondary" style={this.TwentyHeightScroll}>
+              <h5 className="card-title">Sales: ${(this.state.sales).toFixed(2)}</h5>
             </div>
           </div>
         </div>
-        <div className="card border-secondary mb-4 " style={twentyWidth}>
+        <div className="card border-secondary mb-4 " style={this.twentyWidth}>
           <div className="card-header main-color-bg">Current Tables</div>
-          <div className="card-body text-secondary" style={TwentyHeightScroll}>
+          <div className="card-body text-secondary" style={this.TwentyHeightScroll}>
             <h5 className="card-title">Number of Seated Tables:</h5>
-              <strong>Table ID:</strong>
-              <ul>
-                <li>Table 1</li>
-                <li>Table 2</li>
-                <li>Table 3</li>
-                <li>Table 4</li>
-              </ul>
+             <Table striped bordered hover>
+                <thead>
+                  <tr>
+                    <th>Receipt ID</th>
+                    <th>Current Bill</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.state.activeOrders.map(this.renderTables)}
+                </tbody>
+               </Table>          
           </div>
         </div>
-        <div className="card border-secondary mb-4" style={twentyWidth}>
+        <div className="card border-secondary mb-4" style={this.twentyWidth}>
           <div className="card-header main-color-bg">Guest Checks</div>
           <div className="card-body text-secondary">
-            <h5 className="card-title">Completed Tables</h5>
-              <strong>Table ID:</strong>
-              <ul>
-                <li>Table 1</li>
-                <li>Table 2</li>
-                <li>Table 3</li>
-                <li>Table 4</li>
-              </ul>
+            <Table striped bordered hover>
+                <thead>
+                  <tr>
+                    <th>Receipt ID</th>
+                    <th>Final Bill</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.state.closedOrders.map(this.renderTables)}
+                </tbody>
+              </Table>
           </div>
         </div>
       </div>
@@ -174,7 +281,7 @@ function ManagerPageTwo(){
           </div>
           <div className="form-group">
             <label>Type</label>
-            <select style={displayBlock} className="form-control">
+            <select style={this.displayBlock} className="form-control">
               <option value="Appetizer">Appetizer</option>
               <option value="Entrée">Entrée</option>
               <option value="Dessert">Dessert</option>
@@ -215,7 +322,7 @@ function ManagerPageTwo(){
             </div>
             <div className="form-group">
               <label>Position</label>
-              <select style={displayBlock} className="form-control">
+              <select style={this.displayBlock} className="form-control">
                 <option value="Manager">Manager</option>
                 <option value="Server">Server</option>
               </select>
@@ -229,12 +336,51 @@ function ManagerPageTwo(){
             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="button" className="btn btn-secondary">Save changes</button>
           </div>
-      </Form>
+        </div>
       </div>
     </div>
-  </div>
-  </div>
-  )
-}
+    </div>
 
-export default ManagerPageTwo;
+    {/* Add User */}
+    <div class="modal fade" id="addUser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <Form>
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Add Staff</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" class="form-control" placeholder="Name" />
+              </div>
+              <div class="form-group">
+                <label>Position</label>
+                <select style={this.displayBlock} class="form-control">
+                  <option value="Manager">Manager</option>
+                  <option value="Server">Server</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Login</label>
+                <input type="text" class="form-control" placeholder="Login" />
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-secondary">Save changes</button>
+            </div>
+        </Form>
+        </div>
+      </div>
+    </div>
+    </div>
+    );
+  };
+};
+
+export default ManagerPage;

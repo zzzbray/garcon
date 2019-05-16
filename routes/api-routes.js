@@ -65,6 +65,19 @@ module.exports = function(app) {
   });
 
   // GET route for waitstaff to pull active tables
+  app.get("/api/closed-tables", function(req, res) {
+    db.Order.findAll({
+      where: {isClosedOut: true},
+      attributes: [[db.Sequelize.fn("DISTINCT", db.Sequelize.col("receipt_id")), "receipt_id"]],
+      order: [
+        ["receipt_id", "ASC"]
+      ]
+    }).then(function(closedTables) {
+      res.json(closedTables);
+    });
+  });
+
+  // GET route for waitstaff to pull active tables
   app.get("/api/new-receipt-id", function(req, res) {
     db.Order.findAll({
       attributes: [[db.Sequelize.fn("MAX", db.Sequelize.col("receipt_id")), "receipt_id"]]
