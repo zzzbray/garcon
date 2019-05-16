@@ -8,13 +8,9 @@ function LandingPage(){
   return (
   <div className="container">
     <div className="split left">
-      <img>
-      </img>
       <a href="login.html" className="button"> Piggy</a>
     </div>
     <div className="split right">
-      <img>
-      </img>
       <a href="login.html" className="button"> Bully</a>
     </div>
   </div>

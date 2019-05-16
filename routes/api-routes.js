@@ -5,10 +5,33 @@
 // Dependencies (Requiring our models)
 // =============================================================
 var db = require("../models");
+var passport = require("../config/passport");
 
 // Routes
 // =============================================================
 module.exports = function(app) {
+
+   // POST route to send user login credentials to DB for authentication
+   app.post("/api/login", passport.authenticate("local"), function(req, res) {
+    res.redirect("/customer-home");
+  });
+
+   // POST route to send new user signup credentials to DB for future authentication.
+   app.post("/api/signup", function(req, res) {
+    console.log(req.body);
+    db.User.create({
+      email: req.body.email,
+      password: req.body.password
+    })
+      .then(function() {
+        res.redirect(307, "/api/login");
+      })
+      .catch(function(err) {
+        console.log(err);
+        res.json(err);
+      });
+  });
+
 
   app.get("/", function(req,res) {
     res.send("hello world");
@@ -61,6 +84,19 @@ module.exports = function(app) {
       ]
     }).then(function(activeTables) {
       res.json(activeTables);
+    });
+  });
+
+  // GET route for waitstaff to pull active tables
+  app.get("/api/closed-tables", function(req, res) {
+    db.Order.findAll({
+      where: {isClosedOut: true},
+      attributes: [[db.Sequelize.fn("DISTINCT", db.Sequelize.col("receipt_id")), "receipt_id"]],
+      order: [
+        ["receipt_id", "ASC"]
+      ]
+    }).then(function(closedTables) {
+      res.json(closedTables);
     });
   });
 
