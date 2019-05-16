@@ -130,7 +130,6 @@ class ManagerPage extends Component {
   
   render() {
     return (
-      <div>
     <div>
   <div>
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -336,7 +335,7 @@ class ManagerPage extends Component {
             <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
             <button type="button" className="btn btn-secondary">Save changes</button>
           </div>
-        </div>
+        </Form>
       </div>
     </div>
     </div>
