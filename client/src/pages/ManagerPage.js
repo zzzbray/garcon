@@ -132,184 +132,209 @@ class ManagerPage extends Component {
     return (
       <div>
     <div>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      {/* Href tag needs to be added correctly on the line below to run without warnings */}
-      <a class="navbar-brand" href="manager.html">Garçon</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" style={this.twentyWidth} id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item">
-          {/* Href tag needs to be added correctly on the line below to run without warnings */}
-            <a class="nav-link" href>Manager <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="sales.html">Sales</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="menuItems.html">Menu Items</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="staff.html">Staff</a>
-          </li>
-        </ul>
-        <ul class="navbar-nav mr-right">
-          <li class="nav-item">
-          {/* Href tag needs to be added correctly on the line below to run without warnings */}
-            <a class="nav-link" href>Welcome, Doctor</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="logout.html">Logout</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+  <div>
+    <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+    {/* Href tag needs to be added correctly on the line below to run without warnings */}
+    <a className="navbar-brand" href="manager.html">Garçon</a>
+    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span className="navbar-toggler-icon"></span>
+    </button>
+    <div className="collapse navbar-collapse" style={this.twentyWidth} id="navbarSupportedContent">
+      <ul className="navbar-nav mr-auto">
+        <li className="nav-item">
+        {/* Href tag needs to be added correctly on the line below to run without warnings */}
+          <a className="nav-link" href>Manager <span className="sr-only">(current)</span></a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="sales.html">Sales</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="menuItems.html">Menu Items</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="staff.html">Staff</a>
+        </li>
+      </ul>
+      <ul className="navbar-nav mr-right">
+        <li className="nav-item">
+        {/* Href tag needs to be added correctly on the line below to run without warnings */}
+          <a className="nav-link" href>Welcome, Doctor</a>
+        </li>
+        <li className="nav-item">
+          <a className="nav-link" href="logout.html">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-    {/* Header */}
-    <header id="header" style={this.padthis}>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-10">
-            <h2>Cochon Volant Brasserie</h2>
-          </div>
-          <div class="col-sm-2">
-            <div class="dropdown create">
-              <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
-                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Update
-              </button>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                <li>
+  {/* Header */}
+  <header id="header" style={this.padthis}>
+    <div className="container">
+      <div className="row">
+        <div className="col-sm-10">
+          <h2>Cochon Volant Brasserie</h2>
+        </div>
+        <div className="col-sm-2">
+          <div className="dropdown create">
+            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Update
+            </button>
+            <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <li>
+                {/* Href tag needs to be added correctly on the line below to run without warnings */}
+                <a className="dropdown-item" type="button" data-toggle="modal" data-target="#addMenuItem" href>Add Menu
+                  Item</a></li>
                   {/* Href tag needs to be added correctly on the line below to run without warnings */}
-                  <a class="dropdown-item" type="button" data-toggle="modal" data-target="#addMenuItem" href>Add Menu
-                    Item</a></li>
-                    {/* Href tag needs to be added correctly on the line below to run without warnings */}
-                <a class="dropdown-item" type="button" data-toggle="modal" data-target="#addUser" href>Add Staff</a>
-              </div>
+              <a className="dropdown-item" type="button" data-toggle="modal" data-target="#addUser" href>Add Staff</a>
             </div>
           </div>
         </div>
       </div>
-    </header>
+    </div>
+  </header>
 
-    {/* Breadcrumb */}
-    <section id="breadcrumb">
-      <div class="container">
-        <ol class="breadcrumb">
-          <li class="active">Manager</li>
-        </ol>
-      </div>
-    </section>
+   {/* Breadcrumb */}
+  <section id="breadcrumb">
+    <div className="container">
+      <ol className="breadcrumb">
+        <li className="active">Manager</li>
+      </ol>
+    </div>
+  </section>
 
-    {/* Manager Cards */}
-    <section id="main">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-4" >
-            <div class="list-group" style={this.listGroup}>
-              <a href="manager.html" class="list-group-item list-group-item-action active main-color-bg"><i
-                  class="fas fa-cog"></i>
-                Manager
-              </a>
-              <a href="sales.html" class="list-group-item list-group-item-action">Sales</a>
-              <a href="menuItems.html" class="list-group-item list-group-item-action">Menu Items</a>
-              <a href="staff.html" class="list-group-item list-group-item-action">Staff</a>
-            </div>
-            <div class="card border-secondary mb-4" style={this.twentyWidth}>
-              <div class="card-header main-color-bg" style={this.moveOver}>Current Sales</div>
-              <div class="card-body text-secondary" style={this.TwentyHeightScroll}>
-                <h5 class="card-title">Sales: ${(this.state.sales).toFixed(2)}</h5>
-              </div>
+  {/* Manager Cards */}
+  <section id="main">
+    <div className="container">
+      <div className="row">
+        <div className="col-md-4" >
+          <div className="list-group" style={this.listGroup}>
+            <a href="manager.html" className="list-group-item list-group-item-action active main-color-bg"><i
+                className="fas fa-cog"></i>
+              Manager
+            </a>
+            <a href="sales.html" className="list-group-item list-group-item-action">Sales</a>
+            <a href="menuItems.html" className="list-group-item list-group-item-action">Menu Items</a>
+            <a href="staff.html" className="list-group-item list-group-item-action">Staff</a>
+          </div>
+          <div className="card border-secondary mb-4" style={this.twentyWidth}>
+            <div className="card-header main-color-bg" style={this.moveOver}>Current Sales</div>
+            <div className="card-body text-secondary" style={this.TwentyHeightScroll}>
+              <h5 className="card-title">Sales: ${(this.state.sales).toFixed(2)}</h5>
             </div>
           </div>
-          <div class="card border-secondary mb-4 " style={this.twentyWidth}>
-            <div class="card-header main-color-bg">Active Tables</div>
-            <div class="card-body text-secondary" style={this.TwentyHeightScroll}>
+        </div>
+        <div className="card border-secondary mb-4 " style={this.twentyWidth}>
+          <div className="card-header main-color-bg">Current Tables</div>
+          <div className="card-body text-secondary" style={this.TwentyHeightScroll}>
+            <h5 className="card-title">Number of Seated Tables:</h5>
+             <Table striped bordered hover>
+                <thead>
+                  <tr>
+                    <th>Receipt ID</th>
+                    <th>Current Bill</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.state.activeOrders.map(this.renderTables)}
+                </tbody>
+               </Table>          
+          </div>
+        </div>
+        <div className="card border-secondary mb-4" style={this.twentyWidth}>
+          <div className="card-header main-color-bg">Guest Checks</div>
+          <div className="card-body text-secondary">
             <Table striped bordered hover>
-              <thead>
-                <tr>
-                  <th>Receipt ID</th>
-                  <th>Current Bill</th>
-                  {/* <th>Order More</th>
-                  <th>Close Out</th> */}
-                </tr>
-              </thead>
-              <tbody>
-                {this.state.activeOrders.map(this.renderTables)}
-              </tbody>
-            </Table>
-              
-              {/* <h5 class="card-title">Number of Seated Tables:</h5>
-              <p class="card-text">
-                <strong>Table ID:</strong>
-                <ul>
-                  <li>Table 1</li>
-                  <li>Table 2</li>
-                  <li>Table 3</li>
-                  <li>Table 4</li>
-                </ul>
-              </p> */}
-            </div>
-          </div>
-          <div class="card border-secondary mb-4" style={this.twentyWidth}>
-            <div class="card-header main-color-bg">Guest Checks</div>
-            <div class="card-body text-secondary">
-              <Table striped bordered hover>
                 <thead>
                   <tr>
                     <th>Receipt ID</th>
                     <th>Final Bill</th>
-                    {/* <th>Order More</th>
-                    <th>Close Out</th> */}
                   </tr>
                 </thead>
                 <tbody>
                   {this.state.closedOrders.map(this.renderTables)}
                 </tbody>
               </Table>
-            </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    {/* Modals */}
-    {/* Add Menu Item */}
-    <div class="modal fade" id="addMenuItem" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-      aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Add Menu Item</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  {/* Modals */}
+  {/* Add Menu Item */}
+  <div className="modal fade" id="addMenuItem" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div className="modal-dialog" role="document">
+      <div className="modal-content">
+        <div className="modal-header">
+          <h5 className="modal-title" id="exampleModalLabel">Add Menu Item</h5>
+          <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div className="modal-body">
+          <div className="form-group">
+            <label>Name</label>
+            <input type="text" className="form-control" placeholder="Name" />
+          </div>
+          <div className="form-group">
+            <label>Type</label>
+            <select style={this.displayBlock} className="form-control">
+              <option value="Appetizer">Appetizer</option>
+              <option value="Entrée">Entrée</option>
+              <option value="Dessert">Dessert</option>
+              <option value="Beverage">Beverage</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <label>Price</label>
+            <input type="number" step="0.01" min="0" className="form-control" placeholder="Price" />
+            {/* </textarea> */}
+          </div>
+        </div>
+        <div className="modal-footer">
+          <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" className="btn btn-secondary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  {/* Add User */}
+  <div className="modal fade" id="addUser" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div className="modal-dialog" role="document">
+      <div className="modal-content">
+        <Form>
+          <div className="modal-header">
+            <h5 className="modal-title" id="exampleModalLabel">Add Staff</h5>
+            <button type="button" className="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div class="modal-body">
-            <div class="form-group">
+          <div className="modal-body">
+            <div className="form-group">
               <label>Name</label>
-              <input type="text" class="form-control" placeholder="Name" />
+              <input type="text" className="form-control" placeholder="Name" />
             </div>
-            <div class="form-group">
-              <label>Type</label>
-              <select style={this.displayBlock} class="form-control">
-                <option value="Appetizer">Appetizer</option>
-                <option value="Entrée">Entrée</option>
-                <option value="Dessert">Dessert</option>
-                <option value="Beverage">Beverage</option>
+            <div className="form-group">
+              <label>Position</label>
+              <select style={this.displayBlock} className="form-control">
+                <option value="Manager">Manager</option>
+                <option value="Server">Server</option>
               </select>
             </div>
-            <div class="form-group">
-              <label>Price</label>
-              <input type="number" step="0.01" min="0" class="form-control" placeholder="Price" />
-              {/* </textarea> */}
+            <div className="form-group">
+              <label>Login</label>
+              <input type="text" className="form-control" placeholder="Login" />
             </div>
           </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-secondary">Save changes</button>
+          <div className="modal-footer">
+            <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" className="btn btn-secondary">Save changes</button>
           </div>
         </div>
       </div>
