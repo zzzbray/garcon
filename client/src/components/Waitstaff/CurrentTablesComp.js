@@ -76,7 +76,7 @@ class CurrentTablesComp extends Component {
   // renderTable function that accepts bill data and dynamically
   // generates HTML to insert them into the table coded by this component.
   // We call this function as the callback to the map function on line 93 below.
-  renderTables = ({receipt_id, bill}) => <tr key={receipt_id}><td>{receipt_id}</td><td>${bill}</td><td><button id={receipt_id}><Link to={"/order/" + receipt_id}>Update Order</Link></button><button id={receipt_id} onClick={this.handleClick}>Close Out</button></td></tr>;
+  renderTables = ({receipt_id, bill}) => <tr key={receipt_id}><td>{receipt_id}</td><td>${bill}</td><td><button id={receipt_id}><Link to={"/order/" + receipt_id}>Update Order</Link></button><button id={receipt_id}><Link to={"/receipt/" + receipt_id}>Close Out</Link></button></td></tr>;
 
   render() {
     return (
