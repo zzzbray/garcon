@@ -228,7 +228,6 @@ class ManagerPage extends Component {
         <div className="card border-secondary mb-4 " style={this.twentyWidth}>
           <div className="card-header main-color-bg">Current Tables</div>
           <div className="card-body text-secondary" style={this.TwentyHeightScroll}>
-            <h5 className="card-title">Number of Seated Tables:</h5>
              <Table striped bordered hover>
                 <thead>
                   <tr>
