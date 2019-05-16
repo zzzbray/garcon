@@ -5,6 +5,8 @@ const mysql = require("mysql");
 const cors = require("cors");
 const db = require("./models");
 const path = require("path");
+const passport = require('passport');
+const session = require("express-session");
 
 // Config for express app
 var app = express();
@@ -21,6 +23,10 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+// Passport
+app.use(passport.initialize())
+app.use(passport.session()) // calls the deserializeUser
 
 // Routes
 // =============================================================
