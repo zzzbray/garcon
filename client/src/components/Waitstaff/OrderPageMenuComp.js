@@ -21,13 +21,15 @@ class MenuOrderComp extends Component {
   };
   
   getDetails = (id) => {
-    let query="api/bill/" + id;
+    let query="/api/bill/" + id;
+    console.log("Get Details test", query);
     axios.get(query)
     .then(response => this.setState({ newOrders : [...this.state.newOrders, response.data]}));
   };
 
   handleClick = event => {
     const clickID = event.target.id.toString();
+    console.log(clickID);
     this.getDetails(clickID);
   };
 
