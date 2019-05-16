@@ -19,7 +19,7 @@ function WaitstaffNavBar(){
      <ul className="navbar-nav mr-right">
        <li className="nav-item">
         {/* Href tag needs to be added correctly on the line below to run without warnings  */}
-         <a className="nav-link" href>Welcome, Server</a>
+         <a className="nav-link" href="nowhere.js">Welcome, Server</a>
        </li>
        <li className="nav-item">
          <a className="nav-link" href="logout.html">Logout</a>
