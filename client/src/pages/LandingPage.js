@@ -23,22 +23,33 @@ export default LandingPage;
 
 // This doesn't work right now
 
-// const left = document.querySelector('.left');
-// const right = document.querySelector('.right');
-// const container = document.querySelector('.container');
+window.onload = function(){
+const left = document.querySelector('.left');
+const right = document.querySelector('.right');
+const container = document.querySelector('.container');
 
-// left.addEventListener('mouseenter', () => {
-//     container.classList.add('hover-left');
-// });
 
-// left.addEventListener('mouseleave', () => {
-//     container.classList.remove('hover-left');
-// });
+if (left){
+left.addEventListener('mouseenter', () => {
+    container.classList.add('hover-left');
+});
+};
 
-// right.addEventListener('mouseenter', () => {
-//     container.classList.add('hover-right');
-// });
+if (left){
+left.addEventListener('mouseleave', () => {
+    container.classList.remove('hover-left');
+});
+};
 
-// right.addEventListener('mouseleave', () => {
-//     container.classList.remove('hover-right');
-// });
+if (right){
+right.addEventListener('mouseenter', () => {
+    container.classList.add('hover-right');
+});
+};
+
+if (right){
+right.addEventListener('mouseleave', () => {
+    container.classList.remove('hover-right');
+});
+};
+};
