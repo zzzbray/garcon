@@ -13,8 +13,7 @@ class ReceiptPageReceiptComp extends Component {
   
   // Function that queries the db again to retrieve full bill data for each receipt_id
   currentBill = () => {
-    let receiptID = 1; // hard-coding this for now, ideally would pull from route
-    let queryString = "http://localhost:3006/api/get-bill/" + receiptID;
+    let queryString = "http://localhost:3006/api/get-bill/" + this.props.receiptID;
     axios.get(queryString)
     .then(response => this.setState({receipt_items:response.data}))
     .then(() => console.log(this.state.receipt_items))

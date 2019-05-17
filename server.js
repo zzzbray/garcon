@@ -7,6 +7,8 @@ const db = require("./models");
 const path = require("path");
 const passport = require('passport');
 const session = require("express-session");
+const router = require("express").Router();
+const apiRoutes = require("./routes/api-routes.js");
 
 // Config for express app
 var app = express();
@@ -25,16 +27,25 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // Passport
-app.use(passport.initialize())
-app.use(passport.session()) // calls the deserializeUser
+// app.use(passport.initialize())
+// app.use(passport.session()) // calls the deserializeUser
 
 // Routes
 // =============================================================
-require("./routes/api-routes.js")(app);
+// require("./routes/api-routes.js")(app);
   //build mode
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/client/public/index.html'));
-})
+
+// If no API routes are hit, send the React app
+// router.use(function(req, res) {
+//   res.sendFile(path.join(__dirname, "../client/public/index.html"));
+// });
+
+// API Routes
+app.use(apiRoutes);
+
+//   app.get('*', (req, res) => {
+//   res.sendFile(path.join(__dirname+'/client/public/index.html'));
+// })
 
 
 // Starting the server, syncing our models ------------------------------------/

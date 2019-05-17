@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import Table from "react-bootstrap/Table";
 import axios from "axios";
+import { Link } from "react-router-dom";
 // import Button from "react-bootstrap/Button";
 
 class CurrentTablesComp extends Component {
@@ -12,7 +13,8 @@ class CurrentTablesComp extends Component {
       nextReceiptNum: "",
       billTotals: [],
       currentTables: [],
-      finalTables: []
+      finalTables: [],
+      clickedTable: ""
     }
   };
 
@@ -20,7 +22,9 @@ class CurrentTablesComp extends Component {
   // for that specific order
   handleClick = event => {
     // I know how to grab the id
-    console.log("Clicked button id: ", event.target.id)
+    console.log("Clicked button id: ", event.target.id);
+    this.setState({clickedTable: event.target.id});
+
     // insert routing functionality here
   };
 
@@ -72,7 +76,7 @@ class CurrentTablesComp extends Component {
   // renderTable function that accepts bill data and dynamically
   // generates HTML to insert them into the table coded by this component.
   // We call this function as the callback to the map function on line 93 below.
-  renderTables = ({receipt_id, bill}) => <tr key={receipt_id}><td>{receipt_id}</td><td>${bill}</td><td><button id={receipt_id} onClick={this.handleClick}>Update Order</button><button id={receipt_id} onClick={this.handleClick}>Close Out</button></td></tr>;
+  renderTables = ({receipt_id, bill}) => <tr key={receipt_id}><td>{receipt_id}</td><td>${bill}</td><td><button id={receipt_id}><Link to={"/order/" + receipt_id}>Update Order</Link></button><button id={receipt_id}><Link to={"/receipt/" + receipt_id}>Close Out</Link></button></td></tr>;
 
   render() {
     return (

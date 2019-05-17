@@ -9,30 +9,34 @@ class MenuOrderComp extends Component {
     this.state = {
       menu: [],
       newOrders: [],
+      receipt_id: props.receiptID
     }
   };
 
   getMenu = () => {
-    fetch("http://localhost:3006/api/menu")
-    .then(response => response.json())
-    .then(response => this.setState({ menu : response }));
+    axios.get("/api/menu")
+    // .then(response => response.json())
+    // .then((response) => console.log(response));
+    .then(response => this.setState({ menu : response.data }));
   };
   
   getDetails = (id) => {
-    let query="http://localhost:3006/api/bill/" + id;
+    let query="/api/bill/" + id;
+    console.log("Get Details test", query);
     axios.get(query)
     .then(response => this.setState({ newOrders : [...this.state.newOrders, response.data]}));
   };
 
   handleClick = event => {
     const clickID = event.target.id.toString();
+    console.log(clickID);
     this.getDetails(clickID);
   };
 
   orderButtonHandleClick = () => {
     for (let i=0; i<this.state.newOrders.length; i++) {
       let newOrderData = {
-        "receipt_id": 3,
+        "receipt_id": this.state.receipt_id,
         "InventoryMenuId": this.state.newOrders[i].menu_id
       };
       axios.post("http://localhost:3006/api/new-order", newOrderData)
