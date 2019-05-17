@@ -17,6 +17,12 @@ function WaitstaffNavBar(){
          <a className="nav-link" href="sales.html">Current Table</a>
        </li>
         <li className="nav-item">
+        <Link className="nav-link" to="/order/:receiptNum">Order Page</Link>
+        </li>
+        <li className="nav-item">
+        <Link className="nav-link" to="/receipt/:receiptNum">Receipt Page</Link>
+        </li>
+        <li className="nav-item">
         <Link className="nav-link" to="/manager">Manager</Link>
         </li>
      </ul>
