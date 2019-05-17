@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import Table from "react-bootstrap/Table";
+import { Table, Button, Row, Col, Container } from "react-bootstrap";
 import axios from "axios";
 
 class ReceiptPageReceiptComp extends Component {
@@ -41,18 +41,25 @@ class ReceiptPageReceiptComp extends Component {
     return (
       <div>
         <br />
-        <Table striped bordered hover variant="dark">
-          <thead>
-            <tr>
-              <th>Item</th>
-              <th>Price</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.receipt_items.map(this.renderReceipt)}
-          </tbody>
-        </Table>
+        <Row>
+          <Table striped bordered hover variant="dark">
+            <thead>
+              <tr>
+                <th>Item</th>
+                <th>Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              {this.state.receipt_items.map(this.renderReceipt)}
+            </tbody>
+          </Table>
+        </Row>
+        <div>
+        </div>
         <h3>Total: ${this.state.totalCheck}</h3>
+        <Button variant="success" size="lg" block>
+          Cash Out
+        </Button>
       </div>
     );
   };
