@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import Table from "react-bootstrap/Table";
 import axios from "axios";
 import { Link } from "react-router-dom";
-// import Button from "react-bootstrap/Button";
+import Button from "react-bootstrap/Button";
 
 class CurrentTablesComp extends Component {
   constructor() {
@@ -27,6 +27,11 @@ class CurrentTablesComp extends Component {
 
     // insert routing functionality here
   };
+
+  // newTableHandleClick = () => {
+  //   this.newReceiptNum();
+  //   console.log(this.state.nextReceiptNum);
+  // };
 
   // Function that queries the database to find all active tables (i.e. tables that have
   // not yet been closed out)
@@ -67,10 +72,12 @@ class CurrentTablesComp extends Component {
     fetch("http://localhost:3006/api/new-receipt-id")
     .then(response => response.json())
     .then(response => this.setState({ nextReceiptNum : response[0].receipt_id + 1 }))
+    .then(() => console.log((this.state.nextReceiptNum)));
   };
 
   componentDidMount() {
     this.getActiveTables();
+    this.newReceiptNum();
   }
   
   // renderTable function that accepts bill data and dynamically
@@ -95,6 +102,11 @@ class CurrentTablesComp extends Component {
             {this.state.activeOrders.map(this.renderTables)}
           </tbody>
         </Table>
+          <Link to={"/order/" + this.state.nextReceiptNum}>
+            <Button variant="success" size="lg" block>
+              New Table
+            </Button>
+          </Link>
       </div>
     )  
   }

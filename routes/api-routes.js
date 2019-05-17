@@ -38,6 +38,17 @@ router.use("/api/menu", function(req, res) {
     });
   });
 
+  // GET route for waitstaff to pull active inventory
+  router.use("/api/stock/:id", function(req, res) {
+    db.Inventory.findOne({
+      where: {
+        menu_id: req.params.id
+      }
+    }).then(function(billItem) {
+      res.json(billItem.stock);
+    });
+  });
+
   // GET route for waitstaff and manager pages to generate bills by receipt_id
   router.use("/api/get-bill/:receipt", function(req, res) {
     db.Inventory.findAll({
@@ -104,6 +115,42 @@ router.use("/api/menu", function(req, res) {
       res.json(newOrderData);
     });
   });
+
+  // PUT route for waitstaff to close out a table in database
+  router.use("/api/closeout/:receipt", function(req, res) {
+    db.Order.update({
+      isClosedOut: true
+    }, {where: {receipt_id: req.params.receipt}
+    });
+  });
+
+
+  // PUT route to decrement inventory table in db
+  router.use("/api/inventory/:menuID", function(req, res) {
+    db.Inventory.update(req.body, {where: {menu_id: req.params.menuID }
+    });
+  });
+
+  // PUT route to decrement inventory table in db based on orders added
+  // router.use("/api/inventory/:menuID", function(req, res) {
+  //   db.Inventory.findOne({
+  //     where: { 
+  //       menu_id: req.params.menuID
+  //     }
+  //   }).then(dish => {
+  //     return dish.decrement("1"); // assumes `option` always exists
+  //   }).then(dish => {
+  //     return dish.reload();
+  //   }).then(dish => {
+  //     res.json(dish);
+  //   });
+    
+    
+  //   // db.Inventory.decrement([
+  //   //   "stock", "1"
+  //   // ],{where: {menu_id: req.params.menuID}}
+  //   // );
+  // });
 
   // // GET route for waitstaff to calculate current bill by receipt_id
   // app.get("/api/current-bill/:receipt-id", function(req, res) {

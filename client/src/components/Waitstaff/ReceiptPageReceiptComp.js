@@ -30,6 +30,13 @@ class ReceiptPageReceiptComp extends Component {
     this.setState({totalCheck: tab});
     console.log(this.state.totalCheck);
   };
+
+  // OnClick function for Close Out button to update receipt in Orders table by setting
+  // isClosedOut === true
+  handleClick = () => {
+    let updateURL = "/api/closeout/" + this.props.receiptID;
+    axios.put(updateURL);
+  };
    
   componentDidMount() {
     this.currentBill();
@@ -57,7 +64,7 @@ class ReceiptPageReceiptComp extends Component {
         <div>
         </div>
         <h3>Total: ${this.state.totalCheck}</h3>
-        <Button variant="success" size="lg" block>
+        <Button variant="success" size="lg" block onClick={this.handleClick}>
           Cash Out
         </Button>
       </div>
