@@ -34,3 +34,6 @@ INSERT INTO orders (receipt_id, InventoryMenuId) values (3, 6);
 
 -- UPDATE TESTING
 -- UPDATE orders SET isClosedOut = true WHERE receipt_id = 3
+
+INSERT INTO Users (email, password, isManager) values ("server@gmail.com", "garcon");
+INSERT INTO Users (email, password, isManager) values ("admin@gmail.com", "garcon", true);

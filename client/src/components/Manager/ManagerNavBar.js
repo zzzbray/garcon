@@ -1,5 +1,7 @@
 import React from 'react';
+import {Link} from "react-router-dom";
 import Nav from "react-bootstrap/Nav"
+
 
 function ManagerNavBar(){
   return (
@@ -13,18 +15,17 @@ function ManagerNavBar(){
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-        {/* Href tag needs to be added correctly on the line below to run without warnings */}
-          <a class="nav-link" href>Manager <span class="sr-only">(current)</span></a>
+      <li className="nav-item">
+         <a className="nav-link" href="sales.html">Current Table</a>
+       </li>
+        <li className="nav-item">
+        <Link className="nav-link" to="/order/:receiptNum">Order Page</Link>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="sales.html">Sales</a>
+        <li className="nav-item">
+        <Link className="nav-link" to="/receipt/:receiptNum">Receipt Page</Link>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="menuItems.html">Menu Items</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="staff.html">Staff</a>
+        <li className="nav-item">
+        <Link className="nav-link" to="/manager">Manager</Link>
         </li>
       </ul>
       <ul class="navbar-nav mr-right">

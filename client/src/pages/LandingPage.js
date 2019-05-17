@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 import "./landingpage.css";
 
 // This is Ryan's slick code
@@ -8,10 +9,12 @@ function LandingPage(){
   return (
   <div className="container">
     <div className="split left">
-      <a href="login.html" className="button"> Piggy</a>
+    <Link className="button" to="/login">Login</Link>
+      {/* <a href="login.html" className="button"> Piggy</a> */}
     </div>
     <div className="split right">
-      <a href="login.html" className="button"> Bully</a>
+    <Link className="button" to="/login">Login</Link>
+      {/* <a href="login.html" className="button"> Bully</a> */}
     </div>
   </div>
   )
