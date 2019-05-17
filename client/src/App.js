@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 // Pages
-// import LandingPage from "./pages/LandingPage"
-// import Login from "./pages/Login"
+import LandingPage from "./pages/LandingPage"
+import Login from "./pages/Login"
 // import Guest1SignUpLogin from "./pages/Guest1SignUpLogin";
 // import Guest2ResMake from "./pages/Guest2ResMake";
 // import Guest3ResConf from "./pages/Guest3ResConf";
@@ -25,6 +25,8 @@ class App extends Component {
       <Router>
         <div className="App">
           <Switch>
+            <Route exact path="/" component={LandingPage} /> 
+            <Route exact path="/login" component={Login} />   
             <Route exact path="/current-tables" component={Waitstaff1CurTablesPage} />
             <Route exact path="/order/:receiptNum" component={Waitstaff2OrderPage} />
             <Route exact path="/receipt/:receiptNum" component={Waitstaff3ReceiptPage} />
