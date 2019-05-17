@@ -24,8 +24,8 @@ class App extends Component {
       <div className="App">
         {/* <div> */}
           {/* Routing will go here */}
-          <LandingPage />
-          {/* <Login /> */}
+          {/* <LandingPage /> */}
+          <Login />
           {/* <Guest1SignUpLogin /> */}
           {/* <Guest2ResMake /> */}
           {/* <Guest3ResConf /> */}
