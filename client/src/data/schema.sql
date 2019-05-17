@@ -7,6 +7,4 @@ CREATE TABLE Users (
   email VARCHAR(255) NOT NULL UNIQUE,
   password VARCHAR(255) NOT NULL,
   isManager BOOLEAN NOT NULL DEFAULT false,
-  createdAt DATETIME NOT NULL,
-  updatedAt DATETIME NOT NULL,
   PRIMARY KEY (id))
