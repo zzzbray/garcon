@@ -1,5 +1,6 @@
 import React from "react";
-import Nav from "react-bootstrap/Nav"
+import Nav from "react-bootstrap/Nav";
+import {Link} from "react-router-dom";
 
 function WaitstaffNavBar(){
   return (
@@ -15,6 +16,9 @@ function WaitstaffNavBar(){
        <li className="nav-item">
          <a className="nav-link" href="sales.html">Current Table</a>
        </li>
+        <li className="nav-item">
+        <Link className="nav-link" to="/manager">Manager</Link>
+        </li>
      </ul>
      <ul className="navbar-nav mr-right">
        <li className="nav-item">
