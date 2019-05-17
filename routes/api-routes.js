@@ -117,25 +117,25 @@ module.exports = router;
 // module.exports = function(app) {
 
   // POST route to send user login credentials to DB for authentication
-  //  router.post("/api/login", passport.authenticate("local"), function(req, res) {
-  //   res.redirect("/current-tables");
-  // })
+   router.post("/api/login", passport.authenticate("local"), function(req, res) {
+    res.redirect("/current-tables");
+  })
 
   // POST route to send new user signup credentials to DB for future authentication.
-  // router.post("/api/signup", function(req, res) {
-  //   console.log(req.body);
-  //   db.User.create({
-  //     email: req.body.email,
-  //     password: req.body.password
-  //   })
-  //     .then(function() {
-  //       res.redirect(307, "/api/login");
-  //     })
-  //     .catch(function(err) {
-  //       console.log(err);
-  //       res.json(err);
-  //     });
-  // });
+  router.post("/api/signup", function(req, res) {
+    console.log(req.body);
+    db.User.create({
+      email: req.body.email,
+      password: req.body.password
+    })
+      .then(function() {
+        res.redirect(307, "/api/login");
+      })
+      .catch(function(err) {
+        console.log(err);
+        res.json(err);
+      });
+  });
 
 
   // app.get("/", function(req,res) {
