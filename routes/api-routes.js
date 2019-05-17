@@ -105,6 +105,14 @@ router.use("/api/menu", function(req, res) {
     });
   });
 
+  // PUT route for waitstaff to close out a table in database
+  router.use("/api/closeout/:receipt", function(req, res) {
+    db.Order.update({
+      isClosedOut: true
+    }, {where: {receipt_id: req.params.receipt }
+    });
+  });
+
   // // GET route for waitstaff to calculate current bill by receipt_id
   // app.get("/api/current-bill/:receipt-id", function(req, res) {
   //   connection.query(SELECT_BY_ID, {receipt_id: req.params.receipt-id}, function(err, queryResults) {
