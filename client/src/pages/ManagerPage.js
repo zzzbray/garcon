@@ -1,4 +1,5 @@
 import React, {Component} from "react";
+import {Link} from "react-router-dom";
 import "./manager.css";
 import Form from "react-bootstrap/Form";
 import axios from "axios";
@@ -135,7 +136,7 @@ class ManagerPage extends Component {
         <div>
           <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
           {/* Href tag needs to be added correctly on the line below to run without warnings */}
-          <a className="navbar-brand" href="manager.html">Garçon</a>
+          <a className="navbar-brand" href="#">Garçon</a>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
@@ -147,13 +148,13 @@ class ManagerPage extends Component {
                 <a className="nav-link" href>Manager <span className="sr-only">(current)</span></a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="sales.html">Sales</a>
+                <a className="nav-link" href="#">Sales</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="menuItems.html">Menu Items</a>
+                <a className="nav-link" href="#">Menu Items</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="staff.html">Staff</a>
+                <a className="nav-link" href="#">Staff</a>
               </li>
             </ul>
             <ul className="navbar-nav mr-right">
@@ -162,8 +163,8 @@ class ManagerPage extends Component {
                 <a className="nav-link" href>Welcome, Doctor</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="logout.html">Logout</a>
-              </li>
+        <Link className="nav-link" to="/">Logout</Link>
+        </li>
             </ul>
           </div>
         </nav>

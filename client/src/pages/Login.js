@@ -24,9 +24,10 @@ class LoginPage extends Component {
          <input type="text" name="email" placeholder="Enter Username" />
           <p>Your Password</p>
           <input type="password" name="password" placeholder="Enter Password" />
-          {/* <Link className="button" to="/current-tables">Login</Link> */}
+          <Link className="nav-link" to="/current-tables">Server Login</Link>
+          <Link className="nav-link" to="/manager">Manager Login</Link>
           <input type="submit" name="" value="Sign In" />
-          <a href="index.html">Pick Your Pleasure</a>
+          {/* <a href="index.html">Pick Your Pleasure</a> */}
          </form>
       </div> 
       

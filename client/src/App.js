@@ -25,8 +25,10 @@ class App extends Component {
       <Router>
         <div className="App">
           <Switch>
-            <Route exact path="/" component={LandingPage} /> 
-            <Route exact path="/login" component={Login} />   
+            {/* <Route exact path="/" component={LandingPage} /> 
+            <Route exact path="/login" component={Login} />    */}
+            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/login" component={Login}/>
             <Route exact path="/current-tables" component={Waitstaff1CurTablesPage} />
             <Route exact path="/order/:receiptNum" component={Waitstaff2OrderPage} />
             <Route exact path="/receipt/:receiptNum" component={Waitstaff3ReceiptPage} />
