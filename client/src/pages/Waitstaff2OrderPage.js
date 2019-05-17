@@ -9,9 +9,9 @@ function Waitstaff2OrderPage(props){
   <div>
     <WaitstaffNavBar />
     <Header />
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12" >
+    <div className="container">
+      <div className="row">
+        <div className="col-md-12" >
         {/* <OrderPageCurReceiptComp /> */}
         <OrderPageMenuComp receiptID={props.match.params.receiptNum} />
         </div>
