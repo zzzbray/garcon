@@ -113,6 +113,27 @@ router.use("/api/menu", function(req, res) {
     });
   });
 
+  // PUT route to decrement inventory table in db based on orders added
+  router.use("/api/inventory/:menuID", function(req, res) {
+    db.Inventory.findOne({
+      where: { 
+        menu_id: req.params.menuID
+      }
+    }).then(dish => {
+      return dish.decrement("1"); // assumes `option` always exists
+    }).then(dish => {
+      return dish.reload();
+    }).then(dish => {
+      res.json(dish);
+    });
+    
+    
+    // db.Inventory.decrement([
+    //   "stock", "1"
+    // ],{where: {menu_id: req.params.menuID}}
+    // );
+  });
+
   // // GET route for waitstaff to calculate current bill by receipt_id
   // app.get("/api/current-bill/:receipt-id", function(req, res) {
   //   connection.query(SELECT_BY_ID, {receipt_id: req.params.receipt-id}, function(err, queryResults) {

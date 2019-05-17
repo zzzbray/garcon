@@ -39,7 +39,9 @@ class MenuOrderComp extends Component {
         "receipt_id": this.state.receipt_id,
         "InventoryMenuId": this.state.newOrders[i].menu_id
       };
-      axios.post("http://localhost:3006/api/new-order", newOrderData)
+      // let menuItem = this.state.newOrders[i].menu_id;
+      axios.post("http://localhost:3006/api/new-order", newOrderData);
+      // axios.put("http://localhost:3006/api/inventory/" + menuItem);
     };
   };
 
