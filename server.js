@@ -17,7 +17,7 @@ var PORT = process.env.PORT || 3006;
 // Middleware to handle data parsing and establish static directory
 // to use static files (e.g. js and css files)
 app.use(cors());
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // app.use(express.static("client/public"));
 
