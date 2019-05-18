@@ -1,6 +1,5 @@
 import React, {Component} from "react";
-import Table from "react-bootstrap/Table";
-import Button from "react-bootstrap/Button";
+import {Table, Button } from "react-bootstrap";
 import axios from "axios";
 
 class MenuOrderComp extends Component {

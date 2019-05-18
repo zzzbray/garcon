@@ -1,9 +1,8 @@
 // This will be the table for Waitstaff to keep track of active tables
 import React, {Component} from 'react';
-import Table from "react-bootstrap/Table";
+import {Table, Button } from "react-bootstrap";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Button from "react-bootstrap/Button";
 
 class CurrentTablesComp extends Component {
   constructor() {
