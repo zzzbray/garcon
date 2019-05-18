@@ -35,7 +35,7 @@ class CurrentTablesComp extends Component {
   // Function that queries the database to find all active tables (i.e. tables that have
   // not yet been closed out)
   getActiveTables = () => {
-    fetch("http://localhost:3006/api/active-tables")
+    axios.get("http://localhost:3006/api/active-tables")
     .then(response => response.json())
     .then(response => {
       for (let a=0; a<response.length; a++) {
@@ -68,7 +68,7 @@ class CurrentTablesComp extends Component {
 
   // Use this function when "New Table" button is clicked
   newReceiptNum = () => {
-    fetch("http://localhost:3006/api/new-receipt-id")
+    axios.get("http://localhost:3006/api/new-receipt-id")
     .then(response => response.json())
     .then(response => this.setState({ nextReceiptNum : response[0].receipt_id + 1 }))
     .then(() => console.log((this.state.nextReceiptNum)));
