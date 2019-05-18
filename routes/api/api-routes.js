@@ -4,8 +4,8 @@
 
 // Dependencies (Requiring our models)
 // =============================================================
-const db = require("../models");
-var passport = require("../config/passport");
+const db = require("../../models");
+var passport = require("../../config/passport");
 const router = require("express").Router();
 const path = require("path");
 
@@ -17,7 +17,7 @@ const path = require("path");
 
 
 // GET route for waitstaff to pull active inventory
-router.use("/api/menu", function(req, res) {
+router.use("/menu", function(req, res) {
   db.Inventory.findAll({
     where: {
       isAvailable: true
@@ -28,7 +28,7 @@ router.use("/api/menu", function(req, res) {
 });
 
 // GET route for waitstaff to pull active inventory
-  router.use("/api/bill/:id", function(req, res) {
+  router.use("/bill/:id", function(req, res) {
     db.Inventory.findOne({
       where: {
         menu_id: req.params.id
@@ -39,7 +39,7 @@ router.use("/api/menu", function(req, res) {
   });
 
   // GET route for waitstaff to pull active inventory
-  router.use("/api/stock/:id", function(req, res) {
+  router.use("/stock/:id", function(req, res) {
     db.Inventory.findOne({
       where: {
         menu_id: req.params.id
@@ -50,7 +50,7 @@ router.use("/api/menu", function(req, res) {
   });
 
   // GET route for waitstaff and manager pages to generate bills by receipt_id
-  router.use("/api/get-bill/:receipt", function(req, res) {
+  router.use("/get-bill/:receipt", function(req, res) {
     db.Inventory.findAll({
       include: [{
         model: db.Order,
@@ -65,7 +65,7 @@ router.use("/api/menu", function(req, res) {
 
 
   // GET route for waitstaff to pull active tables
-  router.use("/api/active-tables", function(req, res) {
+  router.use("/active-tables", function(req, res) {
     db.Order.findAll({
       where: {isClosedOut: false},
       attributes: [[db.Sequelize.fn("DISTINCT", db.Sequelize.col("receipt_id")), "receipt_id"]],
@@ -78,7 +78,7 @@ router.use("/api/menu", function(req, res) {
   });
 
   // GET route for waitstaff to pull active tables
-  router.use("/api/closed-tables", function(req, res) {
+  router.use("/closed-tables", function(req, res) {
     db.Order.findAll({
       where: {isClosedOut: true},
       attributes: [[db.Sequelize.fn("DISTINCT", db.Sequelize.col("receipt_id")), "receipt_id"]],
@@ -91,7 +91,7 @@ router.use("/api/menu", function(req, res) {
   });
 
   // GET route for waitstaff to pull active tables
-  router.use("/api/new-receipt-id", function(req, res) {
+  router.use("/new-receipt-id", function(req, res) {
     db.Order.findAll({
       attributes: [[db.Sequelize.fn("MAX", db.Sequelize.col("receipt_id")), "receipt_id"]]
     }).then(function(maxReceiptID) {
@@ -100,7 +100,7 @@ router.use("/api/menu", function(req, res) {
   });
 
   // GET route to test Sequelize associations
-  router.use("/api/joins", function(req, res) {
+  router.use("/joins", function(req, res) {
     db.Inventory.findAll({
       include: [db.Order]
     }).then(inventories => {
@@ -109,7 +109,7 @@ router.use("/api/menu", function(req, res) {
   });
 
   // POST route for waitstaff to post orders to database
-  router.use("/api/new-order", function(req, res) {
+  router.use("/new-order", function(req, res) {
     db.Order.create(req.body).then(newOrderData => {
       console.log(newOrderData);
       res.json(newOrderData);
@@ -117,7 +117,7 @@ router.use("/api/menu", function(req, res) {
   });
 
   // PUT route for waitstaff to close out a table in database
-  router.use("/api/closeout/:receipt", function(req, res) {
+  router.use("/closeout/:receipt", function(req, res) {
     db.Order.update({
       isClosedOut: true
     }, {where: {receipt_id: req.params.receipt}
@@ -126,7 +126,7 @@ router.use("/api/menu", function(req, res) {
 
 
   // PUT route to decrement inventory table in db
-  router.use("/api/inventory/:menuID", function(req, res) {
+  router.use("/inventory/:menuID", function(req, res) {
     db.Inventory.update(req.body, {where: {menu_id: req.params.menuID }
     });
   });
