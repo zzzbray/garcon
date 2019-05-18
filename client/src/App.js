@@ -7,7 +7,8 @@ import Login from "./pages/Login"
 import Waitstaff1CurTablesPage from "./pages/Waitstaff1CurTablesPage";
 import Waitstaff2OrderPage from "./pages/Waitstaff2OrderPage";
 import Waitstaff3ReceiptPage from "./pages/Waitstaff3ReceiptPage";
-import ManagerPage from "./pages/ManagerPage"
+import ManagerPage from "./pages/ManagerPage";
+import NoMatch from "./pages/NoMatch";
 import './App.css';
 
 class App extends Component {
@@ -27,6 +28,7 @@ class App extends Component {
             <Route exact path="/order/:receiptNum" component={Waitstaff2OrderPage} />
             <Route exact path="/receipt/:receiptNum" component={Waitstaff3ReceiptPage} />
             <Route exact path="/manager" component={ManagerPage} />
+            <Route component={NoMatch} />
           {/* <div> */}
             {/* Routing will go here */}
             {/* <LandingPage /> */}

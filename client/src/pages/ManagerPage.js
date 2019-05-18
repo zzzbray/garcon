@@ -17,7 +17,7 @@ class ManagerPage extends Component {
   // Function that queries the database to find all active tables (i.e. tables that have
   // not yet been closed out)
   getActiveTables = () => {
-    fetch("http://localhost:3006/api/active-tables")
+    fetch("/api/active-tables")
     .then(response => response.json())
     .then(response => {
       for (let a=0; a<response.length; a++) {
@@ -32,7 +32,7 @@ class ManagerPage extends Component {
   activeBill = () => {
     for (let m=0; m<this.state.activeOrders.length; m++) {
       let receiptID = this.state.activeOrders[m].receipt_id;
-      let queryString = "http://localhost:3006/api/get-bill/" + receiptID;
+      let queryString = "/api/get-bill/" + receiptID;
       axios.get(queryString)
       .then(response => this.calculateBill(response.data, m))
     }
@@ -52,7 +52,7 @@ class ManagerPage extends Component {
 
   // Function that queries the database to find all closed tables
   getClosedTables = () => {
-    fetch("http://localhost:3006/api/closed-tables")
+    fetch("/api/closed-tables")
     .then(response => response.json())
     .then(response => {
       for (let b=0; b<response.length; b++) {
@@ -65,7 +65,7 @@ class ManagerPage extends Component {
   closedBill = () => {
     for (let n=0; n<this.state.closedOrders.length; n++) {
       let receiptID = this.state.closedOrders[n].receipt_id;
-      let queryString = "http://localhost:3006/api/get-bill/" + receiptID;
+      let queryString = "/api/get-bill/" + receiptID;
       axios.get(queryString)
       .then(response => this.calculateCheck(response.data, n))
     }
@@ -162,7 +162,7 @@ class ManagerPage extends Component {
                 <a className="nav-link" href>Welcome, Doctor</a>
               </li>
               <li className="nav-item">
-        <Link className="nav-link" to="/">Logout</Link>
+        <Link className="nav-link" to="/login">Logout</Link>
         </li>
             </ul>
           </div>
