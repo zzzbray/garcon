@@ -19,7 +19,7 @@ class LoginPage extends Component {
             backgroundSize: "cover"
           }}
       />
-        <div class="loginbox">
+        <div className="loginbox">
         <form>
           <p>Username</p>
          <input type="text" name="email" placeholder="Enter Username" />
