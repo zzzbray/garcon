@@ -162,7 +162,7 @@ class ManagerPage extends Component {
                 <a className="nav-link" href>Welcome, Doctor</a>
               </li>
               <li className="nav-item">
-        <Link className="nav-link" to="/">Logout</Link>
+        <Link className="nav-link" to="/login">Logout</Link>
         </li>
             </ul>
           </div>
