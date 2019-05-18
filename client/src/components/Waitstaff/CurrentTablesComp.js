@@ -1,58 +1,89 @@
 // This will be the table for Waitstaff to keep track of active tables
-
 import React, {Component} from 'react';
-import Table from "react-bootstrap/Table"
-// import Button from "react-bootstrap/Button"
+import Table from "react-bootstrap/Table";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import Button from "react-bootstrap/Button";
+
 class CurrentTablesComp extends Component {
-  constructor(props) {
+  constructor() {
     super();
     this.state = {
       activeOrders: [],
-      nextReceiptNum: ""
+      nextReceiptNum: "",
+      billTotals: [],
+      currentTables: [],
+      finalTables: [],
+      clickedTable: ""
     }
   };
 
+  // Still need to add functionality to capture clicked id and route to Waitstaff page 2
+  // for that specific order
   handleClick = event => {
-    // Destructure the name and value properties off of event.target
-    // Update the appropriate state
-    console.log("Clicked button id: ", event.target.id)
+    // I know how to grab the id
+    console.log("Clicked button id: ", event.target.id);
+    this.setState({clickedTable: event.target.id});
+
+    // insert routing functionality here
   };
 
+  // newTableHandleClick = () => {
+  //   this.newReceiptNum();
+  //   console.log(this.state.nextReceiptNum);
+  // };
+
+  // Function that queries the database to find all active tables (i.e. tables that have
+  // not yet been closed out)
   getActiveTables = () => {
     fetch("http://localhost:3006/api/active-tables")
     .then(response => response.json())
-    .then(response => this.setState({ activeOrders : response }))
-    .then(() => this.newReceiptNum())
+    .then(response => {
+      for (let a=0; a<response.length; a++) {
+        this.setState({ activeOrders : [...this.state.activeOrders, {receipt_id: response[a].receipt_id}]});
+      }})
+    .then(() => this.currentBill())
   };
   
+  // Function that queries the db again to retrieve full bill data for each receipt_id
+  currentBill = () => {
+    for (let m=0; m<this.state.activeOrders.length; m++) {
+      let receiptID = this.state.activeOrders[m].receipt_id;
+      let queryString = "http://localhost:3006/api/get-bill/" + receiptID;
+      axios.get(queryString)
+      .then(response => this.calculateBill(response.data, m))
+    }
+  };
+
+  // Function that processes data retrieved through API call and calculates the total bill
+  calculateBill = (arr, index) => {
+    let check = 0;
+    for (let k=0; k<arr.length; k++) {
+      check += arr[k].Orders.length * arr[k].menu_price;
+    };
+    let tab = check.toFixed(2);
+    let activeOrdersCopy = this.state.activeOrders;
+    activeOrdersCopy[index].bill = tab;
+    this.setState({activeOrders: activeOrdersCopy});
+  };
+
   // Use this function when "New Table" button is clicked
   newReceiptNum = () => {
     fetch("http://localhost:3006/api/new-receipt-id")
     .then(response => response.json())
-    .then(response => this.setState({ nextReceiptNum : response[0].receipt_id + 1 }, function() {console.log(this.state.orders)}));
+    .then(response => this.setState({ nextReceiptNum : response[0].receipt_id + 1 }))
+    .then(() => console.log((this.state.nextReceiptNum)));
   };
-
-  // ==============================
-  // PUTTING THIS ON HOLD FOR NOW
-  // ==============================
-  // currentBill = () => {
-  //   for (let i=0; i<this.state.maxReceiptNum; i++) {
-  //     fetch("/api/current-bill/", i)
-  //     .then(response => response.json())
-  //     // .then(response => this.setState({ bill : "erge"}))
-  //   }
-  // };
 
   componentDidMount() {
     this.getActiveTables();
+    this.newReceiptNum();
   }
-
   
-
-  // renderTable function that takes in orders data (pulled from db in App.js) and dynamically
+  // renderTable function that accepts bill data and dynamically
   // generates HTML to insert them into the table coded by this component.
-  // We call this function as the callback to the map function on line 32 below.
-  renderTables = ({entry_id, receipt_id}) => <tr key={entry_id}><td>{receipt_id}</td><td></td><td></td><td><button id={receipt_id} onClick={this.handleClick}>Update Order</button><button id={receipt_id} onClick={this.handleClick}>Close Out</button></td></tr>;
+  // We call this function as the callback to the map function on line 93 below.
+  renderTables = ({receipt_id, bill}) => <tr key={receipt_id}><td>{receipt_id}</td><td>${bill}</td><td><button id={receipt_id}><Link to={"/order/" + receipt_id}>Update Order</Link></button><button id={receipt_id}><Link to={"/receipt/" + receipt_id}>Close Out</Link></button></td></tr>;
 
   render() {
     return (
@@ -61,8 +92,7 @@ class CurrentTablesComp extends Component {
           <thead>
             <tr>
               <th>Receipt ID</th>
-              <th>Table</th>
-              <th>Current Bill (FF)</th>
+              <th>Current Bill</th>
               <th>Actions</th>
               {/* <th>Order More</th>
               <th>Close Out</th> */}
@@ -70,14 +100,13 @@ class CurrentTablesComp extends Component {
           </thead>
           <tbody>
             {this.state.activeOrders.map(this.renderTables)}
-            {/* <tr>
-              <td>receipt_id</td>
-              <td>$$</td>
-              <td><Button /></td>
-              <td><Button /> </td>
-            </tr> */}
           </tbody>
         </Table>
+          <Link to={"/order/" + this.state.nextReceiptNum}>
+            <Button variant="success" size="lg" block>
+              New Table
+            </Button>
+          </Link>
       </div>
     )  
   }

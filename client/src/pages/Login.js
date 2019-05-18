@@ -1,43 +1,37 @@
 import React, { Component } from "react";
+import {Link} from "react-router-dom";
 import Form from "react-bootstrap/Form"
 import Button from "react-bootstrap/Button"
 import "./login.css"
+import Spaghetti from "./spaghettiman.jpg"
+
 
 class LoginPage extends Component {
   render() {
-    return <div>
+    return <section>
+      <img fluid className= "imgResponsive"
+        alt={"garcon!"}
+        style={{ 
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          backgroundRepeat: 'no-repeat',
+          overflow: 'hidden',
+}} 
+        src={ Spaghetti } />
         <div class="loginbox">
-         {/* <h1>Garçon</h1> */}
-        <form action="/api/signup" method="POST">
+        <form action="/api/login" method="POST">
           <p>Username</p>
          <input type="text" name="email" placeholder="Enter Username" />
           <p>Your Password</p>
           <input type="password" name="password" placeholder="Enter Password" />
+          <Link className="nav-link" to="/current-tables">Server Login</Link>
+          <Link className="nav-link" to="/manager">Manager Login</Link>
           <input type="submit" name="" value="Sign In" />
-          <a href="index.html">Pick Your Pleasure</a>
-        </form>
+          {/* <a href="index.html">Pick Your Pleasure</a> */}
+         </form>
       </div> 
-    Sign Up Form */}
-      <Form>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else. Promise.
-          </Form.Text>
-        </Form.Group>
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
-        <Form.Group controlId="formBasicChecbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
-</div>
+      
+</section>
   }
 }
 

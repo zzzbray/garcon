@@ -9,34 +9,57 @@ class MenuOrderComp extends Component {
     this.state = {
       menu: [],
       newOrders: [],
+      receipt_id: props.receiptID,
+      inventory_stock: ""
     }
   };
 
   getMenu = () => {
-    fetch("http://localhost:3006/api/menu")
-    .then(response => response.json())
-    .then(response => this.setState({ menu : response }));
+    axios.get("/api/menu")
+    // .then(response => response.json())
+    // .then((response) => console.log(response));
+    .then(response => this.setState({ menu : response.data }));
   };
   
   getDetails = (id) => {
-    let query="http://localhost:3006/api/bill/" + id;
+    let query="/api/bill/" + id;
+    console.log("Get Details test", query);
     axios.get(query)
     .then(response => this.setState({ newOrders : [...this.state.newOrders, response.data]}));
   };
 
   handleClick = event => {
     const clickID = event.target.id.toString();
+    console.log(clickID);
     this.getDetails(clickID);
   };
 
   orderButtonHandleClick = () => {
     for (let i=0; i<this.state.newOrders.length; i++) {
       let newOrderData = {
-        "receipt_id": 2,
+        "receipt_id": this.state.receipt_id,
         "InventoryMenuId": this.state.newOrders[i].menu_id
       };
-      axios.post("http://localhost:3006/api/new-order", newOrderData)
+      this.inventoryUpdate(this.state.newOrders[i].menu_id);
+      axios.post("http://localhost:3006/api/new-order", newOrderData);
+      // axios.put("http://localhost:3006/api/inventory/" + menuItem);
     };
+  };
+
+  inventoryUpdate = (id) => {
+    let query="/api/stock/" + id;
+    console.log("Get Details test", query);
+    axios.get(query)
+    .then(response => this.setState({ inventory_stock : response.data}))
+    .then(() => {
+      let inventoryUpdate = {
+      "menu_id": id,
+      "stock": this.state.inventory_stock - 1
+      };
+      axios.put("/api/inventory/" + id, inventoryUpdate);
+    })
+    // .then(() => axios.put("/api/inventory/" + id, inventoryUpdate));
+    // .then(() => console.log("Inventory", this.state.inventory_stock));
   };
 
   // renderMenu function that takes in menu data (pulled from db in App.js) and dynamically
