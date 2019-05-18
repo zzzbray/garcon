@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {Table, Button } from "react-bootstrap";
+import  {Redirect} from "react-router-dom";
 import axios from "axios";
 
 class MenuOrderComp extends Component {
@@ -9,7 +10,8 @@ class MenuOrderComp extends Component {
       menu: [],
       newOrders: [],
       receipt_id: props.receiptID,
-      inventory_stock: ""
+      inventory_stock: "",
+      toCurrentTables: false
     }
   };
 
@@ -40,9 +42,11 @@ class MenuOrderComp extends Component {
         "InventoryMenuId": this.state.newOrders[i].menu_id
       };
       this.inventoryUpdate(this.state.newOrders[i].menu_id);
-      axios.post("http://localhost:3006/api/new-order", newOrderData);
+      axios.post("http://localhost:3006/api/new-order", newOrderData)
+      .then(()=> this.setState({toCurrentTables: true}))
       // axios.put("http://localhost:3006/api/inventory/" + menuItem);
     };
+
   };
 
   inventoryUpdate = (id) => {
@@ -76,6 +80,11 @@ class MenuOrderComp extends Component {
   }
 
   render() {
+
+    if (this.state.toCurrentTables === true) {
+      return <Redirect to="/current-tables" />
+    }
+
     return (
       <div>
         <h3>
