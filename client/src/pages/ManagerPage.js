@@ -1,9 +1,8 @@
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
 import "./manager.css";
-import Form from "react-bootstrap/Form";
+import { Form, Table } from "react-bootstrap";
 import axios from "axios";
-import Table from "react-bootstrap/Table";
 
 class ManagerPage extends Component {
   constructor(props) {

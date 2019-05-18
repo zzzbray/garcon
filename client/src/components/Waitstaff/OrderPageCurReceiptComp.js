@@ -1,8 +1,7 @@
 // This will be the table for Waitstaff to keep track of active tables
 
 import React from "react"
-import Table from "react-bootstrap/Table"
-import Button from "react-bootstrap/Button"
+import { Table, Button } from "react-bootstrap"
 
 function OrderPageCurReceiptComp() {
   return (

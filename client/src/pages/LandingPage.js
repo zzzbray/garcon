@@ -8,14 +8,10 @@ import "./landingpage.css";
 function LandingPage(){
   return (
   <div className="container">
-    <div className="split left">
-    <Link className="button" to="/login">Login</Link>
-      {/* <a href="login.html" className="button"> Piggy</a> */}
-    </div>
-    <div className="split right">
-    <Link className="button" to="/login">Login</Link>
-      {/* <a href="login.html" className="button"> Bully</a> */}
-    </div>
+    <Link className="split left" to="/login">
+    </Link>
+    <Link className="split right" to="/login">
+    </Link>
   </div>
   )
 }
