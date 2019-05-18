@@ -42,7 +42,7 @@ class MenuOrderComp extends Component {
         "InventoryMenuId": this.state.newOrders[i].menu_id
       };
       this.inventoryUpdate(this.state.newOrders[i].menu_id);
-      axios.post("http://localhost:3006/api/new-order", newOrderData)
+      axios.post("/api/new-order", newOrderData)
       .then(()=> this.setState({toCurrentTables: true}))
       // axios.put("http://localhost:3006/api/inventory/" + menuItem);
     };
@@ -100,15 +100,6 @@ class MenuOrderComp extends Component {
           </thead>
           <tbody>
             {this.state.menu.map(this.renderMenu)}
-            {/* <tr>
-              <td>Menu Item </td>
-              <td>Add
-                <div id='counter'>{this.state.counter}
-                  <button onClick = {this.increment}> Add 1 </button> 
-                  <button onClick = {this.decrement}> Minus 1 </button> 
-                </div>
-              </td>
-            </tr> */}
           </tbody>
         </Table>
         <h3>
