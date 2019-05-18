@@ -1,23 +1,24 @@
 import React, { Component } from "react";
 import {Link} from "react-router-dom";
-import Form from "react-bootstrap/Form"
-import Button from "react-bootstrap/Button"
 import "./login.css"
 import Spaghetti from "./spaghettiman.jpg"
+
 
 
 class LoginPage extends Component {
   render() {
     return <section>
-      <img fluid className= "imgResponsive"
+      <img
         alt={"garcon!"}
-        style={{ 
-          backgroundPosition: 'center',
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          overflow: 'hidden',
-}} 
-        src={ Spaghetti } />
+        src={ Spaghetti }
+        style={{  
+            position: "fixed",
+            top: 0,
+            width: "100%",
+            height: "100%",
+            backgroundSize: "cover"
+          }}
+      />
         <div class="loginbox">
         <form>
           <p>Username</p>
@@ -27,7 +28,6 @@ class LoginPage extends Component {
           <Link className="nav-link" to="/current-tables">Server Login</Link>
           <Link className="nav-link" to="/manager">Manager Login</Link>
           <input type="submit" name="" value="Sign In"/>
-          {/* <a href="index.html">Pick Your Pleasure</a> */}
          </form>
       </div> 
       

@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "monkie1909",
+    "password": "password",
     "database": "garcon_sequelize_db",
     "host": "127.0.0.1",
     "dialect": "mysql"
