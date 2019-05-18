@@ -19,12 +19,12 @@ function WaitstaffNavBar(){
        <li className="nav-item">
        <Link className="nav-link" to="/current-tables">Current Tables</Link>
        </li>
-        <li className="nav-item">
+        {/* <li className="nav-item">
         <Link className="nav-link" to="/order/:receiptNum">Order Page</Link>
         </li>
         <li className="nav-item">
         <Link className="nav-link" to="/receipt/:receiptNum">Receipt Page</Link>
-        </li>
+        </li> */}
      </ul>
      <ul className="navbar-nav mr-right">
        <li className="nav-item">
@@ -32,7 +32,7 @@ function WaitstaffNavBar(){
          <a className="nav-link"href="#">Welcome, Server</a>
        </li>
        <li className="nav-item">
-        <Link className="nav-link" to="/">Logout</Link>
+        <Link className="nav-link" to="/login">Logout</Link>
         </li>
      </ul>
    </div>
