@@ -69,7 +69,7 @@ class MenuOrderComp extends Component {
   // renderCart function that takes in menu data and dynamically
   // generates HTML to insert them into the table coded by this component.
   // We call this function as the callback to the map function on line 95 below.
-  renderCart = ({menu_id, menu_name}) => <tr key={menu_id}><td>{menu_id}</td><td>{menu_name}</td><td></td></tr>;
+  renderCart = ({menu_id, menu_name}, index) => <tr key={index}><td>{menu_id}</td><td>{menu_name}</td></tr>;
   
   componentDidMount() {
     this.getMenu();
@@ -110,7 +110,6 @@ class MenuOrderComp extends Component {
             <tr>
               <th>Menu ID</th>
               <th>Menu Item</th>
-              <th>Remove?</th>
             </tr>
           </thead>
           <tbody>
