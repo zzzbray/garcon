@@ -8,7 +8,7 @@ const path = require("path");
 const passport = require('passport');
 const session = require("express-session");
 const router = require("express").Router();
-const apiRoutes = require("./routes/api-routes.js");
+const routes = require("./routes");
 
 // Config for express app
 var app = express();
@@ -41,11 +41,11 @@ if (process.env.NODE_ENV === "production") {
 // });
 
 // API Routes
-app.use(apiRoutes);
+app.use(routes);
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname + "/client/build/index.html"));
-})
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname + "/client/build/index.html"));
+// })
 
 
 // Starting the server, syncing our models ------------------------------------/
