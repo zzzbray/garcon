@@ -19,14 +19,14 @@ class LoginPage extends Component {
 }} 
         src={ Spaghetti } />
         <div class="loginbox">
-        <form action="/api/login" method="POST">
+        <form>
           <p>Username</p>
          <input type="text" name="email" placeholder="Enter Username" />
           <p>Your Password</p>
           <input type="password" name="password" placeholder="Enter Password" />
           <Link className="nav-link" to="/current-tables">Server Login</Link>
           <Link className="nav-link" to="/manager">Manager Login</Link>
-          <input type="submit" name="" value="Sign In" />
+          <input type="submit" name="" value="Sign In"/>
           {/* <a href="index.html">Pick Your Pleasure</a> */}
          </form>
       </div> 
