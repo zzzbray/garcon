@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import { Table, Button, Row } from "react-bootstrap";
+import  {Redirect} from "react-router-dom";
 import axios from "axios";
 
 class ReceiptPageReceiptComp extends Component {
@@ -7,13 +8,14 @@ class ReceiptPageReceiptComp extends Component {
     super();
     this.state = {
       receipt_items: [],
-      totalCheck: ""
+      totalCheck: "",
+      toCurrentTables: false
     }
   };
   
   // Function that queries the db again to retrieve full bill data for each receipt_id
   currentBill = () => {
-    let queryString = "http://localhost:3006/api/get-bill/" + this.props.receiptID;
+    let queryString = "/api/get-bill/" + this.props.receiptID;
     axios.get(queryString)
     .then(response => this.setState({receipt_items:response.data}))
     .then(() => console.log(this.state.receipt_items))
@@ -34,8 +36,10 @@ class ReceiptPageReceiptComp extends Component {
   // OnClick function for Close Out button to update receipt in Orders table by setting
   // isClosedOut === true
   handleClick = () => {
-    let updateURL = "/api/closeout/" + this.props.receiptID;
+    let receipt_id = this.props.receiptID;
+    let updateURL = "/api/closeout/" + receipt_id;
     axios.put(updateURL);
+    this.setState({toCurrentTables: true});
   };
    
   componentDidMount() {
@@ -45,6 +49,12 @@ class ReceiptPageReceiptComp extends Component {
   renderReceipt = ({menu_id, menu_name, menu_price}) => <tr key={menu_id}><td>{menu_name}</td><td>${menu_price}</td></tr>;
   
   render() {
+
+    if (this.state.toCurrentTables === true) {
+      console.log("TRUE");
+      return <Redirect to="/current-tables" />
+    }
+
     return (
       <div>
         <br />

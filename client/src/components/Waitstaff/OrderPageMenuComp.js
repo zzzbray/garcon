@@ -1,5 +1,6 @@
 import React, {Component} from "react";
 import {Table, Button } from "react-bootstrap";
+import  {Redirect} from "react-router-dom";
 import axios from "axios";
 
 class MenuOrderComp extends Component {
@@ -9,7 +10,8 @@ class MenuOrderComp extends Component {
       menu: [],
       newOrders: [],
       receipt_id: props.receiptID,
-      inventory_stock: ""
+      inventory_stock: "",
+      toCurrentTables: false
     }
   };
 
@@ -40,9 +42,11 @@ class MenuOrderComp extends Component {
         "InventoryMenuId": this.state.newOrders[i].menu_id
       };
       this.inventoryUpdate(this.state.newOrders[i].menu_id);
-      axios.post("http://localhost:3006/api/new-order", newOrderData);
+      axios.post("/api/new-order", newOrderData)
+      .then(()=> this.setState({toCurrentTables: true}))
       // axios.put("http://localhost:3006/api/inventory/" + menuItem);
     };
+
   };
 
   inventoryUpdate = (id) => {
@@ -69,13 +73,18 @@ class MenuOrderComp extends Component {
   // renderCart function that takes in menu data and dynamically
   // generates HTML to insert them into the table coded by this component.
   // We call this function as the callback to the map function on line 95 below.
-  renderCart = ({menu_id, menu_name}) => <tr key={menu_id}><td>{menu_id}</td><td>{menu_name}</td><td></td></tr>;
+  renderCart = ({menu_id, menu_name}, index) => <tr key={index}><td>{menu_id}</td><td>{menu_name}</td></tr>;
   
   componentDidMount() {
     this.getMenu();
   }
 
   render() {
+
+    if (this.state.toCurrentTables === true) {
+      return <Redirect to="/current-tables" />
+    }
+
     return (
       <div>
         <h3>
@@ -91,15 +100,6 @@ class MenuOrderComp extends Component {
           </thead>
           <tbody>
             {this.state.menu.map(this.renderMenu)}
-            {/* <tr>
-              <td>Menu Item </td>
-              <td>Add
-                <div id='counter'>{this.state.counter}
-                  <button onClick = {this.increment}> Add 1 </button> 
-                  <button onClick = {this.decrement}> Minus 1 </button> 
-                </div>
-              </td>
-            </tr> */}
           </tbody>
         </Table>
         <h3>
@@ -110,7 +110,6 @@ class MenuOrderComp extends Component {
             <tr>
               <th>Menu ID</th>
               <th>Menu Item</th>
-              <th>Remove?</th>
             </tr>
           </thead>
           <tbody>
