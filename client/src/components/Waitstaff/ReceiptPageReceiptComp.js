@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import { Table, Button, Row, Col, Container } from "react-bootstrap";
+import { Table, Button, Row } from "react-bootstrap";
 import axios from "axios";
 
 class ReceiptPageReceiptComp extends Component {

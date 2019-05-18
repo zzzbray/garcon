@@ -2,7 +2,6 @@ import React from "react";
 import WaitstaffNavBar from "../components/Waitstaff/WaitstaffNavBar.js"
 import ReceiptPageReceiptComp from "../components/Waitstaff/ReceiptPageReceiptComp.js"
 import Header from "../components/Header"
-import Button from "react-bootstrap"
 
 function Waitstaff3ReceiptPage(props){
   return (
@@ -13,7 +12,6 @@ function Waitstaff3ReceiptPage(props){
       <div className="row">
         <div className="col-md-12" >
         <ReceiptPageReceiptComp receiptID={props.match.params.receiptNum}/>
-
         </div>
       </div>
     </div>

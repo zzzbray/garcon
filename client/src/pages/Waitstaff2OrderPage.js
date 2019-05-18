@@ -1,7 +1,6 @@
 import React from "react";
 import WaitstaffNavBar from "../components/Waitstaff/WaitstaffNavBar.js"
 import OrderPageMenuComp from "../components/Waitstaff/OrderPageMenuComp"
-import OrderPageCurReceiptComp from "../components/Waitstaff/OrderPageCurReceiptComp"
 import Header from "../components/Header"
 
 function Waitstaff2OrderPage(props){
@@ -9,10 +8,9 @@ function Waitstaff2OrderPage(props){
   <div>
     <WaitstaffNavBar />
     <Header />
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12" >
-        {/* <OrderPageCurReceiptComp /> */}
+    <div className="container">
+      <div className="row">
+        <div className="col-md-12" >
         <OrderPageMenuComp receiptID={props.match.params.receiptNum} />
         </div>
       </div>

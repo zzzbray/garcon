@@ -169,7 +169,7 @@ module.exports = router;
   })
 
   // POST route to send new user signup credentials to DB for future authentication.
-  router.post("/api/signup", function(req, res) {
+  router.use("/api/signup", function(req, res) {
     console.log(req.body);
     db.User.create({
       email: req.body.email,
